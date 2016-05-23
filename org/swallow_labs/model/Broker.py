@@ -3,33 +3,34 @@ import zmq
 
 class Broker:
     """
-        Class creating a broker object
+    Class creating a broker object:
 
-        G{classtree}
+    G{classtree}
 
-        DESCRIPTION
-        ===========
-            Create a broker
+    DESCRIPTION
+    ===========
+    Create a broker
 
-        PARAMETERS
-        ==========
-            @param id_frontend : port number for the front-end socket
-            @param id_backend :  port number for the back-end socket
+    RETURN
+    ======
+    Return a broker
 
-        RETURN
-        ======
-            Return a broker
+    PARAMETERS
+    ==========
+    @param id_frontend:    port number for the front-end socket
+    @param id_backend:    port number for the back-end socket
+    @ivar self.frontend:    front-end socket
+    @ivar self.backend:    back-end socket
+    @ivar self.poller:    A stateful poll object
+    @ivar self.message_list:    a list containing the messages received from the clients
+    other than the Ready message
+
+
     """
     def __init__(self, id_frontend, id_backend):
         """
-            VARIABLES
-            =========
-                @var self.frontend : front-end socket
-                @var self.frontend : front-end socket
-                @var self.backend : back-end socket
-                @var self.poller : A stateful poll object
-                @var self.message_list : a list containing the messages received from the clients
-                other than the Ready message
+            :
+
         """
         self.id_frontend = id_frontend
         self.id_backend = id_backend
@@ -54,9 +55,10 @@ class Broker:
 
     def clean(self):
         """
-        DESCRIPTION
-        ===========
-             Method cleaning the message_list attribute of the broker by removing the messages that were sent
+            :
+            DESCRIPTION
+            ===========
+            Method cleaning the message_list attribute of the broker by removing the messages that were sent
         """
         i = 0
         while i < len(self.messageList):
@@ -67,8 +69,9 @@ class Broker:
 
     def start(self):
         """
-        DESCRIPTION
-        ===========
+            :
+            DESCRIPTION
+            ===========
             Method describing the behaviour of the broker it s the main loop in which he receives messages
             and forwards them to the appropriate peer
         """
