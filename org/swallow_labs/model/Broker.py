@@ -2,14 +2,18 @@ import zmq
 
 
 class Broker:
-    """class defining a broker characterised by :
-    - idFrontEnd : port number for the back-end socket
-    - idBackEnd :  port number for the front-end socket
-    - frontEnd : front-end socket
-    - backEnd : back-end socket"
-    - poller : A stateful poll object"
-    - MessageList : a list containing the messages received from the clients other than the Ready message"""
+    """G{classtree}
+    class defining a broker characterised by :
+    @param id_frontend : port number for the front-end socket
+    @param id_backend :  port number for the back-end socket
+    @param frontend : front-end socket
+    @param backend : back-end socket"
+    @param poller : A stateful poll object"
+    @param message_list : a list containing the messages received from the clients other than the Ready message"""
     def __init__(self, id_frontend, id_backend):
+        """This method is called upon instantiating the Broker Class
+        @param id_frontend : port number for the front-end socket
+        @param id_backend :  port number for the back-end socket"""
         self.id_frontend = id_frontend
         self.id_backend = id_backend
         # Prepare context and sockets
@@ -32,6 +36,7 @@ class Broker:
         self.messageList = []
 
     def clean(self):
+        """This method cleans the message_list attribute of the broker by removing the messages that were sent"""
         i = 0
         while i < len(self.messageList):
             if self.messageList[i][0] == b"SENT":
@@ -40,7 +45,8 @@ class Broker:
             i += 1
 
     def start(self):
-
+        """This method describes the behaviour of the broker it s the main loop in which he receives messages
+        and forwards them to the appropriate peer"""
         while True:
             # Convert the return of the poll method into a dictionary
             socks = dict(self.poller.poll())
