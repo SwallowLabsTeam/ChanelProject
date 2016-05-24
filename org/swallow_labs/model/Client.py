@@ -70,6 +70,7 @@ class Client:
         c = Capsule(self.id_client)
         c.set_type("READY")
         self.socket.send_json(json.dumps(c.__dict__))
+        message_list = []
         while True:
             j = self.socket.recv_json()
             p = json.dumps(j)
@@ -78,5 +79,6 @@ class Client:
             if c.get_type() == "END":
                 break
             else:
+                message_list.append(c)
                 print("Let's talk about {}".format(json.dumps(c.__dict__)))
-                print(c.payload['nom'])
+        return message_list

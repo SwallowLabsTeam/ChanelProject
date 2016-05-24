@@ -70,6 +70,16 @@ class Capsule:
         """
         self.payload = payload
 
+    def get_payload(self):
+        """
+            :
+            DESCRIPTION
+            ===========
+            Method providing a way to get the payload
+
+        """
+        return self.payload
+
     def set_date(self, date):
         """
             :

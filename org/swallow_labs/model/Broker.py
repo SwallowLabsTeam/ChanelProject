@@ -54,7 +54,7 @@ class Broker:
         self.poller.register(self.backend, zmq.POLLIN)
         self.messageList = []
 
-    def clean(self):
+    '''def clean(self):
         """
             :
             DESCRIPTION
@@ -66,7 +66,11 @@ class Broker:
             if self.messageList[i][0] == b"SENT":
                 print(self.messageList.pop(i))
                 i -= 1
-            i += 1
+            i += 1'''
+    def parse(self, b_client_id, b_capsule):
+        client_id = b_client_id.decode('utf8')
+        c_recv = Capsule(j=json.loads(b_capsule.decode('utf8')))
+        return[client_id, c_recv]
 
     def start(self):
         """
@@ -77,22 +81,16 @@ class Broker:
             and forwards them to the appropriate peer
         """
         while True:
-            print("houma")
+
             # Convert the return of the poll method into a dictionary
             socks = dict(self.poller.poll())
             # if the the argument iss true, it means that a message is received on the front-end socket
             if socks.get(self.frontend) == zmq.POLLIN:
-                print("houma2")
+
                 # receive message into the variable message
                 i, j = self.frontend.recv_multipart()
-
-                client_id = i.decode('utf8')
-                print("houma3")
-                u = j.decode('utf8')
-                t = json.loads(u)
-                print(t)
-                c_recv = Capsule(j=t)
-
+                print(j)
+                client_id, c_recv = self.parse(i, j)
                 # Since this is a multipart message The first part will contain the receive id
                 # The second part will contain the payload
                 # if the payload is equal to READY (b stands for bytes conversion)
@@ -106,7 +104,7 @@ class Broker:
                             self.messageList[k].set_status_capsule("SENT")
                     c = Capsule(0)
                     c.set_type("END")
-                    self.frontend.send_multipart([i, bytes(json.dumps(c.__dict__),'utf8')])
+                    self.frontend.send_multipart([i, bytes(json.dumps(c.__dict__), 'utf8')])
                 else:
                     # If the message is anything other then the ready message
                     # Store it into the messageList
@@ -115,12 +113,7 @@ class Broker:
             if socks.get(self.backend) == zmq.POLLIN:
                 # receive message into the variable message
                 i, j = self.backend.recv_multipart()
-                client_id = i.decode('utf8')
-                u = j.decode('utf8')
-                t = json.loads(u)
-                print(t)
-                print(client_id)
-                c_recv = Capsule(j=t)
+                client_id, c_recv = self.parse(i, j)
                 # if the payload is equal to READY (b stands for bytes conversion)
                 if c_recv.get_type() == "READY":
                     # We get into the loop to check if the client who sent the ready message
@@ -128,7 +121,6 @@ class Broker:
                     for k in range(len(self.messageList)):
 
                         if self.messageList[k].get_id_receiver() == client_id and self.messageList[k].get_status_capsule() !="SENT":
-                            print(bytes(json.dumps(self.messageList[k].__dict__, ), 'utf8'))
                             self.backend.send_multipart([i, bytes(json.dumps(self.messageList[k].__dict__), 'utf8')])
                             self.messageList[k].set_status_capsule("SENT")
                     c = Capsule(0)
