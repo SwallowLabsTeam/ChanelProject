@@ -1,5 +1,6 @@
 import zmq
 import json
+from org.swallow_labs.model.Capsule import Capsule
 
 
 class Client:
@@ -39,12 +40,12 @@ class Client:
         # Create a DEALER socket
         self.socket = context.socket(zmq.DEALER)
         # Assign an id to the client
-        self.socket.setsockopt(zmq.IDENTITY, self.id_client)
+        self.socket.setsockopt(zmq.IDENTITY, bytes(self.id_client, 'utf8'))
         # Connect to the designed host
         self.socket.connect("tcp://"+self.connection)
 
     # Method sending a message to an other client via the broker
-    def push(self, id_receiver, payload):
+    def push(self, capsule):
         """
             :
             DESCRIPTION
@@ -53,11 +54,10 @@ class Client:
 
             PARAMETERS
             ==========
-            @param id_receiver : id of the client that shall receive the message
-            @param payload : the data that s being transferred
+            @param capsule : the capsule to send
 
         """
-        self.socket.send_multipart([id_receiver, bytes(payload, 'utf8')])
+        self.socket.send_json(json.dumps(capsule.__dict__))
 
     # Method allowing the client to pull the data concerning him
     def pull(self):
@@ -67,14 +67,16 @@ class Client:
             ===========
             Method allowing the client to pull the messages that concern him from the broker
         """
-
-        self.socket.send(b'READY')
+        c = Capsule(self.id_client)
+        c.set_type("READY")
+        self.socket.send_json(json.dumps(c.__dict__))
         while True:
-            msg = self.socket.recv_multipart()
-            if msg[0] == b"END":
+            j = self.socket.recv_json()
+            p = json.dumps(j)
+
+            c = Capsule(j=p)
+            if c.get_type() == "END":
                 break
             else:
-                print("Let's talk about %s" % msg[0])
-                data = json.loads(msg[0].decode('utf8'))
-                print(json.dumps(data, indent=4))
-
+                print("Let's talk about {}".format(json.dumps(c.__dict__)))
+                print(c.payload['nom'])

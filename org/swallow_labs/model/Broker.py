@@ -1,5 +1,6 @@
 import zmq
-
+from org.swallow_labs.model.Capsule import Capsule
+import json
 
 class Broker:
     """
@@ -76,45 +77,70 @@ class Broker:
             and forwards them to the appropriate peer
         """
         while True:
+            print("houma")
             # Convert the return of the poll method into a dictionary
             socks = dict(self.poller.poll())
             # if the the argument iss true, it means that a message is received on the front-end socket
             if socks.get(self.frontend) == zmq.POLLIN:
+                print("houma2")
                 # receive message into the variable message
-                message = self.frontend.recv_multipart()
-                print(message)
+                i, j = self.frontend.recv_multipart()
+
+                client_id = i.decode('utf8')
+                print("houma3")
+                u = j.decode('utf8')
+                t = json.loads(u)
+                print(t)
+                c_recv = Capsule(j=t)
+
                 # Since this is a multipart message The first part will contain the receive id
                 # The second part will contain the payload
                 # if the payload is equal to READY (b stands for bytes conversion)
-                if message[1] == b"READY":
+                if c_recv.get_type() == "READY":
                     # We get into the loop to check if the client who sent the ready message
                     # has any messages for him stored into the messageList variable
                     for k in range(len(self.messageList)):
-                        if self.messageList[k][0] == message[0]:
-                            self.frontend.send_multipart(self.messageList[k])
-                            self.messageList[k][0] = b"SENT"
-                    self.frontend.send_multipart([message[0], b"END"])
 
+                        if self.messageList[k].get_id_receiver() == client_id and self.messageList[k].get_status_capsule() !="SENT" :
+                            self.frontend.send_multipart([i, json.dumps(self.messageList[k])])
+                            self.messageList[k].set_status_capsule("SENT")
+                    c = Capsule(0)
+                    c.set_type("END")
+                    self.frontend.send_multipart([i, bytes(json.dumps(c.__dict__),'utf8')])
                 else:
                     # If the message is anything other then the ready message
                     # Store it into the messageList
-                    self.messageList.append([message[1], message[2]])
+                    self.messageList.append(c_recv)
             # the back-end works the same as the front-end
             if socks.get(self.backend) == zmq.POLLIN:
-                message = self.backend.recv_multipart()
-                print(message)
-
-                if message[1] == b"READY":
+                # receive message into the variable message
+                i, j = self.backend.recv_multipart()
+                client_id = i.decode('utf8')
+                u = j.decode('utf8')
+                t = json.loads(u)
+                print(t)
+                print(client_id)
+                c_recv = Capsule(j=t)
+                # if the payload is equal to READY (b stands for bytes conversion)
+                if c_recv.get_type() == "READY":
+                    # We get into the loop to check if the client who sent the ready message
+                    # has any messages for him stored into the messageList variable
                     for k in range(len(self.messageList)):
-                        if self.messageList[k][0] == message[0]:
-                            self.backend.send_multipart(self.messageList[k])
-                            self.messageList[k][0] = b"SENT"
-                    self.backend.send_multipart([message[0], b"END"])
-                else:
-                    self.messageList.append([message[1], message[2]])
 
-            if len(self.messageList) > 0:
-                self.clean()
+                        if self.messageList[k].get_id_receiver() == client_id and self.messageList[k].get_status_capsule() !="SENT":
+                            print(bytes(json.dumps(self.messageList[k].__dict__, ), 'utf8'))
+                            self.backend.send_multipart([i, bytes(json.dumps(self.messageList[k].__dict__), 'utf8')])
+                            self.messageList[k].set_status_capsule("SENT")
+                    c = Capsule(0)
+                    c.set_type("END")
+                    self.backend.send_multipart([i, bytes(json.dumps(c.__dict__), 'utf8')])
+                else:
+                    # If the message is anything other then the ready message
+                    # Store it into the messageList
+                    self.messageList.append(c_recv)
+
+            '''if len(self.messageList) > 0:
+                self.clean()'''
 
 
 
