@@ -55,14 +55,13 @@ class Broker:
 
     def clean(self):
         """
-            :
-            DESCRIPTION
-            ===========
-            Method cleaning the message_list attribute of the broker by removing the messages that were sent
+        DESCRIPTION
+        ===========
+        Method cleaning the message_list attribute of the broker by removing the messages that were sent
         """
         i = 0
         while i < len(self.message_list):
-            if self.message_list[i].get_status_capsule() == "SENT":
+            if self.message_list[i].get_status_capsule() == "YES":
                 self.message_list.pop(i)
                 i -= 1
             i += 1
@@ -80,9 +79,9 @@ class Broker:
         @type end : socket
         """
         for k in range(len(self.message_list)):
-            if self.message_list[k].get_id_receiver() == client_id and self.message_list[k].get_status_capsule() != "SENT":
+            if self.message_list[k].get_id_receiver() == client_id and self.message_list[k].get_status_capsule() != "YES":
                 end.send_multipart([bytes(client_id, 'utf8'), bytes(json.dumps(self.message_list[k].__dict__), 'utf8')])
-                self.message_list[k].set_status_capsule("SENT")
+                self.message_list[k].set_status_capsule("YES")
         c = Capsule(0)
         c.set_type("END")
         end.send_multipart([bytes(client_id, 'utf8'), bytes(json.dumps(c.__dict__), 'utf8')])
