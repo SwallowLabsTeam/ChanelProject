@@ -53,7 +53,7 @@ class Broker:
         self.poller.register(self.frontend, zmq.POLLIN)
         self.poller.register(self.backend, zmq.POLLIN)
 
-    '''def clean(self):
+    def clean(self):
         """
             :
             DESCRIPTION
@@ -61,11 +61,12 @@ class Broker:
             Method cleaning the message_list attribute of the broker by removing the messages that were sent
         """
         i = 0
-        while i < len(self.messageList):
-            if self.messageList[i][0] == b"SENT":
-                print(self.messageList.pop(i))
+        while i < len(self.message_list):
+            if self.message_list[i].get_status_capsule() == "SENT":
+                self.message_list.pop(i)
                 i -= 1
-            i += 1'''
+            i += 1
+
     def send(self, client_id, end):
         """
         DESCRIPTION
@@ -145,8 +146,8 @@ class Broker:
                 else:
                     self.message_list.append(c_recv)
 
-            '''if len(self.messageList) > 0:
-                self.clean()'''
+            if len(self.message_list) > 0:
+                self.clean()
 
 
 
