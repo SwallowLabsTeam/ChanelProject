@@ -60,7 +60,6 @@
     <p>Create a client</p>
   <h1 class="heading">RETURN</h1>
     <p>Return a client</p>
-  <h1 class="heading">PARAMETERS</h1>
 
 <!-- ==================== INSTANCE METHODS ==================== -->
 <a name="section-InstanceMethods"></a>
@@ -87,8 +86,8 @@
         <tr>
           <td><span class="summary-sig"><a href="Client.Client-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
         <span class="summary-sig-arg">id_client</span>,
-        <span class="summary-sig-arg">connection</span>)</span><br />
-      :</td>
+        <span class="summary-sig-arg">address</span>,
+        <span class="summary-sig-arg">port</span>)</span></td>
           <td align="right" valign="top">
             <span class="codelink"><a href="Client-pysrc.html#Client.__init__">source&nbsp;code</a></span>
             
@@ -104,13 +103,12 @@
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="Client.Client-class.html#push" class="summary-sig-name">push</a>(<span class="summary-sig-arg">self</span>,
-        <span class="summary-sig-arg">id_receiver</span>,
-        <span class="summary-sig-arg">payload</span>)</span><br />
-      : DESCRIPTION =========== Method providing a way for the client to 
-      send messages through the broker</td>
+          <td><span class="summary-sig"><a href="Client.Client-class.html#CheckPort" class="summary-sig-name">CheckPort</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">adr</span>,
+        <span class="summary-sig-arg">pr</span>)</span><br />
+      Method check if the port server is open or not</td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="Client-pysrc.html#Client.push">source&nbsp;code</a></span>
+            <span class="codelink"><a href="Client-pysrc.html#Client.CheckPort">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -124,9 +122,28 @@
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
+          <td><span class="summary-sig"><a href="Client.Client-class.html#push" class="summary-sig-name">push</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">capsule</span>)</span><br />
+      Method providing a way for the client to send messages through the 
+      broker</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Client-pysrc.html#Client.push">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">List</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
           <td><span class="summary-sig"><a name="pull"></a><span class="summary-sig-name">pull</span>(<span class="summary-sig-arg">self</span>)</span><br />
-      : DESCRIPTION =========== Method allowing the client to pull the 
-      messages that concern him from the broker</td>
+      Method allowing the client to pull the messages that concern him from
+      the broker</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="Client-pysrc.html#Client.pull">source&nbsp;code</a></span>
             
@@ -158,8 +175,8 @@
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="self.connection"></a><span class="summary-name">self.connection</span><br />
-      ip address:port of the host the client is connecting to
+        <a name="self.address"></a><span class="summary-name">self.address</span><br />
+      ip address:server adresse the client is connecting to
     </td>
   </tr>
 <tr>
@@ -168,6 +185,14 @@
     </td><td class="summary">
         <a name="self.id_client"></a><span class="summary-name">self.id_client</span><br />
       a client id
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="self.port"></a><span class="summary-name">self.port</span><br />
+      port of the host the client is connecting to
     </td>
   </tr>
 <tr>
@@ -206,7 +231,8 @@
   <tr valign="top"><td>
   <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
         <span class="sig-arg">id_client</span>,
-        <span class="sig-arg">connection</span>)</span>
+        <span class="sig-arg">address</span>,
+        <span class="sig-arg">port</span>)</span>
     <br /><em class="fname">(Constructor)</em>
   </h3>
   </td><td align="right" valign="top"
@@ -214,12 +240,40 @@
     </td>
   </tr></table>
   
-  <p>:</p>
+  
   <dl class="fields">
     <dt>Parameters:</dt>
     <dd><ul class="nomargin-top">
         <li><strong class="pname"><code>id_client</code></strong> - a client id</li>
-        <li><strong class="pname"><code>connection</code></strong> - ip address:port of the host the client is connecting to</li>
+        <li><strong class="pname"><code>address</code></strong> - ip address of the host the client is connecting to</li>
+        <li><strong class="pname"><code>port</code></strong> - port of the host the client is connecting to</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="CheckPort"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">CheckPort</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">adr</span>,
+        <span class="sig-arg">pr</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Client-pysrc.html#Client.CheckPort">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <h1 class="heading">DESCRIPTION</h1>
+    <p>Method check if the port server is open or not</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>adr</code></strong> - server address</li>
+        <li><strong class="pname"><code>pr</code></strong> - server port</li>
     </ul></dd>
   </dl>
 </td></tr></table>
@@ -232,22 +286,20 @@
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
   <h3 class="epydoc"><span class="sig"><span class="sig-name">push</span>(<span class="sig-arg">self</span>,
-        <span class="sig-arg">id_receiver</span>,
-        <span class="sig-arg">payload</span>)</span>
+        <span class="sig-arg">capsule</span>)</span>
   </h3>
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="Client-pysrc.html#Client.push">source&nbsp;code</a></span>&nbsp;
     </td>
   </tr></table>
   
-  <p>: DESCRIPTION =========== Method providing a way for the client to 
-  send messages through the broker</p>
-  <h1 class="heading">PARAMETERS</h1>
+  <h1 class="heading">DESCRIPTION</h1>
+    <p>Method providing a way for the client to send messages through the 
+    broker</p>
   <dl class="fields">
     <dt>Parameters:</dt>
     <dd><ul class="nomargin-top">
-        <li><strong class="pname"><code>id_receiver</code></strong> - id of the client that shall receive the message</li>
-        <li><strong class="pname"><code>payload</code></strong> - the data that s being transferred</li>
+        <li><strong class="pname"><code>capsule</code></strong> - the capsule to send</li>
     </ul></dd>
   </dl>
 </td></tr></table>
@@ -276,7 +328,7 @@
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Mon May 23 14:04:25 2016
+    Generated by Epydoc 3.0.1 on Wed May 25 14:07:10 2016
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

@@ -53,14 +53,13 @@
 </table>
 <!-- ==================== CLASS DESCRIPTION ==================== -->
 <h1 class="epydoc">Class Broker</h1><p class="nomargin-top"><span class="codelink"><a href="Broker-pysrc.html#Broker">source&nbsp;code</a></span></p>
-<p>Class creating a broker object:</p>
+<p>Class creating a broker object</p>
   <p></p>
   <p></p>
   <h1 class="heading">DESCRIPTION</h1>
     <p>Create a broker</p>
   <h1 class="heading">RETURN</h1>
     <p>Return a broker</p>
-  <h1 class="heading">PARAMETERS</h1>
 
 <!-- ==================== INSTANCE METHODS ==================== -->
 <a name="section-InstanceMethods"></a>
@@ -87,8 +86,7 @@
         <tr>
           <td><span class="summary-sig"><a href="Broker.Broker-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
         <span class="summary-sig-arg">id_frontend</span>,
-        <span class="summary-sig-arg">id_backend</span>)</span><br />
-      :</td>
+        <span class="summary-sig-arg">id_backend</span>)</span></td>
           <td align="right" valign="top">
             <span class="codelink"><a href="Broker-pysrc.html#Broker.__init__">source&nbsp;code</a></span>
             
@@ -104,11 +102,33 @@
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="clean"></a><span class="summary-sig-name">clean</span>(<span class="summary-sig-arg">self</span>)</span><br />
-      : DESCRIPTION =========== Method cleaning the message_list attribute 
-      of the broker by removing the messages that were sent</td>
+          <td><span class="summary-sig"><a href="Broker.Broker-class.html#send" class="summary-sig-name">send</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">client_id</span>,
+        <span class="summary-sig-arg">end</span>)</span><br />
+      This method sends the capsules that contain the receiver id matching 
+      the receiver id received as parameter on the specified end</td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="Broker-pysrc.html#Broker.clean">source&nbsp;code</a></span>
+            <span class="codelink"><a href="Broker-pysrc.html#Broker.send">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">List</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Broker.Broker-class.html#parse" class="summary-sig-name">parse</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">b_client_id</span>,
+        <span class="summary-sig-arg">b_capsule</span>)</span><br />
+      Method converting the b_client_id into a string and the b_capsule 
+      into a Capsule object</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Broker-pysrc.html#Broker.parse">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -123,9 +143,8 @@
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td><span class="summary-sig"><a name="start"></a><span class="summary-sig-name">start</span>(<span class="summary-sig-arg">self</span>)</span><br />
-      : DESCRIPTION =========== Method describing the behaviour of the 
-      broker it s the main loop in which he receives messages and forwards 
-      them to the appropriate peer</td>
+      Method describing the behaviour of the broker it is the main loop in 
+      which he receives messages and forwards them to the appropriate peer</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="Broker-pysrc.html#Broker.start">source&nbsp;code</a></span>
             
@@ -222,13 +241,72 @@
     </td>
   </tr></table>
   
-  <p>:</p>
+  
   <dl class="fields">
     <dt>Parameters:</dt>
     <dd><ul class="nomargin-top">
-        <li><strong class="pname"><code>id_frontend</code></strong> - port number for the front-end socket</li>
-        <li><strong class="pname"><code>id_backend</code></strong> - port number for the back-end socket</li>
+        <li><strong class="pname"><code>id_frontend</code></strong> (int) - port number for the front-end socket</li>
+        <li><strong class="pname"><code>id_backend</code></strong> (int) - port number for the back-end socket</li>
     </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="send"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">send</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">client_id</span>,
+        <span class="sig-arg">end</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Broker-pysrc.html#Broker.send">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <h1 class="heading">DESCRIPTION</h1>
+    <p>This method sends the capsules that contain the receiver id matching
+    the receiver id received as parameter on the specified end</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>client_id</code></strong> (string) - id of the client to whom the message is sent</li>
+        <li><strong class="pname"><code>end</code></strong> (socket) - this may take self.backend or self.backend</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="parse"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">parse</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">b_client_id</span>,
+        <span class="sig-arg">b_capsule</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Broker-pysrc.html#Broker.parse">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <h1 class="heading">DESCRIPTION</h1>
+    <p>Method converting the b_client_id into a string and the b_capsule 
+    into a Capsule object</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>b_client_id</code></strong> (Bytes) - client id in bytes format</li>
+        <li><strong class="pname"><code>b_capsule</code></strong> (Bytes) - capsule in bytes format</li>
+    </ul></dd>
+    <dt>Returns: List</dt>
+        <dd>return a list containing the client id as a string and the 
+          Capsule object</dd>
   </dl>
 </td></tr></table>
 </div>
@@ -256,7 +334,7 @@
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Mon May 23 14:04:25 2016
+    Generated by Epydoc 3.0.1 on Wed May 25 14:07:10 2016
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"
