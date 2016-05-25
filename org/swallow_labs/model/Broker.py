@@ -5,7 +5,7 @@ import json
 
 class Broker:
     """
-    Class creating a broker object:
+    Class creating a broker object
 
     G{classtree}
 
@@ -17,8 +17,6 @@ class Broker:
     ======
     Return a broker
 
-    PARAMETERS
-    ==========
     @param id_frontend:    port number for the front-end socket
     @param id_backend:    port number for the back-end socket
     @ivar self.frontend:    front-end socket
@@ -32,7 +30,7 @@ class Broker:
     """
     def __init__(self, id_frontend, id_backend):
         """
-            :
+
 
         """
         self.id_frontend = id_frontend
@@ -54,9 +52,6 @@ class Broker:
         # Register the front-end and back-end sockets into the poller
         self.poller.register(self.frontend, zmq.POLLIN)
         self.poller.register(self.backend, zmq.POLLIN)
-        self.messageList = []
-
-
 
     def clean(self):
         """
@@ -66,9 +61,9 @@ class Broker:
             Method cleaning the message_list attribute of the broker by removing the messages that were sent
         """
         i = 0
-        while i < len(self.messageList):
-            if self.messageList[i].get_status_capsule() == "SENT":
-                self.messageList.pop(i)
+        while i < len(self.message_list):
+            if self.message_list[i].get_status_capsule() == "SENT":
+                self.message_list.pop(i)
                 i -= 1
             i += 1
 
@@ -79,17 +74,15 @@ class Broker:
             This method sends the capsules that contain the receiver id matching the receiver id received as parameter
             on the specified end
 
-        PARAMETERS
-        ==========
         @param client_id: id of the client to whom the message is sent
         @param end: this may take self.backend or self.backend
         @type client_id: string
         @type end : socket
         """
-        for k in range(len(self.messageList)):
-            if self.messageList[k].get_id_receiver() == client_id and self.messageList[k].get_status_capsule() != "SENT":
-                end.send_multipart([bytes(client_id, 'utf8'), bytes(json.dumps(self.messageList[k].__dict__), 'utf8')])
-                self.messageList[k].set_status_capsule("SENT")
+        for k in range(len(self.message_list)):
+            if self.message_list[k].get_id_receiver() == client_id and self.message_list[k].get_status_capsule() != "SENT":
+                end.send_multipart([bytes(client_id, 'utf8'), bytes(json.dumps(self.message_list[k].__dict__), 'utf8')])
+                self.message_list[k].set_status_capsule("SENT")
         c = Capsule(0)
         c.set_type("END")
         end.send_multipart([bytes(client_id, 'utf8'), bytes(json.dumps(c.__dict__), 'utf8')])
@@ -103,6 +96,8 @@ class Broker:
         @param b_capsule:   capsule in bytes format
         @return: return a list containing the client id as a string and the Capsule object
         @rtype: List
+        @type b_client_id: Bytes
+        @type b_capsule: Bytes
         """
         client_id = b_client_id.decode('utf8')
         c_recv = Capsule(j=json.loads(b_capsule.decode('utf8')))
@@ -110,12 +105,13 @@ class Broker:
 
     def start(self):
         """
-            :
-            DESCRIPTION
-            ===========
-            Method describing the behaviour of the broker it s the main loop in which he receives messages
-            and forwards them to the appropriate peer
+
+        DESCRIPTION
+        ===========
+        Method describing the behaviour of the broker it is the main loop in which he receives messages
+        and forwards them to the appropriate peer
         """
+        self.message_list = []
         while True:
 
             # Convert the return of the poll method into a dictionary
@@ -137,7 +133,7 @@ class Broker:
                 else:
                     # If the message is anything other then the ready message
                     # Store it into the messageList
-                    self.messageList.append(c_recv)
+                    self.message_list.append(c_recv)
             # the back-end works the same as the front-end
             if socks.get(self.backend) == zmq.POLLIN:
 
@@ -148,9 +144,9 @@ class Broker:
                 if c_recv.get_type() == "READY":
                     self.send(client_id, self.backend)
                 else:
-                    self.messageList.append(c_recv)
+                    self.message_list.append(c_recv)
 
-            if len(self.messageList) > 0:
+            if len(self.message_list) > 0:
                 self.clean()
 
 
