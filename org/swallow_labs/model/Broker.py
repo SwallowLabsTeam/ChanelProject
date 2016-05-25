@@ -92,6 +92,15 @@ class Broker:
         end.send_multipart([bytes(client_id, 'utf8'), bytes(json.dumps(c.__dict__), 'utf8')])
 
     def parse(self, b_client_id, b_capsule):
+        """
+        DESCRIPTION
+        ===========
+        Method converting the b_client_id into a string and the b_capsule into a Capsule object
+        @param b_client_id:    client id in bytes format
+        @param b_capsule:   capsule in bytes format
+        @return: return a list containing the client id as a string and the Capsule object
+        @rtype: List
+        """
         client_id = b_client_id.decode('utf8')
         c_recv = Capsule(j=json.loads(b_capsule.decode('utf8')))
         return[client_id, c_recv]
