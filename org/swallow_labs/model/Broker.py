@@ -68,7 +68,7 @@ class Broker:
         i = 0
         while i < len(self.messageList):
             if self.messageList[i].get_status_capsule() == "SENT":
-                print(self.messageList.pop(i))
+                self.messageList.pop(i)
                 i -= 1
             i += 1
 
