@@ -17,12 +17,17 @@ class Capsule:
         Return a capsule
 
         @param id_sender:    Sender ID
-        @param id_receiver:    Receiver ID
-        @param payload:    Message wanted to send
-        @param type:    Message type (PAYLOAD, READY, SENT, END)
-        @param date:    Sending and receiving date(separated by *)
-        @param status_capsule:    Capsule status(YES if road it and NO if still not road it by the broker)
+        @param j:    Used to distinct between a default constructor and parametred constructor
 
+        @type id_sender: int
+        @type j: int
+
+        @ivar self.id_receiver:    Sender ID
+        @ivar self.id_receiver:    Receiver ID
+        @ivar self.payload:    Message wanted to send
+        @ivar self.type:    Message type (PAYLOAD, READY, SENT, END)
+        @ivar self.date:    Sending and receiving date(separated by *)
+        @ivar self.status_capsule:    Capsule status(YES if road it and NO if still not road it by the broker)
         """
     def __init__(self, id_sender=None, j=None):
         """
