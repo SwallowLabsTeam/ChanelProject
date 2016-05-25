@@ -59,7 +59,7 @@
 <a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">json</tt> </tt>
 <a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">socket</tt> </tt>
 <a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">contextlib</tt> <tt class="py-keyword">import</tt> <tt class="py-name">closing</tt> </tt>
-<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">time</tt> </tt>
 <a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">org</tt><tt class="py-op">.</tt><tt class="py-name">swallow_labs</tt><tt class="py-op">.</tt><tt class="py-name">model</tt><tt class="py-op">.</tt><tt id="link-0" class="py-name" targets="Module org.swallow_labs.model.Capsule=org.swallow_labs.model.Capsule-module.html,Class org.swallow_labs.model.Capsule.Capsule=org.swallow_labs.model.Capsule.Capsule-class.html"><a title="org.swallow_labs.model.Capsule
 org.swallow_labs.model.Capsule.Capsule" class="py-name" href="#" onclick="return doclink('link-0', 'Capsule', 'link-0');">Capsule</a></tt> <tt class="py-keyword">import</tt> <tt id="link-1" class="py-name"><a title="org.swallow_labs.model.Capsule
 org.swallow_labs.model.Capsule.Capsule" class="py-name" href="#" onclick="return doclink('link-1', 'Capsule', 'link-0');">Capsule</a></tt> </tt>
@@ -168,14 +168,15 @@ org.swallow_labs.model.Capsule.Capsule" class="py-name" href="#" onclick="return
 <a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">c</tt><tt class="py-op">.</tt><tt id="link-7" class="py-name" targets="Method org.swallow_labs.model.Capsule.Capsule.get_type()=org.swallow_labs.model.Capsule.Capsule-class.html#get_type"><a title="org.swallow_labs.model.Capsule.Capsule.get_type" class="py-name" href="#" onclick="return doclink('link-7', 'get_type', 'link-7');">get_type</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-string">"END"</tt><tt class="py-op">:</tt> </tt>
 <a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">                    <tt class="py-keyword">break</tt> </tt>
 <a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">                <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
-<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line">                    <tt class="py-name">message_list</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-name">c</tt><tt class="py-op">)</tt> </tt>
-<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">                    <tt class="py-keyword">print</tt><tt class="py-op">(</tt><tt class="py-string">"Let's talk about {}"</tt><tt class="py-op">.</tt><tt class="py-name">format</tt><tt class="py-op">(</tt><tt class="py-name">json</tt><tt class="py-op">.</tt><tt class="py-name">dumps</tt><tt class="py-op">(</tt><tt class="py-name">c</tt><tt class="py-op">.</tt><tt class="py-name">__dict__</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
-<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">message_list</tt> </tt>
-<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line"> </tt>
-<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
-<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line"> </tt>
-<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-op">[</tt><tt class="py-name">None</tt><tt class="py-op">]</tt> </tt>
-</div></div><a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line">                    <tt class="py-name">c</tt><tt class="py-op">.</tt><tt id="link-8" class="py-name" targets="Method org.swallow_labs.model.Capsule.Capsule.set_date()=org.swallow_labs.model.Capsule.Capsule-class.html#set_date"><a title="org.swallow_labs.model.Capsule.Capsule.set_date" class="py-name" href="#" onclick="return doclink('link-8', 'set_date', 'link-8');">set_date</a></tt><tt class="py-op">(</tt><tt class="py-name">c</tt><tt class="py-op">.</tt><tt id="link-9" class="py-name" targets="Method org.swallow_labs.model.Capsule.Capsule.get_date()=org.swallow_labs.model.Capsule.Capsule-class.html#get_date"><a title="org.swallow_labs.model.Capsule.Capsule.get_date" class="py-name" href="#" onclick="return doclink('link-9', 'get_date', 'link-9');">get_date</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">+</tt><tt class="py-string">"*"</tt><tt class="py-op">+</tt><tt class="py-name">time</tt><tt class="py-op">.</tt><tt class="py-name">strftime</tt><tt class="py-op">(</tt><tt class="py-string">'%d/%m/%y %H:%M'</tt><tt class="py-op">,</tt> <tt class="py-name">time</tt><tt class="py-op">.</tt><tt class="py-name">localtime</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">                    <tt class="py-name">message_list</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-name">c</tt><tt class="py-op">)</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">                    <tt class="py-keyword">print</tt><tt class="py-op">(</tt><tt class="py-string">"Let's talk about {}"</tt><tt class="py-op">.</tt><tt class="py-name">format</tt><tt class="py-op">(</tt><tt class="py-name">json</tt><tt class="py-op">.</tt><tt class="py-name">dumps</tt><tt class="py-op">(</tt><tt class="py-name">c</tt><tt class="py-op">.</tt><tt class="py-name">__dict__</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">message_list</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line"> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line"> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-op">[</tt><tt class="py-name">None</tt><tt class="py-op">]</tt> </tt>
+</div></div><a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line"> </tt><script type="text/javascript">
 <!--
 expandto(location.href);
 // -->
@@ -205,7 +206,7 @@ expandto(location.href);
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Wed May 25 14:28:57 2016
+    Generated by Epydoc 3.0.1 on Wed May 25 15:02:29 2016
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"
