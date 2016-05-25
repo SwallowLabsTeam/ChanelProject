@@ -2,7 +2,7 @@ import zmq
 import json
 import socket
 from contextlib import closing
-
+import time
 from org.swallow_labs.model.Capsule import Capsule
 
 
@@ -112,6 +112,7 @@ class Client:
                 if c.get_type() == "END":
                     break
                 else:
+                    c.set_date(c.get_date()+"*"+time.strftime('%d/%m/%y %H:%M', time.localtime()))
                     message_list.append(c)
                     print("Let's talk about {}".format(json.dumps(c.__dict__)))
             return message_list
