@@ -56,7 +56,9 @@ class Broker:
         self.poller.register(self.backend, zmq.POLLIN)
         self.messageList = []
 
-    '''def clean(self):
+
+
+    def clean(self):
         """
             :
             DESCRIPTION
@@ -65,10 +67,11 @@ class Broker:
         """
         i = 0
         while i < len(self.messageList):
-            if self.messageList[i][0] == b"SENT":
+            if self.messageList[i].get_status_capsule() == "SENT":
                 print(self.messageList.pop(i))
                 i -= 1
-            i += 1'''
+            i += 1
+
     def send(self, client_id, end):
         """
         DESCRIPTION
@@ -92,6 +95,15 @@ class Broker:
         end.send_multipart([bytes(client_id, 'utf8'), bytes(json.dumps(c.__dict__), 'utf8')])
 
     def parse(self, b_client_id, b_capsule):
+        """
+        DESCRIPTION
+        ===========
+        Method converting the b_client_id into a string and the b_capsule into a Capsule object
+        @param b_client_id:    client id in bytes format
+        @param b_capsule:   capsule in bytes format
+        @return: return a list containing the client id as a string and the Capsule object
+        @rtype: List
+        """
         client_id = b_client_id.decode('utf8')
         c_recv = Capsule(j=json.loads(b_capsule.decode('utf8')))
         return[client_id, c_recv]
@@ -138,8 +150,8 @@ class Broker:
                 else:
                     self.messageList.append(c_recv)
 
-            '''if len(self.messageList) > 0:
-                self.clean()'''
+            if len(self.messageList) > 0:
+                self.clean()
 
 
 
