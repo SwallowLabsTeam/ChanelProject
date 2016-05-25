@@ -139,6 +139,7 @@ class Broker:
                 # receive client id and capsule as bytes
                 b_client_id, b_capsule = self.backend.recv_multipart()
                 client_id, c_recv = self.parse(b_client_id, b_capsule)
+                print(b_capsule)
 
                 if c_recv.get_type() == "READY":
                     self.send(client_id, self.backend)
