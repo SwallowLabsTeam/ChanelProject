@@ -8,33 +8,31 @@ from org.swallow_labs.model.Capsule import Capsule
 
 class Client:
     """
-        Class creating a client object:
+    Class creating a client object:
 
-        G{classtree}
+    G{classtree}
 
-        DESCRIPTION
-        ===========
-            Create a client
+    DESCRIPTION
+    ===========
+    Create a client
 
-        RETURN
-        ======
-        Return a client
+    RETURN
+    ======
+    Return a client
 
-        PARAMETERS
-        ==========
-        @param id_client : a client id
-        @param address : ip address of the host the client is connecting to
-        @param port: port of the host the client is connecting to
-        @ivar self.id_client : a client id
-        @ivar self.address : ip address:server adresse the client is connecting to
-        @ivar self.port : port of the host the client is connecting to
-        @ivar self.socket: the socket enabling the connection
+    @param id_client : a client id
+    @param address : ip address of the host the client is connecting to
+    @param port: port of the host the client is connecting to
+    @ivar self.id_client : a client id
+    @ivar self.address : ip address:server adresse the client is connecting to
+    @ivar self.port : port of the host the client is connecting to
+    @ivar self.socket: the socket enabling the connection
 
     """
 
     def __init__(self, id_client, address, port):
         """
-            :
+
 
         """
         # Initialize client
@@ -53,15 +51,13 @@ class Client:
     # Method that check if the port server is open or not
     def CheckPort(self, adr, pr):
         """
-            :
-            DESCRIPTION
-            ===========
-            Method check if the port server is open or not
 
-            PARAMETERS
-            ==========
-            @param adr : server address
-            @param pr  : server port
+        DESCRIPTION
+        ===========
+        Method check if the port server is open or not
+
+        @param adr : server address
+        @param pr  : server port
 
         """
         with closing(socket.socket(socket.AF_INET, socket.SOCK_STREAM)) as sock:
@@ -74,14 +70,12 @@ class Client:
     # Method sending a message to an other client via the broker
     def push(self, capsule):
         """
-            :
-            DESCRIPTION
-            ===========
-            Method providing a way for the client to send messages through the broker
 
-            PARAMETERS
-            ==========
-            @param capsule : the capsule to send
+        DESCRIPTION
+        ===========
+        Method providing a way for the client to send messages through the broker
+
+        @param capsule : the capsule to send
 
         """
         if (self.CheckPort(self.address, self.port)):
@@ -93,10 +87,11 @@ class Client:
     # Method allowing the client to pull the data concerning him
     def pull(self):
         """
-            :
-            DESCRIPTION
-            ===========
-            Method allowing the client to pull the messages that concern him from the broker
+        DESCRIPTION
+        ===========
+        Method allowing the client to pull the messages that concern him from the broker
+
+        @rtype: List
         """
         if (self.CheckPort(self.address, self.port)):
 
@@ -119,4 +114,4 @@ class Client:
 
         else:
 
-            return 0
+            return [None]
