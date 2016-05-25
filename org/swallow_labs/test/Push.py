@@ -1,7 +1,7 @@
 from org.swallow_labs.model.Client import Client
 from org.swallow_labs.model.Capsule import Capsule
 
-c = Client("10", "localhost:5559")
+c = Client("10", "localhost","4431")
 
 capsule = Capsule(c.id_client)
 capsule.set_type("PAYLOAD")
