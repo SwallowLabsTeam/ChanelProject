@@ -56,7 +56,9 @@ class Broker:
         self.poller.register(self.backend, zmq.POLLIN)
         self.messageList = []
 
-    '''def clean(self):
+
+
+    def clean(self):
         """
             :
             DESCRIPTION
@@ -65,10 +67,11 @@ class Broker:
         """
         i = 0
         while i < len(self.messageList):
-            if self.messageList[i][0] == b"SENT":
+            if self.messageList[i].get_status_capsule() == "SENT":
                 print(self.messageList.pop(i))
                 i -= 1
-            i += 1'''
+            i += 1
+
     def send(self, client_id, end):
         """
         DESCRIPTION
@@ -147,8 +150,8 @@ class Broker:
                 else:
                     self.messageList.append(c_recv)
 
-            '''if len(self.messageList) > 0:
-                self.clean()'''
+            if len(self.messageList) > 0:
+                self.clean()
 
 
 
