@@ -11,6 +11,7 @@ org.swallow_labs.model.Broker.Broker.self.message_list	org.swallow_labs.model.Br
 org.swallow_labs.model.Broker.Broker.send	org.swallow_labs.model.Broker.Broker-class.html#send
 org.swallow_labs.model.Broker.Broker.parse	org.swallow_labs.model.Broker.Broker-class.html#parse
 org.swallow_labs.model.Broker.Broker.start	org.swallow_labs.model.Broker.Broker-class.html#start
+org.swallow_labs.model.Broker.Broker.clean	org.swallow_labs.model.Broker.Broker-class.html#clean
 org.swallow_labs.model.Broker.Broker.__init__	org.swallow_labs.model.Broker.Broker-class.html#__init__
 org.swallow_labs.model.Broker.Broker.self.poller	org.swallow_labs.model.Broker.Broker-class.html#self.poller
 org.swallow_labs.model.Capsule.Capsule	org.swallow_labs.model.Capsule.Capsule-class.html
