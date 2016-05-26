@@ -26,7 +26,8 @@ class Capsule:
         @ivar self.id_receiver:    Receiver ID
         @ivar self.payload:    Message wanted to send
         @ivar self.type:    Message type (PAYLOAD, READY, SENT, END)
-        @ivar self.date:    Sending and receiving date(separated by *)
+        @ivar self.sending_date:    Capsule sending date
+        @ivar self.receiving_date:    Capsule receiving date
         @ivar self.status_capsule:    Capsule status(YES if read it and NO if still not read it by the broker)
         """
     def __init__(self, id_sender=None, j=None):
@@ -39,7 +40,7 @@ class Capsule:
             # By default the status of the capsule is not yet read by the broker
             self.status_capsule = "NO"
             # add to the capsule, date of sending
-            self.date = time.strftime('%d/%m/%y %H:%M', time.localtime())
+            self.sending_date = time.localtime()
         else:
             self.__dict__ = json.loads(j)
 
@@ -95,15 +96,25 @@ class Capsule:
         """
         return self.type
 
-    def get_date(self):
+    def get_sending_date(self):
         """
 
         DESCRIPTION
         ===========
-        Method providing a way to get the time of sending and receiving of the capsule(separated by *)
+        Method providing a way to get the time of sending of the capsule
 
         """
-        return self.date
+        return self.sending_date
+
+    def get_receiving_date(self):
+        """
+
+        DESCRIPTION
+        ===========
+        Method providing a way to get the time of receiving of the capsule
+
+        """
+        return self.receiving_date
 
     # Capsule setters
 
@@ -127,15 +138,25 @@ class Capsule:
         """
         self.payload = payload
 
-    def set_date(self, date):
+    def set_sending_date(self, sending_date):
         """
 
         DESCRIPTION
         ===========
-        Method providing a way to set the sending or receiving date
+        Method providing a way to set the sending date
 
         """
-        self.date = date
+        self.sending_date = sending_date
+
+    def set_receiving_date(self, receiving_date):
+        """
+
+        DESCRIPTION
+        ===========
+        Method providing a way to set the receiving date
+
+        """
+        self.receiving_date = receiving_date
 
     def set_status_capsule(self, status_capsule):
         """
