@@ -70,9 +70,8 @@ class Broker:
         """
         DESCRIPTION
         ===========
-            This method sends the capsules that contain the receiver id matching the receiver id received as parameter
-            on the specified end
-
+        This method sends the capsules that contain the receiver id matching the receiver id received as parameter
+        on the specified end
         @param client_id: id of the client to whom the message is sent
         @param end: this may take self.backend or self.backend
         @type client_id: string
