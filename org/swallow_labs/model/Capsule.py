@@ -2,7 +2,20 @@ import json
 import time
 
 
+class CapsuleStatus:
+    YES = "YES"
+    NO = "NO"
+
+
+class CapsuleType:
+    READY = "READY"
+    PAYLOAD = "PAYLOAD"
+    END = "END"
+
+
 class Capsule:
+
+    cpt_capsule = 0
     """
         Class creating a capsule object:
 
@@ -36,6 +49,7 @@ class Capsule:
 
         """
         if j is None:
+            self.id_capsule = Capsule.capsule_id()
             self.id_sender = id_sender
             # By default the status of the capsule is not yet read by the broker
             self.status_capsule = "NO"
@@ -44,6 +58,10 @@ class Capsule:
         else:
             self.__dict__ = json.loads(j)
 
+    @staticmethod
+    def capsule_id():
+        Capsule.cpt_capsule += 1
+        return Capsule.cpt_capsule
     # Capsule getters
 
     def get_id_sender(self):
