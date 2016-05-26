@@ -86,7 +86,8 @@ class Broker:
         c.set_type("END")
         end.send_multipart([bytes(client_id, 'utf8'), bytes(json.dumps(c.__dict__), 'utf8')])
 
-    def parse(self, b_client_id, b_capsule):
+    @staticmethod
+    def parse(b_client_id, b_capsule):
         """
         DESCRIPTION
         ===========
@@ -121,7 +122,7 @@ class Broker:
                 # receive client id and capsule as bytes
                 b_client_id, b_capsule = self.frontend.recv_multipart()
                 print(b_capsule)
-                client_id, c_recv = self.parse(b_client_id, b_capsule)
+                client_id, c_recv = Broker.parse(b_client_id, b_capsule)
                 # Since this is a multipart message The first part will contain the receive id
                 # The second part will contain the payload
                 # if the payload is equal to READY (b stands for bytes conversion)
@@ -138,7 +139,7 @@ class Broker:
 
                 # receive client id and capsule as bytes
                 b_client_id, b_capsule = self.backend.recv_multipart()
-                client_id, c_recv = self.parse(b_client_id, b_capsule)
+                client_id, c_recv = Broker.parse(b_client_id, b_capsule)
 
                 if c_recv.get_type() == "READY":
                     self.send(client_id, self.backend)
