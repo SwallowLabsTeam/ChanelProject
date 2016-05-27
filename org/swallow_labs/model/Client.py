@@ -1,9 +1,10 @@
 import zmq
-import json
 import socket
-from contextlib import closing
+import json
 import time
-from org.swallow_labs.model.Capsule import *
+from contextlib import closing
+from org.swallow_labs.model.Capsule import Capsule
+from org.swallow_labs.tool.CapsuleType import CapsuleType
 
 
 class Client:

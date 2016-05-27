@@ -2,17 +2,6 @@ import json
 import time
 
 
-class CapsuleStatus:
-    YES = "YES"
-    NO = "NO"
-
-
-class CapsuleType:
-    READY = "READY"
-    PAYLOAD = "PAYLOAD"
-    END = "END"
-
-
 class Capsule:
 
     cpt_capsule = 0

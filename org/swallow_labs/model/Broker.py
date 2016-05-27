@@ -1,5 +1,7 @@
 import zmq
-from org.swallow_labs.model.Capsule import *
+from org.swallow_labs.model.Capsule import Capsule
+from org.swallow_labs.tool.CapsuleStatus import CapsuleStatus
+from org.swallow_labs.tool.CapsuleType import CapsuleType
 import json
 
 
