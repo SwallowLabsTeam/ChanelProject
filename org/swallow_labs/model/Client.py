@@ -1,9 +1,10 @@
 import zmq
-import json
 import socket
-from contextlib import closing
+import json
 import time
+from contextlib import closing
 from org.swallow_labs.model.Capsule import Capsule
+from org.swallow_labs.tool.CapsuleType import CapsuleType
 
 
 class Client:
@@ -49,7 +50,8 @@ class Client:
         self.socket.connect("tcp://" + self.address + ":" + self.port)
 
     # Method that check if the port server is open or not
-    def CheckPort(self, adr, pr):
+
+    def check_port(self, adr, pr):
         """
 
         DESCRIPTION
@@ -78,7 +80,7 @@ class Client:
         @param capsule : the capsule to send
 
         """
-        if (self.CheckPort(self.address, self.port)):
+        if self.check_port(self.address, self.port):
 
             self.socket.send_json(json.dumps(capsule.__dict__))
         else:
@@ -93,10 +95,10 @@ class Client:
 
         @rtype: List
         """
-        if (self.CheckPort(self.address, self.port)):
+        if self.check_port(self.address, self.port):
 
             c = Capsule(self.id_client)
-            c.set_type("READY")
+            c.set_type(CapsuleType.READY)
             self.socket.send_json(json.dumps(c.__dict__))
             message_list = []
             while True:
@@ -104,10 +106,10 @@ class Client:
                 p = json.dumps(j)
 
                 c = Capsule(j=p)
-                if c.get_type() == "END":
+                if c.get_type() == CapsuleType.END:
                     break
                 else:
-                    c.set_date(c.get_date()+"*"+time.strftime('%d/%m/%y %H:%M', time.localtime()))
+                    c.set_receiving_date(time.localtime())
                     message_list.append(c)
                     print("Let's talk about {}".format(json.dumps(c.__dict__)))
             return message_list

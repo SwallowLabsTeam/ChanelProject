@@ -1,5 +1,7 @@
 import zmq
 from org.swallow_labs.model.Capsule import Capsule
+from org.swallow_labs.tool.CapsuleStatus import CapsuleStatus
+from org.swallow_labs.tool.CapsuleType import CapsuleType
 import json
 
 
@@ -61,7 +63,7 @@ class Broker:
         """
         i = 0
         while i < len(self.message_list):
-            if self.message_list[i].get_status_capsule() == "YES":
+            if self.message_list[i].get_status_capsule() == CapsuleStatus.YES:
                 self.message_list.pop(i)
                 i -= 1
             i += 1
@@ -70,23 +72,23 @@ class Broker:
         """
         DESCRIPTION
         ===========
-            This method sends the capsules that contain the receiver id matching the receiver id received as parameter
-            on the specified end
-
+        This method sends the capsules that contain the receiver id matching the receiver id received as parameter
+        on the specified end
         @param client_id: id of the client to whom the message is sent
         @param end: this may take self.backend or self.backend
         @type client_id: string
         @type end : socket
         """
         for k in range(len(self.message_list)):
-            if self.message_list[k].get_id_receiver() == client_id and self.message_list[k].get_status_capsule() != "YES":
+            if self.message_list[k].get_id_receiver() == client_id and self.message_list[k].get_status_capsule() != CapsuleStatus.YES:
+                self.message_list[k].set_status_capsule(CapsuleStatus.YES)
                 end.send_multipart([bytes(client_id, 'utf8'), bytes(json.dumps(self.message_list[k].__dict__), 'utf8')])
-                self.message_list[k].set_status_capsule("YES")
         c = Capsule(0)
-        c.set_type("END")
+        c.set_type(CapsuleType.END)
         end.send_multipart([bytes(client_id, 'utf8'), bytes(json.dumps(c.__dict__), 'utf8')])
 
-    def parse(self, b_client_id, b_capsule):
+    @staticmethod
+    def parse(b_client_id, b_capsule):
         """
         DESCRIPTION
         ===========
@@ -121,11 +123,11 @@ class Broker:
                 # receive client id and capsule as bytes
                 b_client_id, b_capsule = self.frontend.recv_multipart()
                 print(b_capsule)
-                client_id, c_recv = self.parse(b_client_id, b_capsule)
+                client_id, c_recv = Broker.parse(b_client_id, b_capsule)
                 # Since this is a multipart message The first part will contain the receive id
                 # The second part will contain the payload
                 # if the payload is equal to READY (b stands for bytes conversion)
-                if c_recv.get_type() == "READY":
+                if c_recv.get_type() == CapsuleType.READY:
                     # We get into the loop to check if the client who sent the ready message
                     # has any messages for him stored into the message_list variable
                     self.send(client_id, self.frontend)
@@ -138,10 +140,9 @@ class Broker:
 
                 # receive client id and capsule as bytes
                 b_client_id, b_capsule = self.backend.recv_multipart()
-                client_id, c_recv = self.parse(b_client_id, b_capsule)
-                print(b_capsule)
+                client_id, c_recv = Broker.parse(b_client_id, b_capsule)
 
-                if c_recv.get_type() == "READY":
+                if c_recv.get_type() == CapsuleType.READY:
                     self.send(client_id, self.backend)
                 else:
                     self.message_list.append(c_recv)
