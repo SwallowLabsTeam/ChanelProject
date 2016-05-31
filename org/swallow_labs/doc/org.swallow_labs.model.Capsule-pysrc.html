@@ -14,6 +14,9 @@
 <table class="navbar" border="0" width="100%" cellpadding="0"
        bgcolor="#a0c0ff" cellspacing="0">
   <tr valign="middle">
+  <!-- Home link -->
+      <th bgcolor="#70b0f0" class="navbar-select"
+          >&nbsp;&nbsp;&nbsp;Home&nbsp;&nbsp;&nbsp;</th>
 
   <!-- Tree link -->
       <th>&nbsp;&nbsp;&nbsp;<a
@@ -57,163 +60,218 @@
 <pre class="py-src">
 <a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">json</tt> </tt>
 <a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">time</tt> </tt>
-<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"> </tt>
+<a name="Capsule"></a><div id="Capsule-def"><a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"> </tt>
 <a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"> </tt>
-<a name="Capsule"></a><div id="Capsule-def"><a name="L5"></a><tt class="py-lineno">  5</tt> <a class="py-toggle" href="#" id="Capsule-toggle" onclick="return toggle('Capsule');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="org.swallow_labs.model.Capsule.Capsule-class.html">Capsule</a><tt class="py-op">:</tt> </tt>
-</div><div id="Capsule-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="Capsule-expanded"><a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
-<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-docstring">        Class creating a capsule object:</tt> </tt>
-<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-docstring">        G{classtree}</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt> <a class="py-toggle" href="#" id="Capsule-toggle" onclick="return toggle('Capsule');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="org.swallow_labs.model.Capsule.Capsule-class.html">Capsule</a><tt class="py-op">:</tt> </tt>
+</div><div id="Capsule-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="Capsule-expanded"><a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-docstring">        Class creating a capsule object:</tt> </tt>
 <a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-docstring">        DESCRIPTION</tt> </tt>
-<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-docstring">        ===========</tt> </tt>
-<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-docstring">        Create a capsule</tt> </tt>
-<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-docstring">        RETURN</tt> </tt>
-<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-docstring">        ======</tt> </tt>
-<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-docstring">        Return a capsule</tt> </tt>
-<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-docstring">        @param id_sender:    Sender ID</tt> </tt>
-<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-docstring">        @param j:    Json object</tt> </tt>
-<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt class="py-docstring">        @type id_sender: int</tt> </tt>
-<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt class="py-docstring">        @type j: String</tt> </tt>
-<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt class="py-docstring">        @ivar self.id_sender:    Sender ID</tt> </tt>
-<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"><tt class="py-docstring">        @ivar self.id_receiver:    Receiver ID</tt> </tt>
-<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"><tt class="py-docstring">        @ivar self.payload:    Message wanted to send</tt> </tt>
-<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"><tt class="py-docstring">        @ivar self.type:    Message type (PAYLOAD, READY, SENT, END)</tt> </tt>
-<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"><tt class="py-docstring">        @ivar self.date:    Sending and receiving date(separated by *)</tt> </tt>
-<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"><tt class="py-docstring">        @ivar self.status_capsule:    Capsule status(YES if read it and NO if still not read it by the broker)</tt> </tt>
-<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
-<a name="Capsule.__init__"></a><div id="Capsule.__init__-def"><a name="L32"></a><tt class="py-lineno"> 32</tt> <a class="py-toggle" href="#" id="Capsule.__init__-toggle" onclick="return toggle('Capsule.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="org.swallow_labs.model.Capsule.Capsule-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">id_sender</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-param">j</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="Capsule.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Capsule.__init__-expanded"><a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
-<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"><tt class="py-docstring">            :</tt> </tt>
-<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
-<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">j</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
-<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">id_sender</tt> <tt class="py-op">=</tt> <tt class="py-name">id_sender</tt> </tt>
-<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line">            <tt class="py-comment"># By default the status of the capsule is not yet read by the broker</tt> </tt>
-<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">status_capsule</tt> <tt class="py-op">=</tt> <tt class="py-string">"NO"</tt> </tt>
-<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">            <tt class="py-comment"># add to the capsule, date of sending</tt> </tt>
-<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">date</tt> <tt class="py-op">=</tt> <tt class="py-name">time</tt><tt class="py-op">.</tt><tt class="py-name">strftime</tt><tt class="py-op">(</tt><tt class="py-string">'%d/%m/%y %H:%M'</tt><tt class="py-op">,</tt> <tt class="py-name">time</tt><tt class="py-op">.</tt><tt class="py-name">localtime</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
-<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
-<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__dict__</tt> <tt class="py-op">=</tt> <tt class="py-name">json</tt><tt class="py-op">.</tt><tt class="py-name">loads</tt><tt class="py-op">(</tt><tt class="py-name">j</tt><tt class="py-op">)</tt> </tt>
-</div><a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line"> </tt>
-<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line">    <tt class="py-comment"># Capsule getters</tt> </tt>
-<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line"> </tt>
-<a name="Capsule.get_id_sender"></a><div id="Capsule.get_id_sender-def"><a name="L48"></a><tt class="py-lineno"> 48</tt> <a class="py-toggle" href="#" id="Capsule.get_id_sender-toggle" onclick="return toggle('Capsule.get_id_sender');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="org.swallow_labs.model.Capsule.Capsule-class.html#get_id_sender">get_id_sender</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="Capsule.get_id_sender-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Capsule.get_id_sender-expanded"><a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
-<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line"><tt class="py-docstring">        DESCRIPTION</tt> </tt>
-<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line"><tt class="py-docstring">        ===========</tt> </tt>
-<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line"><tt class="py-docstring">        Method providing a way to get the sender ID</tt> </tt>
-<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
-<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">id_sender</tt> </tt>
-</div><a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line"> </tt>
-<a name="Capsule.get_id_receiver"></a><div id="Capsule.get_id_receiver-def"><a name="L58"></a><tt class="py-lineno"> 58</tt> <a class="py-toggle" href="#" id="Capsule.get_id_receiver-toggle" onclick="return toggle('Capsule.get_id_receiver');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="org.swallow_labs.model.Capsule.Capsule-class.html#get_id_receiver">get_id_receiver</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="Capsule.get_id_receiver-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Capsule.get_id_receiver-expanded"><a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
-<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line"><tt class="py-docstring">        DESCRIPTION</tt> </tt>
-<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line"><tt class="py-docstring">        ===========</tt> </tt>
-<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line"><tt class="py-docstring">        Method providing a way to get the receiver ID</tt> </tt>
-<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
-<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">id_receiver</tt> </tt>
-</div><a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line"> </tt>
-<a name="Capsule.get_payload"></a><div id="Capsule.get_payload-def"><a name="L68"></a><tt class="py-lineno"> 68</tt> <a class="py-toggle" href="#" id="Capsule.get_payload-toggle" onclick="return toggle('Capsule.get_payload');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="org.swallow_labs.model.Capsule.Capsule-class.html#get_payload">get_payload</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="Capsule.get_payload-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Capsule.get_payload-expanded"><a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
-<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line"><tt class="py-docstring">        DESCRIPTION</tt> </tt>
-<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line"><tt class="py-docstring">        ===========</tt> </tt>
-<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line"><tt class="py-docstring">        Method providing a way to get the payload</tt> </tt>
-<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
-<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">payload</tt> </tt>
-</div><a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line"> </tt>
-<a name="Capsule.get_status_capsule"></a><div id="Capsule.get_status_capsule-def"><a name="L78"></a><tt class="py-lineno"> 78</tt> <a class="py-toggle" href="#" id="Capsule.get_status_capsule-toggle" onclick="return toggle('Capsule.get_status_capsule');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="org.swallow_labs.model.Capsule.Capsule-class.html#get_status_capsule">get_status_capsule</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="Capsule.get_status_capsule-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Capsule.get_status_capsule-expanded"><a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
-<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line"><tt class="py-docstring">        DESCRIPTION</tt> </tt>
-<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line"><tt class="py-docstring">        ===========</tt> </tt>
-<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line"><tt class="py-docstring">        Method providing a way to get the capsule status</tt> </tt>
-<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
-<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">status_capsule</tt> </tt>
-</div><a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line"> </tt>
-<a name="Capsule.get_type"></a><div id="Capsule.get_type-def"><a name="L88"></a><tt class="py-lineno"> 88</tt> <a class="py-toggle" href="#" id="Capsule.get_type-toggle" onclick="return toggle('Capsule.get_type');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="org.swallow_labs.model.Capsule.Capsule-class.html#get_type">get_type</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="Capsule.get_type-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Capsule.get_type-expanded"><a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
-<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line"><tt class="py-docstring">        DESCRIPTION</tt> </tt>
-<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line"><tt class="py-docstring">        ===========</tt> </tt>
-<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line"><tt class="py-docstring">        Method providing a way to get the capsule type</tt> </tt>
-<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
-<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">type</tt> </tt>
-</div><a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line"> </tt>
-<a name="Capsule.get_date"></a><div id="Capsule.get_date-def"><a name="L98"></a><tt class="py-lineno"> 98</tt> <a class="py-toggle" href="#" id="Capsule.get_date-toggle" onclick="return toggle('Capsule.get_date');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="org.swallow_labs.model.Capsule.Capsule-class.html#get_date">get_date</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="Capsule.get_date-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Capsule.get_date-expanded"><a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
-<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line"><tt class="py-docstring">        DESCRIPTION</tt> </tt>
-<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line"><tt class="py-docstring">        ===========</tt> </tt>
-<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line"><tt class="py-docstring">        Method providing a way to get the time of sending and receiving of the capsule(separated by *)</tt> </tt>
-<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
-<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">date</tt> </tt>
-</div><a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line"> </tt>
-<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">    <tt class="py-comment"># Capsule setters</tt> </tt>
-<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line"> </tt>
-<a name="Capsule.set_id_receiver"></a><div id="Capsule.set_id_receiver-def"><a name="L110"></a><tt class="py-lineno">110</tt> <a class="py-toggle" href="#" id="Capsule.set_id_receiver-toggle" onclick="return toggle('Capsule.set_id_receiver');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="org.swallow_labs.model.Capsule.Capsule-class.html#set_id_receiver">set_id_receiver</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">id_receiver</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="Capsule.set_id_receiver-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Capsule.set_id_receiver-expanded"><a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-docstring">        G{classtree}</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-docstring">        DESCRIPTION</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-docstring">        ===========</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-docstring">        Create a capsule</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-docstring">        RETURN</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"><tt class="py-docstring">        ======</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-docstring">        Return a capsule</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-docstring">        @param id_sender:    Sender ID</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt class="py-docstring">        @param j:    Json object</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"><tt class="py-docstring">        @type id_sender: int</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt class="py-docstring">        @type j: String</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"><tt class="py-docstring">        @ivar self.id_sender:    Sender ID</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"><tt class="py-docstring">        @ivar self.id_receiver:    Receiver ID</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"><tt class="py-docstring">        @ivar self.priority:    Capsule priority</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"><tt class="py-docstring">        @ivar self.payload:    Message wanted to send</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"><tt class="py-docstring">        @ivar self.type:    Message type (PAYLOAD, READY, SENT, END)</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"><tt class="py-docstring">        @ivar self.sending_date:    Capsule sending date</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"><tt class="py-docstring">        @ivar self.receiving_date:    Capsule receiving date</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"><tt class="py-docstring">        @ivar self.status_capsule:    Capsule status(YES if read it and NO if still not read it by the broker)</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line">    <tt id="link-0" class="py-name" targets="Variable org.swallow_labs.model.Capsule.Capsule.cpt_capsule=org.swallow_labs.model.Capsule.Capsule-class.html#cpt_capsule"><a title="org.swallow_labs.model.Capsule.Capsule.cpt_capsule" class="py-name" href="#" onclick="return doclink('link-0', 'cpt_capsule', 'link-0');">cpt_capsule</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line">     </tt>
+<a name="Capsule.__init__"></a><div id="Capsule.__init__-def"><a name="L39"></a><tt class="py-lineno"> 39</tt> <a class="py-toggle" href="#" id="Capsule.__init__-toggle" onclick="return toggle('Capsule.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="org.swallow_labs.model.Capsule.Capsule-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">id_sender</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-param">j</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Capsule.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Capsule.__init__-expanded"><a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line"><tt class="py-docstring">            :</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">j</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">id_capsule</tt> <tt class="py-op">=</tt> <tt id="link-1" class="py-name" targets="Module org.swallow_labs.model.Capsule=org.swallow_labs.model.Capsule-module.html,Class org.swallow_labs.model.Capsule.Capsule=org.swallow_labs.model.Capsule.Capsule-class.html"><a title="org.swallow_labs.model.Capsule
+org.swallow_labs.model.Capsule.Capsule" class="py-name" href="#" onclick="return doclink('link-1', 'Capsule', 'link-1');">Capsule</a></tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Static Method org.swallow_labs.model.Capsule.Capsule.capsule_id()=org.swallow_labs.model.Capsule.Capsule-class.html#capsule_id"><a title="org.swallow_labs.model.Capsule.Capsule.capsule_id" class="py-name" href="#" onclick="return doclink('link-2', 'capsule_id', 'link-2');">capsule_id</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">id_sender</tt> <tt class="py-op">=</tt> <tt class="py-name">id_sender</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">            <tt class="py-comment"># By default the status of the capsule is not yet read by the broker</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">status_capsule</tt> <tt class="py-op">=</tt> <tt class="py-string">"NO"</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">            <tt class="py-comment"># add to the capsule, date of sending</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">sending_date</tt> <tt class="py-op">=</tt> <tt class="py-name">time</tt><tt class="py-op">.</tt><tt class="py-name">localtime</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__dict__</tt> <tt class="py-op">=</tt> <tt class="py-name">json</tt><tt class="py-op">.</tt><tt class="py-name">loads</tt><tt class="py-op">(</tt><tt class="py-name">j</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line"> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">    <tt class="py-decorator">@</tt><tt class="py-decorator">staticmethod</tt> </tt>
+<a name="Capsule.capsule_id"></a><div id="Capsule.capsule_id-def"><a name="L55"></a><tt class="py-lineno"> 55</tt> <a class="py-toggle" href="#" id="Capsule.capsule_id-toggle" onclick="return toggle('Capsule.capsule_id');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="org.swallow_labs.model.Capsule.Capsule-class.html#capsule_id">capsule_id</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Capsule.capsule_id-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Capsule.capsule_id-expanded"><a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line">        <tt id="link-3" class="py-name"><a title="org.swallow_labs.model.Capsule
+org.swallow_labs.model.Capsule.Capsule" class="py-name" href="#" onclick="return doclink('link-3', 'Capsule', 'link-1');">Capsule</a></tt><tt class="py-op">.</tt><tt id="link-4" class="py-name"><a title="org.swallow_labs.model.Capsule.Capsule.cpt_capsule" class="py-name" href="#" onclick="return doclink('link-4', 'cpt_capsule', 'link-0');">cpt_capsule</a></tt> <tt class="py-op">+=</tt> <tt class="py-number">1</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-5" class="py-name"><a title="org.swallow_labs.model.Capsule
+org.swallow_labs.model.Capsule.Capsule" class="py-name" href="#" onclick="return doclink('link-5', 'Capsule', 'link-1');">Capsule</a></tt><tt class="py-op">.</tt><tt id="link-6" class="py-name"><a title="org.swallow_labs.model.Capsule.Capsule.cpt_capsule" class="py-name" href="#" onclick="return doclink('link-6', 'cpt_capsule', 'link-0');">cpt_capsule</a></tt> </tt>
+</div><a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">    <tt class="py-comment"># Capsule getters</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line"> </tt>
+<a name="Capsule.get_id_sender"></a><div id="Capsule.get_id_sender-def"><a name="L60"></a><tt class="py-lineno"> 60</tt> <a class="py-toggle" href="#" id="Capsule.get_id_sender-toggle" onclick="return toggle('Capsule.get_id_sender');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="org.swallow_labs.model.Capsule.Capsule-class.html#get_id_sender">get_id_sender</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Capsule.get_id_sender-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Capsule.get_id_sender-expanded"><a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line"><tt class="py-docstring">        DESCRIPTION</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line"><tt class="py-docstring">        ===========</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line"><tt class="py-docstring">        Method providing a way to get the sender ID</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">id_sender</tt> </tt>
+</div><a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line"> </tt>
+<a name="Capsule.get_id_receiver"></a><div id="Capsule.get_id_receiver-def"><a name="L70"></a><tt class="py-lineno"> 70</tt> <a class="py-toggle" href="#" id="Capsule.get_id_receiver-toggle" onclick="return toggle('Capsule.get_id_receiver');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="org.swallow_labs.model.Capsule.Capsule-class.html#get_id_receiver">get_id_receiver</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Capsule.get_id_receiver-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Capsule.get_id_receiver-expanded"><a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line"><tt class="py-docstring">        DESCRIPTION</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line"><tt class="py-docstring">        ===========</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line"><tt class="py-docstring">        Method providing a way to get the receiver ID</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">id_receiver</tt> </tt>
+</div><a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line"> </tt>
+<a name="Capsule.get_priority"></a><div id="Capsule.get_priority-def"><a name="L80"></a><tt class="py-lineno"> 80</tt> <a class="py-toggle" href="#" id="Capsule.get_priority-toggle" onclick="return toggle('Capsule.get_priority');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="org.swallow_labs.model.Capsule.Capsule-class.html#get_priority">get_priority</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Capsule.get_priority-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Capsule.get_priority-expanded"><a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line"><tt class="py-docstring">        DESCRIPTION</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line"><tt class="py-docstring">        ===========</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line"><tt class="py-docstring">        Method providing a way to get the capsule priority</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">priority</tt> </tt>
+</div><a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line"> </tt>
+<a name="Capsule.get_payload"></a><div id="Capsule.get_payload-def"><a name="L90"></a><tt class="py-lineno"> 90</tt> <a class="py-toggle" href="#" id="Capsule.get_payload-toggle" onclick="return toggle('Capsule.get_payload');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="org.swallow_labs.model.Capsule.Capsule-class.html#get_payload">get_payload</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Capsule.get_payload-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Capsule.get_payload-expanded"><a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line"><tt class="py-docstring">        DESCRIPTION</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line"><tt class="py-docstring">        ===========</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line"><tt class="py-docstring">        Method providing a way to get the payload</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">payload</tt> </tt>
+</div><a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line"> </tt>
+<a name="Capsule.get_status_capsule"></a><div id="Capsule.get_status_capsule-def"><a name="L100"></a><tt class="py-lineno">100</tt> <a class="py-toggle" href="#" id="Capsule.get_status_capsule-toggle" onclick="return toggle('Capsule.get_status_capsule');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="org.swallow_labs.model.Capsule.Capsule-class.html#get_status_capsule">get_status_capsule</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Capsule.get_status_capsule-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Capsule.get_status_capsule-expanded"><a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line"><tt class="py-docstring">        DESCRIPTION</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line"><tt class="py-docstring">        ===========</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line"><tt class="py-docstring">        Method providing a way to get the capsule status</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">status_capsule</tt> </tt>
+</div><a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line"> </tt>
+<a name="Capsule.get_type"></a><div id="Capsule.get_type-def"><a name="L110"></a><tt class="py-lineno">110</tt> <a class="py-toggle" href="#" id="Capsule.get_type-toggle" onclick="return toggle('Capsule.get_type');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="org.swallow_labs.model.Capsule.Capsule-class.html#get_type">get_type</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Capsule.get_type-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Capsule.get_type-expanded"><a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
 <a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
 <a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line"><tt class="py-docstring">        DESCRIPTION</tt> </tt>
 <a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line"><tt class="py-docstring">        ===========</tt> </tt>
-<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line"><tt class="py-docstring">        Method providing a way to set the receiver ID</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line"><tt class="py-docstring">        Method providing a way to get the capsule type</tt> </tt>
 <a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
 <a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
-<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">id_receiver</tt> <tt class="py-op">=</tt> <tt class="py-name">id_receiver</tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">type</tt> </tt>
 </div><a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line"> </tt>
-<a name="Capsule.set_payload"></a><div id="Capsule.set_payload-def"><a name="L120"></a><tt class="py-lineno">120</tt> <a class="py-toggle" href="#" id="Capsule.set_payload-toggle" onclick="return toggle('Capsule.set_payload');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="org.swallow_labs.model.Capsule.Capsule-class.html#set_payload">set_payload</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">payload</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="Capsule.set_payload-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Capsule.set_payload-expanded"><a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="Capsule.get_sending_date"></a><div id="Capsule.get_sending_date-def"><a name="L120"></a><tt class="py-lineno">120</tt> <a class="py-toggle" href="#" id="Capsule.get_sending_date-toggle" onclick="return toggle('Capsule.get_sending_date');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="org.swallow_labs.model.Capsule.Capsule-class.html#get_sending_date">get_sending_date</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Capsule.get_sending_date-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Capsule.get_sending_date-expanded"><a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
 <a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
 <a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line"><tt class="py-docstring">        DESCRIPTION</tt> </tt>
 <a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line"><tt class="py-docstring">        ===========</tt> </tt>
-<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line"><tt class="py-docstring">        Method providing a way to set the payload</tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line"><tt class="py-docstring">        Method providing a way to get the time of sending of the capsule</tt> </tt>
 <a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
 <a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
-<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">payload</tt> <tt class="py-op">=</tt> <tt class="py-name">payload</tt> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">sending_date</tt> </tt>
 </div><a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line"> </tt>
-<a name="Capsule.set_date"></a><div id="Capsule.set_date-def"><a name="L130"></a><tt class="py-lineno">130</tt> <a class="py-toggle" href="#" id="Capsule.set_date-toggle" onclick="return toggle('Capsule.set_date');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="org.swallow_labs.model.Capsule.Capsule-class.html#set_date">set_date</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">date</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="Capsule.set_date-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Capsule.set_date-expanded"><a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="Capsule.get_receiving_date"></a><div id="Capsule.get_receiving_date-def"><a name="L130"></a><tt class="py-lineno">130</tt> <a class="py-toggle" href="#" id="Capsule.get_receiving_date-toggle" onclick="return toggle('Capsule.get_receiving_date');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="org.swallow_labs.model.Capsule.Capsule-class.html#get_receiving_date">get_receiving_date</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Capsule.get_receiving_date-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Capsule.get_receiving_date-expanded"><a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
 <a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
 <a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line"><tt class="py-docstring">        DESCRIPTION</tt> </tt>
 <a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line"><tt class="py-docstring">        ===========</tt> </tt>
-<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line"><tt class="py-docstring">        Method providing a way to set the sending or receiving date</tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line"><tt class="py-docstring">        Method providing a way to get the time of receiving of the capsule</tt> </tt>
 <a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
 <a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
-<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">date</tt> <tt class="py-op">=</tt> <tt class="py-name">date</tt> </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">receiving_date</tt> </tt>
 </div><a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line"> </tt>
-<a name="Capsule.set_status_capsule"></a><div id="Capsule.set_status_capsule-def"><a name="L140"></a><tt class="py-lineno">140</tt> <a class="py-toggle" href="#" id="Capsule.set_status_capsule-toggle" onclick="return toggle('Capsule.set_status_capsule');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="org.swallow_labs.model.Capsule.Capsule-class.html#set_status_capsule">set_status_capsule</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">status_capsule</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="Capsule.set_status_capsule-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Capsule.set_status_capsule-expanded"><a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
-<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line"><tt class="py-docstring">        DESCRIPTION</tt> </tt>
-<a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line"><tt class="py-docstring">        ===========</tt> </tt>
-<a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line"><tt class="py-docstring">        Method providing a way to set the capsule status</tt> </tt>
-<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
-<a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">status_capsule</tt> <tt class="py-op">=</tt> <tt class="py-name">status_capsule</tt> </tt>
-</div><a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line"> </tt>
-<a name="Capsule.set_type"></a><div id="Capsule.set_type-def"><a name="L150"></a><tt class="py-lineno">150</tt> <a class="py-toggle" href="#" id="Capsule.set_type-toggle" onclick="return toggle('Capsule.set_type');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="org.swallow_labs.model.Capsule.Capsule-class.html#set_type">set_type</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">type</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="Capsule.set_type-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Capsule.set_type-expanded"><a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
-<a name="L152"></a><tt class="py-lineno">152</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line"><tt class="py-docstring">        DESCRIPTION</tt> </tt>
-<a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line"><tt class="py-docstring">        ===========</tt> </tt>
-<a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line"><tt class="py-docstring">        Method Setting capsule type</tt> </tt>
-<a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
-<a name="L158"></a><tt class="py-lineno">158</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">type</tt> <tt class="py-op">=</tt> <tt class="py-name">type</tt> </tt>
-</div></div><a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line">    <tt class="py-comment"># Capsule setters</tt> </tt>
+<a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line"> </tt>
+<a name="Capsule.set_id_receiver"></a><div id="Capsule.set_id_receiver-def"><a name="L142"></a><tt class="py-lineno">142</tt> <a class="py-toggle" href="#" id="Capsule.set_id_receiver-toggle" onclick="return toggle('Capsule.set_id_receiver');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="org.swallow_labs.model.Capsule.Capsule-class.html#set_id_receiver">set_id_receiver</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">id_receiver</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Capsule.set_id_receiver-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Capsule.set_id_receiver-expanded"><a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line"><tt class="py-docstring">        DESCRIPTION</tt> </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line"><tt class="py-docstring">        ===========</tt> </tt>
+<a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line"><tt class="py-docstring">        Method providing a way to set the receiver ID</tt> </tt>
+<a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">id_receiver</tt> <tt class="py-op">=</tt> <tt class="py-name">id_receiver</tt> </tt>
+</div><a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line"> </tt>
+<a name="Capsule.set_priority"></a><div id="Capsule.set_priority-def"><a name="L152"></a><tt class="py-lineno">152</tt> <a class="py-toggle" href="#" id="Capsule.set_priority-toggle" onclick="return toggle('Capsule.set_priority');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="org.swallow_labs.model.Capsule.Capsule-class.html#set_priority">set_priority</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">priority</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Capsule.set_priority-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Capsule.set_priority-expanded"><a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line"><tt class="py-docstring">        DESCRIPTION</tt> </tt>
+<a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line"><tt class="py-docstring">        ===========</tt> </tt>
+<a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line"><tt class="py-docstring">        Method providing a way to set the capsule priority</tt> </tt>
+<a name="L158"></a><tt class="py-lineno">158</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L160"></a><tt class="py-lineno">160</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">priority</tt> <tt class="py-op">=</tt> <tt class="py-name">priority</tt> </tt>
+</div><a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line"> </tt>
+<a name="Capsule.set_payload"></a><div id="Capsule.set_payload-def"><a name="L162"></a><tt class="py-lineno">162</tt> <a class="py-toggle" href="#" id="Capsule.set_payload-toggle" onclick="return toggle('Capsule.set_payload');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="org.swallow_labs.model.Capsule.Capsule-class.html#set_payload">set_payload</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">payload</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Capsule.set_payload-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Capsule.set_payload-expanded"><a name="L163"></a><tt class="py-lineno">163</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L164"></a><tt class="py-lineno">164</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L165"></a><tt class="py-lineno">165</tt>  <tt class="py-line"><tt class="py-docstring">        DESCRIPTION</tt> </tt>
+<a name="L166"></a><tt class="py-lineno">166</tt>  <tt class="py-line"><tt class="py-docstring">        ===========</tt> </tt>
+<a name="L167"></a><tt class="py-lineno">167</tt>  <tt class="py-line"><tt class="py-docstring">        Method providing a way to set the payload</tt> </tt>
+<a name="L168"></a><tt class="py-lineno">168</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L169"></a><tt class="py-lineno">169</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L170"></a><tt class="py-lineno">170</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">payload</tt> <tt class="py-op">=</tt> <tt class="py-name">payload</tt> </tt>
+</div><a name="L171"></a><tt class="py-lineno">171</tt>  <tt class="py-line"> </tt>
+<a name="Capsule.set_sending_date"></a><div id="Capsule.set_sending_date-def"><a name="L172"></a><tt class="py-lineno">172</tt> <a class="py-toggle" href="#" id="Capsule.set_sending_date-toggle" onclick="return toggle('Capsule.set_sending_date');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="org.swallow_labs.model.Capsule.Capsule-class.html#set_sending_date">set_sending_date</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">sending_date</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Capsule.set_sending_date-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Capsule.set_sending_date-expanded"><a name="L173"></a><tt class="py-lineno">173</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L174"></a><tt class="py-lineno">174</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L175"></a><tt class="py-lineno">175</tt>  <tt class="py-line"><tt class="py-docstring">        DESCRIPTION</tt> </tt>
+<a name="L176"></a><tt class="py-lineno">176</tt>  <tt class="py-line"><tt class="py-docstring">        ===========</tt> </tt>
+<a name="L177"></a><tt class="py-lineno">177</tt>  <tt class="py-line"><tt class="py-docstring">        Method providing a way to set the sending date</tt> </tt>
+<a name="L178"></a><tt class="py-lineno">178</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L179"></a><tt class="py-lineno">179</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L180"></a><tt class="py-lineno">180</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">sending_date</tt> <tt class="py-op">=</tt> <tt class="py-name">sending_date</tt> </tt>
+</div><a name="L181"></a><tt class="py-lineno">181</tt>  <tt class="py-line"> </tt>
+<a name="Capsule.set_receiving_date"></a><div id="Capsule.set_receiving_date-def"><a name="L182"></a><tt class="py-lineno">182</tt> <a class="py-toggle" href="#" id="Capsule.set_receiving_date-toggle" onclick="return toggle('Capsule.set_receiving_date');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="org.swallow_labs.model.Capsule.Capsule-class.html#set_receiving_date">set_receiving_date</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">receiving_date</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Capsule.set_receiving_date-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Capsule.set_receiving_date-expanded"><a name="L183"></a><tt class="py-lineno">183</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L184"></a><tt class="py-lineno">184</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L185"></a><tt class="py-lineno">185</tt>  <tt class="py-line"><tt class="py-docstring">        DESCRIPTION</tt> </tt>
+<a name="L186"></a><tt class="py-lineno">186</tt>  <tt class="py-line"><tt class="py-docstring">        ===========</tt> </tt>
+<a name="L187"></a><tt class="py-lineno">187</tt>  <tt class="py-line"><tt class="py-docstring">        Method providing a way to set the receiving date</tt> </tt>
+<a name="L188"></a><tt class="py-lineno">188</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L189"></a><tt class="py-lineno">189</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L190"></a><tt class="py-lineno">190</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">receiving_date</tt> <tt class="py-op">=</tt> <tt class="py-name">receiving_date</tt> </tt>
+</div><a name="L191"></a><tt class="py-lineno">191</tt>  <tt class="py-line"> </tt>
+<a name="Capsule.set_status_capsule"></a><div id="Capsule.set_status_capsule-def"><a name="L192"></a><tt class="py-lineno">192</tt> <a class="py-toggle" href="#" id="Capsule.set_status_capsule-toggle" onclick="return toggle('Capsule.set_status_capsule');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="org.swallow_labs.model.Capsule.Capsule-class.html#set_status_capsule">set_status_capsule</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">status_capsule</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Capsule.set_status_capsule-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Capsule.set_status_capsule-expanded"><a name="L193"></a><tt class="py-lineno">193</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L194"></a><tt class="py-lineno">194</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L195"></a><tt class="py-lineno">195</tt>  <tt class="py-line"><tt class="py-docstring">        DESCRIPTION</tt> </tt>
+<a name="L196"></a><tt class="py-lineno">196</tt>  <tt class="py-line"><tt class="py-docstring">        ===========</tt> </tt>
+<a name="L197"></a><tt class="py-lineno">197</tt>  <tt class="py-line"><tt class="py-docstring">        Method providing a way to set the capsule status</tt> </tt>
+<a name="L198"></a><tt class="py-lineno">198</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L199"></a><tt class="py-lineno">199</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L200"></a><tt class="py-lineno">200</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">status_capsule</tt> <tt class="py-op">=</tt> <tt class="py-name">status_capsule</tt> </tt>
+</div><a name="L201"></a><tt class="py-lineno">201</tt>  <tt class="py-line"> </tt>
+<a name="Capsule.set_type"></a><div id="Capsule.set_type-def"><a name="L202"></a><tt class="py-lineno">202</tt> <a class="py-toggle" href="#" id="Capsule.set_type-toggle" onclick="return toggle('Capsule.set_type');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="org.swallow_labs.model.Capsule.Capsule-class.html#set_type">set_type</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">type</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Capsule.set_type-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Capsule.set_type-expanded"><a name="L203"></a><tt class="py-lineno">203</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L204"></a><tt class="py-lineno">204</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L205"></a><tt class="py-lineno">205</tt>  <tt class="py-line"><tt class="py-docstring">        DESCRIPTION</tt> </tt>
+<a name="L206"></a><tt class="py-lineno">206</tt>  <tt class="py-line"><tt class="py-docstring">        ===========</tt> </tt>
+<a name="L207"></a><tt class="py-lineno">207</tt>  <tt class="py-line"><tt class="py-docstring">        Method Setting capsule type</tt> </tt>
+<a name="L208"></a><tt class="py-lineno">208</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L209"></a><tt class="py-lineno">209</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L210"></a><tt class="py-lineno">210</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">type</tt> <tt class="py-op">=</tt> <tt class="py-name">type</tt> </tt>
+</div></div><a name="L211"></a><tt class="py-lineno">211</tt>  <tt class="py-line"> </tt><script type="text/javascript">
 <!--
 expandto(location.href);
 // -->
@@ -224,6 +282,9 @@ expandto(location.href);
 <table class="navbar" border="0" width="100%" cellpadding="0"
        bgcolor="#a0c0ff" cellspacing="0">
   <tr valign="middle">
+  <!-- Home link -->
+      <th bgcolor="#70b0f0" class="navbar-select"
+          >&nbsp;&nbsp;&nbsp;Home&nbsp;&nbsp;&nbsp;</th>
 
   <!-- Tree link -->
       <th>&nbsp;&nbsp;&nbsp;<a
@@ -243,7 +304,7 @@ expandto(location.href);
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Wed May 25 15:02:29 2016
+    Generated by Epydoc 3.0.1 on Tue May 31 10:41:22 2016
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

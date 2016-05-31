@@ -4,7 +4,7 @@ import time
 
 class Capsule:
 
-    cpt_capsule = 0
+
     """
         Class creating a capsule object:
 
@@ -33,6 +33,9 @@ class Capsule:
         @ivar self.receiving_date:    Capsule receiving date
         @ivar self.status_capsule:    Capsule status(YES if read it and NO if still not read it by the broker)
         """
+
+    cpt_capsule = 0
+
     def __init__(self, id_sender=None, j=None):
         """
             :
