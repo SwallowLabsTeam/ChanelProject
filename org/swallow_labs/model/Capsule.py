@@ -4,7 +4,7 @@ import time
 
 class Capsule:
 
-    cpt_capsule = 0
+
     """
         Class creating a capsule object:
 
@@ -26,12 +26,16 @@ class Capsule:
 
         @ivar self.id_sender:    Sender ID
         @ivar self.id_receiver:    Receiver ID
+        @ivar self.priority:    Capsule priority
         @ivar self.payload:    Message wanted to send
         @ivar self.type:    Message type (PAYLOAD, READY, SENT, END)
         @ivar self.sending_date:    Capsule sending date
         @ivar self.receiving_date:    Capsule receiving date
         @ivar self.status_capsule:    Capsule status(YES if read it and NO if still not read it by the broker)
         """
+
+    cpt_capsule = 0
+
     def __init__(self, id_sender=None, j=None):
         """
             :
@@ -72,6 +76,16 @@ class Capsule:
 
         """
         return self.id_receiver
+
+    def get_priority(self):
+        """
+
+        DESCRIPTION
+        ===========
+        Method providing a way to get the capsule priority
+
+        """
+        return self.priority
 
     def get_payload(self):
         """
@@ -134,6 +148,16 @@ class Capsule:
 
         """
         self.id_receiver = id_receiver
+
+    def set_priority(self, priority):
+        """
+
+        DESCRIPTION
+        ===========
+        Method providing a way to set the capsule priority
+
+        """
+        self.priority = priority
 
     def set_payload(self, payload):
         """
