@@ -4,6 +4,8 @@ import socket
 from contextlib import closing
 import time
 from org.swallow_labs.model.Capsule import Capsule
+from org.swallow_labs.tool.CapsuleType import CapsuleType
+
 
 
 class SocketClient:
@@ -95,7 +97,7 @@ class SocketClient:
         if self.CheckPort():
 
             c = Capsule(self.id_client)
-            c.set_type("READY")
+            c.set_type(CapsuleType.READY)
             self.socket.send_json(json.dumps(c.__dict__))
             message_list = []
             while True:
@@ -103,7 +105,7 @@ class SocketClient:
                 p = json.dumps(j)
 
                 c = Capsule(j=p)
-                if c.get_type() == "END":
+                if c.get_type() == CapsuleType.END:
                     break
                 else:
                     c.set_receiving_date(time.localtime())
