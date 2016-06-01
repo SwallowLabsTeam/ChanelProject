@@ -14,4 +14,5 @@ c1.pull()
 print(c1.pull_list)
 for x in c1.pull_list:
 
-    print(x.get_priority())
+    # print(x.get_priority())
+    print(int(x.get_id_capsule()))

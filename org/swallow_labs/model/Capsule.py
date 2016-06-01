@@ -28,7 +28,7 @@ class Capsule:
         @ivar self.id_receiver:    Receiver ID
         @ivar self.priority:    Capsule priority
         @ivar self.payload:    Message wanted to send
-        @ivar self.type:    Message type (PAYLOAD, READY, SENT, END)
+        @ivar self.type:    Message type (PAYLOAD, READY, END)
         @ivar self.sending_date:    Capsule sending date
         @ivar self.receiving_date:    Capsule receiving date
         @ivar self.status_capsule:    Capsule status(YES if read it and NO if still not read it by the broker)
@@ -42,7 +42,7 @@ class Capsule:
 
         """
         if j is None:
-            self.id_capsule = Capsule.capsule_id()
+            self.id_capsule = str(Capsule.capsule_id()).zfill(10)
             self.id_sender = id_sender
             # By default the status of the capsule is not yet read by the broker
             self.status_capsule = "NO"
@@ -53,9 +53,23 @@ class Capsule:
 
     @staticmethod
     def capsule_id():
+
+        if Capsule.cpt_capsule == 9999999999:
+            return 1
+
         Capsule.cpt_capsule += 1
         return Capsule.cpt_capsule
     # Capsule getters
+
+    def get_id_capsule(self):
+        """
+
+        DESCRIPTION
+        ===========
+        Method providing a way to get the capsule ID
+
+        """
+        return self.id_capsule
 
     def get_id_sender(self):
         """
