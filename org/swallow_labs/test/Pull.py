@@ -4,10 +4,10 @@ from org.swallow_labs.model.Parser import *
 p=Parser('client', 'json example')
 a=p.get_client_id()
 l=p.get_broker_list()
-print(a)
+print("ID client: ",a)
 for v in l:
-    print(v.address)
-    print(v.port)
+    print("Connexion address:", v.address)
+    print("Port address :", v.port)
 c1=Client(a,l)
 c1.generate()
 
