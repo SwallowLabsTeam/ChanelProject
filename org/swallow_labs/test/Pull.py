@@ -1,15 +1,18 @@
 from org.swallow_labs.model.Client import Client
-from org.swallow_labs.test.Adr import Adr
+from org.swallow_labs.model.Parser import *
 
-
-a1=Adr("localhost","6661")
-a2=Adr("localhost","6663")
-a3=Adr("localhost","6665")
-c1=Client("20",[a1,a2,a3])
+p=Parser('client', 'json example')
+a=p.get_client_id()
+l=p.get_broker_list()
+print(a)
+for v in l:
+    print(v.address)
+    print(v.port)
+c1=Client(a,l)
 c1.generate()
-print(c1.sock_list[0].port)
-print(c1.sock_list[1].port)
-print(c1.sock_list[2].port)
+
+for h in c1.sock_list:
+    print(h.port)
 c1.pull()
 print(c1.pull_list)
 for x in c1.pull_list:

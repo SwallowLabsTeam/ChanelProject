@@ -1,13 +1,17 @@
 from org.swallow_labs.model.Client import Client
 from org.swallow_labs.model.Capsule import Capsule
-from org.swallow_labs.test.Adr import Adr
+from org.swallow_labs.model.Parser import *
 from org.swallow_labs.tool.CapsulePriority import CapsulePriority
-import time
 
-a1 = Adr("localhost", "6662")
-a2 = Adr("localhost", "6664")
-a3 = Adr("localhost", "6666")
-c = Client("2", [a1, a2, a3])
+p=Parser('client2', 'json example')
+a=p.get_client_id()
+l=p.get_broker_list()
+print(a)
+for v in l:
+    print(v.address)
+    print(v.port)
+
+c = Client(a,l)
 
 capsule = Capsule(c.id_client)
 capsule.set_type("PAYLOAD")
