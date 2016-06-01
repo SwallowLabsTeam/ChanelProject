@@ -42,7 +42,7 @@ class Parser:
         self.client_id = json.loads(json_data)
         json_data = open(broker_path).read()
         self.data = json.loads(json_data)
-        json_data = open('schema').read()
+        json_data = open('C:/Users/hatem/PycharmProjects/ChanelProject/schema').read()
         schema = ast.literal_eval(json_data)
         self.broker_list = []
         try:
@@ -64,4 +64,4 @@ class Parser:
 
 
 if __name__ == '__main__':
-    p = Parser('client', 'json example')
+    p = Parser('C:/Users/hatem/PycharmProjects/ChanelProject/client', 'C:/Users/hatem/PycharmProjects/ChanelProject/json example')
