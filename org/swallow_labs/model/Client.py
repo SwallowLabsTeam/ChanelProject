@@ -55,7 +55,7 @@ class Client:
                 Method generate the Client communication stub (MultiSocket)
          """
         for i in range(self.nbr_broker):
-            self.sock_list.append(SocketClient(self.id_client,self.list_address[i].adr,self.list_address[i].port))
+            self.sock_list.append(SocketClient(str(self.id_client),str(self.list_address[i].address),str(self.list_address[i].port)))
 
     def push(self,capsule):
 

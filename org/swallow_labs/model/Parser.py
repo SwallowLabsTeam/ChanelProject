@@ -42,7 +42,7 @@ class Parser:
         self.client_id = json.loads(json_data)
         json_data = open(broker_path).read()
         self.data = json.loads(json_data)
-        json_data = open('C:/Users/hatem/PycharmProjects/ChanelProject/schema').read()
+        json_data = open('schema').read()
         schema = ast.literal_eval(json_data)
         self.broker_list = []
         try:
@@ -50,7 +50,7 @@ class Parser:
             if self.client_id >= 10:
                 for i in range(len(dict(self.data)['ip_add'])):
                     self.broker_list.append(BrokerData(dict(self.data)['ip_add'][i], dict(self.data)['back_end'][i]))
-                else:
+            else:
                     for i in range(len(dict(self.data)['ip_add'])):
                         self.broker_list.append(BrokerData(dict(self.data)['ip_add'][i], dict(self.data)['front_end'][i]))
         except:
@@ -63,5 +63,3 @@ class Parser:
         return self.broker_list
 
 
-if __name__ == '__main__':
-    p = Parser('C:/Users/hatem/PycharmProjects/ChanelProject/client', 'C:/Users/hatem/PycharmProjects/ChanelProject/json example')
