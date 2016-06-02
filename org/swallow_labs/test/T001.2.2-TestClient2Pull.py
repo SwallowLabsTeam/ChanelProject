@@ -1,3 +1,4 @@
+" script to instance a client stub and pull messages from brokers"
 from org.swallow_labs.model.Client import Client
 from org.swallow_labs.model.Parser import *
 
@@ -14,8 +15,11 @@ c1.generate()
 for h in c1.sock_list:
     print(h.port)
 c1.pull()
-print(c1.pull_list)
+print("Message List :")
 for x in c1.pull_list:
 
-    # print(x.get_priority())
-    print(int(x.get_id_capsule()))
+
+    print("capsule id: ", int(x.get_id_capsule()))
+    print("capsule priority:", x.get_priority())
+    print("*************************************")
+
