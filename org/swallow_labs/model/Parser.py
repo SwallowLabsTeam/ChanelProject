@@ -10,8 +10,8 @@ class Parser:
         G{classtree}
         DESCRIPTION
         ===========
-            Class that s handeling the parsing of the json files in order to store data and make it available for use
-            by other components
+        Class that s handeling the parsing of the json files in order to store data and make it available for use
+        by other components
 
         @param client_path:    path of the json file containing the client infos
         @param broker_path:    path of the json file containing the brokers infos
