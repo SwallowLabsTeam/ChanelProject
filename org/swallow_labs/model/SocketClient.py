@@ -110,7 +110,6 @@ class SocketClient:
                 else:
                     c.set_receiving_date(time.localtime())
                     message_list.append(c)
-                    print("Let's talk about {}".format(json.dumps(c.__dict__)))
             return message_list
 
         else:
