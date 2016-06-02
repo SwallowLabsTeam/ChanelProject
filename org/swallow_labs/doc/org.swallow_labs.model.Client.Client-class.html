@@ -89,8 +89,7 @@
         <tr>
           <td><span class="summary-sig"><a href="org.swallow_labs.model.Client.Client-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
         <span class="summary-sig-arg">id_client</span>,
-        <span class="summary-sig-arg">address</span>,
-        <span class="summary-sig-arg">port</span>)</span></td>
+        <span class="summary-sig-arg">list_address</span>)</span></td>
           <td align="right" valign="top">
             <span class="codelink"><a href="org.swallow_labs.model.Client-pysrc.html#Client.__init__">source&nbsp;code</a></span>
             
@@ -106,12 +105,10 @@
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="org.swallow_labs.model.Client.Client-class.html#CheckPort" class="summary-sig-name">CheckPort</a>(<span class="summary-sig-arg">self</span>,
-        <span class="summary-sig-arg">adr</span>,
-        <span class="summary-sig-arg">pr</span>)</span><br />
-      Method check if the port server is open or not</td>
+          <td><span class="summary-sig"><a name="generate"></a><span class="summary-sig-name">generate</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Method generate the Client communication stub (MultiSocket)</td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="org.swallow_labs.model.Client-pysrc.html#Client.CheckPort">source&nbsp;code</a></span>
+            <span class="codelink"><a href="org.swallow_labs.model.Client-pysrc.html#Client.generate">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -127,8 +124,7 @@
         <tr>
           <td><span class="summary-sig"><a href="org.swallow_labs.model.Client.Client-class.html#push" class="summary-sig-name">push</a>(<span class="summary-sig-arg">self</span>,
         <span class="summary-sig-arg">capsule</span>)</span><br />
-      Method providing a way for the client to send messages through the 
-      broker</td>
+      Method sending capsule for the appropriate broker</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="org.swallow_labs.model.Client-pysrc.html#Client.push">source&nbsp;code</a></span>
             
@@ -140,13 +136,13 @@
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">List</span>
+      <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td><span class="summary-sig"><a name="pull"></a><span class="summary-sig-name">pull</span>(<span class="summary-sig-arg">self</span>)</span><br />
       Method allowing the client to pull the messages that concern him from
-      the broker</td>
+      all Broker and sort them</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="org.swallow_labs.model.Client-pysrc.html#Client.pull">source&nbsp;code</a></span>
             
@@ -156,18 +152,35 @@
       
     </td>
   </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="tri"></a><span class="summary-sig-name">tri</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Method that sort the pull_list</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="org.swallow_labs.model.Client-pysrc.html#Client.tri">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
 </table>
-<!-- ==================== INSTANCE VARIABLES ==================== -->
-<a name="section-InstanceVariables"></a>
+<!-- ==================== STATIC METHODS ==================== -->
+<a name="section-StaticMethods"></a>
 <table class="summary" border="1" cellpadding="3"
        cellspacing="0" width="100%" bgcolor="white">
 <tr bgcolor="#70b0f0" class="table-header">
   <td colspan="2" class="table-header">
     <table border="0" cellpadding="0" cellspacing="0" width="100%">
       <tr valign="top">
-        <td align="left"><span class="table-header">Instance Variables</span></td>
+        <td align="left"><span class="table-header">Static Methods</span></td>
         <td align="right" valign="top"
-         ><span class="options">[<a href="#section-InstanceVariables"
+         ><span class="options">[<a href="#section-StaticMethods"
          class="privatelink" onclick="toggle_private();"
          >hide private</a>]</span></td>
       </tr>
@@ -178,32 +191,59 @@
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="self.address"></a><span class="summary-name">self.address</span><br />
-      ip address:server adresse the client is connecting to
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="cpt_inc"></a><span class="summary-sig-name">cpt_inc</span>()</span><br />
+      Method incrementing the counter</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="org.swallow_labs.model.Client-pysrc.html#Client.cpt_inc">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="self.id_client"></a><span class="summary-name">self.id_client</span><br />
-      a client id
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="cpt_zero"></a><span class="summary-sig-name">cpt_zero</span>()</span><br />
+      Method reinitialising the counter</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="org.swallow_labs.model.Client-pysrc.html#Client.cpt_zero">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
     </td>
   </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="self.port"></a><span class="summary-name">self.port</span><br />
-      port of the host the client is connecting to
-    </td>
-  </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-        <a name="self.socket"></a><span class="summary-name">self.socket</span><br />
-      the socket enabling the connection
+        <a name="cpt"></a><span class="summary-name">cpt</span> = <code title="0">0</code>
     </td>
   </tr>
 </table>
@@ -234,8 +274,7 @@
   <tr valign="top"><td>
   <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
         <span class="sig-arg">id_client</span>,
-        <span class="sig-arg">address</span>,
-        <span class="sig-arg">port</span>)</span>
+        <span class="sig-arg">list_address</span>)</span>
     <br /><em class="fname">(Constructor)</em>
   </h3>
   </td><td align="right" valign="top"
@@ -247,36 +286,9 @@
   <dl class="fields">
     <dt>Parameters:</dt>
     <dd><ul class="nomargin-top">
-        <li><strong class="pname"><code>id_client</code></strong> - a client id</li>
-        <li><strong class="pname"><code>address</code></strong> - ip address of the host the client is connecting to</li>
-        <li><strong class="pname"><code>port</code></strong> - port of the host the client is connecting to</li>
-    </ul></dd>
-  </dl>
-</td></tr></table>
-</div>
-<a name="CheckPort"></a>
-<div>
-<table class="details" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr><td>
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-  <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">CheckPort</span>(<span class="sig-arg">self</span>,
-        <span class="sig-arg">adr</span>,
-        <span class="sig-arg">pr</span>)</span>
-  </h3>
-  </td><td align="right" valign="top"
-    ><span class="codelink"><a href="org.swallow_labs.model.Client-pysrc.html#Client.CheckPort">source&nbsp;code</a></span>&nbsp;
-    </td>
-  </tr></table>
-  
-  <h1 class="heading">DESCRIPTION</h1>
-    <p>Method check if the port server is open or not</p>
-  <dl class="fields">
-    <dt>Parameters:</dt>
-    <dd><ul class="nomargin-top">
-        <li><strong class="pname"><code>adr</code></strong> - server address</li>
-        <li><strong class="pname"><code>pr</code></strong> - server port</li>
+        <li><strong class="pname"><code>id_client</code></strong> (int) - a client id</li>
+        <li><strong class="pname"><code>list_address</code></strong> (list) - List of ip address and ports of the host the client is connecting
+          to</li>
     </ul></dd>
   </dl>
 </td></tr></table>
@@ -297,8 +309,7 @@
   </tr></table>
   
   <h1 class="heading">DESCRIPTION</h1>
-    <p>Method providing a way for the client to send messages through the 
-    broker</p>
+    <p>Method sending capsule for the appropriate broker</p>
   <dl class="fields">
     <dt>Parameters:</dt>
     <dd><ul class="nomargin-top">
@@ -331,7 +342,7 @@
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Wed May 25 15:02:28 2016
+    Generated by Epydoc 3.0.1 on Thu Jun 02 15:48:03 2016
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"
