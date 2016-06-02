@@ -32,5 +32,5 @@ class Launcher:
     def broker_def(front_end, back_end):
         b = Broker(front_end, back_end)
         print("broker launched")
-        print(str(front_end) + "///" + str(back_end))
+        print("using: "+str(front_end) + "///" + str(back_end)+" ports")
         b.start()
