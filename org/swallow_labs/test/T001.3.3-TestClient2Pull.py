@@ -18,5 +18,8 @@ c1.generate()
 
 # pull messages
 if c1.pull():
-    for x in c1.pull_list:
-        print("Capsule received")
+    if len(c1.pull_list) == 0:
+        print("No Messaages")
+    else:
+        for x in c1.pull_list:
+            print("Capsule received")
