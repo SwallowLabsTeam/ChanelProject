@@ -70,6 +70,7 @@ class Client:
         for i in range(self.nbr_broker):
             self.pull_list = self.pull_list+self.sock_list[i].pull()
         self.tri()
+        return 1
 
     def tri(self):
         """

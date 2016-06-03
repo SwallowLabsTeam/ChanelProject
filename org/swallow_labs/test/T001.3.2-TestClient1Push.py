@@ -6,11 +6,8 @@ from org.swallow_labs.tool.CapsulePriority import CapsulePriority
 p = Parser('client', 'json example')
 a = p.get_client_id()
 l = p.get_broker_list()
-print("ID client: ", a)
-for v in l:
-    print("Connexion address:", v.address)
-    print("Port address :", v.port)
 c = Client(a, l)
+print("client launched")
 capsule = Capsule(c.id_client)
 capsule.set_type("PAYLOAD")
 capsule.set_payload({'nom': 'gammoudi', 'prenom': 'seif'})
