@@ -11,7 +11,6 @@ try:
     print("Your json file is VALID")
     parser = Parser('client', 'json example')
     client = Client(parser.get_client_id(), parser.get_broker_list())
-    print(client)
     print("client launched")
     for x in client.list_address:
         print("le client est connecté sur le broker de port: {} et addresse: {}".format(x.port, x.address))
