@@ -122,7 +122,8 @@ class Broker:
 
                 # receive client id and capsule as bytes
                 b_client_id, b_capsule = self.frontend.recv_multipart()
-                print(b_capsule)
+                # print(b_capsule)
+                print("Capsule received")
                 client_id, c_recv = Broker.parse(b_client_id, b_capsule)
                 # Since this is a multipart message The first part will contain the receive id
                 # The second part will contain the payload
@@ -140,7 +141,7 @@ class Broker:
 
                 # receive client id and capsule as bytes
                 b_client_id, b_capsule = self.backend.recv_multipart()
-                print(b_capsule)
+                #print(b_capsule)
                 client_id, c_recv = Broker.parse(b_client_id, b_capsule)
 
                 if c_recv.get_type() == CapsuleType.READY:
