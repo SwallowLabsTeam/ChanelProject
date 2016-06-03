@@ -2,7 +2,7 @@
 from org.swallow_labs.model.Client import Client
 from org.swallow_labs.model.Parser import *
 
-p = Parser('client3', 'json example')
+p = Parser('client3', 'Configuration.json')
 a = p.get_client_id()
 l = p.get_broker_list()
 c1 = Client(a, l)
