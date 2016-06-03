@@ -57,6 +57,7 @@ class Client:
         Client.cpt_inc()
         if Client.cpt == self.nbr_broker:
             Client.cpt_zero()
+        return 1
 
     def pull(self):
 

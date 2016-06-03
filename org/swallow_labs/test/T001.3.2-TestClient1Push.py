@@ -22,6 +22,8 @@ capsule2.set_payload({'nom': 'Sallemi', 'prenom': 'Akram'})
 capsule2.set_id_receiver("20")
 capsule2.set_priority(CapsulePriority.INFORMATION_DEVICE_MSG)
 c.generate()
-c.push(capsule2)
-c.push(capsule)
+if c.push(capsule2) == 1:
+    print("Capsule Sent")
+if c.push(capsule) == 1:
+    print("Capsule Sent")
 

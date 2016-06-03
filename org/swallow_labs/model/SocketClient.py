@@ -79,11 +79,10 @@ class SocketClient:
         @param capsule : the capsule to send
 
         """
-        if self.CheckPort():
-
-            self.socket.send_json(json.dumps(capsule.__dict__))
-        else:
-            print("server closed")
+        while self.CheckPort() == 0:
+            print("server down")
+        self.socket.send_json(json.dumps(capsule.__dict__))
+        return 1
 
     # Method allowing the client to pull the data concerning him
     def pull(self):
