@@ -5,6 +5,7 @@ from contextlib import closing
 import time
 from org.swallow_labs.model.Capsule import Capsule
 from org.swallow_labs.tool.CapsuleType import CapsuleType
+from org.swallow_labs.tool.LoggingConf import LoggingConf
 import logging
 import logging.handlers
 
@@ -39,8 +40,8 @@ class SocketClient:
 
         """
         self.logger = logging.getLogger('Client {}'.format(id_client))
-        self.logger.setLevel(logging.DEBUG)
-        self.fh = logging.handlers.SysLogHandler(address=('192.168.1.250', 514), facility='local1')
+        self.logger.setLevel(LoggingConf.LEVEL)
+        self.fh = logging.handlers.SysLogHandler(address=(LoggingConf.HOST, LoggingConf.PORT), facility='local1')
         # fh = logging.FileHandler('broker.log')
         self.fh.setLevel(logging.DEBUG)
         self.formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -58,7 +59,7 @@ class SocketClient:
         self.socket.setsockopt(zmq.IDENTITY, bytes(self.id_client, "utf8"))
         # Connect to the designed host
         self.socket.connect("tcp://" + self.address + ":" + self.port)
-
+        self.logger.info('Client {} Connected to {} on port: {}'.format(self.id_client, self.address, self.port))
     # Method that check if the port server is open or not
 
     def check_port(self):

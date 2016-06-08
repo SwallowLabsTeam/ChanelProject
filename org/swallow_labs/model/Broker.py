@@ -2,6 +2,7 @@ import zmq
 from org.swallow_labs.model.Capsule import Capsule
 from org.swallow_labs.tool.CapsuleStatus import CapsuleStatus
 from org.swallow_labs.tool.CapsuleType import CapsuleType
+from org.swallow_labs.tool.LoggingConf import LoggingConf
 import json
 import logging
 import logging.handlers
@@ -34,8 +35,8 @@ class Broker:
 
     """
     logger = logging.getLogger('Broker')
-    logger.setLevel(logging.DEBUG)
-    fh = logging.handlers.SysLogHandler(address=('192.168.1.250', 514), facility='local0')
+    logger.setLevel(LoggingConf.LEVEL)
+    fh = logging.handlers.SysLogHandler(address=(LoggingConf.HOST, LoggingConf.PORT), facility='local0')
     #fh = logging.FileHandler('broker.log')
     fh.setLevel(logging.DEBUG)
     formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
