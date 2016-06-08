@@ -157,10 +157,10 @@ class Broker:
 
                 # receive client id and capsule as bytes
                 b_client_id, b_capsule = self.backend.recv_multipart()
-                Broker.logger.debug('Received from client {} :\n {}'.format(c_recv.get_id_sender(),
-                                                                          json.dumps(c_recv.__dict__)))
 
                 client_id, c_recv = Broker.parse(b_client_id, b_capsule)
+                Broker.logger.debug('Received from client {} :\n {}'.format(c_recv.get_id_sender(),
+                                                                            json.dumps(c_recv.__dict__)))
 
                 if c_recv.get_type() == CapsuleType.READY:
                     self.send(client_id, self.backend)
