@@ -3,6 +3,10 @@ from org.swallow_labs.model.Capsule import Capsule
 from org.swallow_labs.tool.CapsuleStatus import CapsuleStatus
 from org.swallow_labs.tool.CapsuleType import CapsuleType
 import json
+import logging
+import logging.handlers
+
+module_logger = logging.getLogger('app.module_broker')
 
 
 class Broker:
@@ -30,11 +34,21 @@ class Broker:
     @type id_backend: int
 
     """
+    logger = logging.getLogger('Broker')
+    logger.setLevel(logging.DEBUG)
+    fh = logging.handlers.SysLogHandler(address=('192.168.1.250', 514), facility='local0')
+    #fh = logging.FileHandler('broker.log')
+    fh.setLevel(logging.DEBUG)
+    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    fh.setFormatter(formatter)
+    logger.addHandler(fh)
+
     def __init__(self, id_frontend, id_backend):
         """
 
 
         """
+        self.message_list = []
         self.id_frontend = id_frontend
         self.id_backend = id_backend
         # Prepare context and sockets
@@ -80,9 +94,12 @@ class Broker:
         @type end : socket
         """
         for k in range(len(self.message_list)):
-            if self.message_list[k].get_id_receiver() == client_id and self.message_list[k].get_status_capsule() != CapsuleStatus.YES:
+            if self.message_list[k].get_id_receiver() == client_id and\
+                            self.message_list[k].get_status_capsule() != CapsuleStatus.YES:
                 self.message_list[k].set_status_capsule(CapsuleStatus.YES)
                 end.send_multipart([bytes(client_id, 'utf8'), bytes(json.dumps(self.message_list[k].__dict__), 'utf8')])
+                Broker.logger.debug('Sent to client {} :\n {}'.format(client_id,
+                                                                      json.dumps(self.message_list[k].__dict__)))
         c = Capsule(0)
         c.set_type(CapsuleType.END)
         end.send_multipart([bytes(client_id, 'utf8'), bytes(json.dumps(c.__dict__), 'utf8')])
@@ -112,7 +129,6 @@ class Broker:
         Method describing the behaviour of the broker it is the main loop in which he receives messages
         and forwards them to the appropriate peer
         """
-        self.message_list = []
         while True:
 
             # Convert the return of the poll method into a dictionary
@@ -122,9 +138,9 @@ class Broker:
 
                 # receive client id and capsule as bytes
                 b_client_id, b_capsule = self.frontend.recv_multipart()
-                # print(b_capsule)
-                print("Capsule received")
                 client_id, c_recv = Broker.parse(b_client_id, b_capsule)
+                Broker.logger.debug('Received from client {} :\n {}'.format(c_recv.get_id_sender(),
+                                                                          json.dumps(c_recv.__dict__)))
                 # Since this is a multipart message The first part will contain the receive id
                 # The second part will contain the payload
                 # if the payload is equal to READY (b stands for bytes conversion)
@@ -141,7 +157,9 @@ class Broker:
 
                 # receive client id and capsule as bytes
                 b_client_id, b_capsule = self.backend.recv_multipart()
-                #print(b_capsule)
+                Broker.logger.debug('Received from client {} :\n {}'.format(c_recv.get_id_sender(),
+                                                                          json.dumps(c_recv.__dict__)))
+
                 client_id, c_recv = Broker.parse(b_client_id, b_capsule)
 
                 if c_recv.get_type() == CapsuleType.READY:
@@ -152,5 +170,7 @@ class Broker:
             if len(self.message_list) > 0:
                 self.clean()
 
-
-
+if __name__ == '__main__':
+    b = Broker(5000, 6000)
+    b.clean()
+    b1 = Broker(5001, 6002)
