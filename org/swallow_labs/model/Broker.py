@@ -47,6 +47,7 @@ class Broker:
 
 
         """
+
         self.message_list = []
         self.id_frontend = id_frontend
         self.id_backend = id_backend
@@ -67,6 +68,7 @@ class Broker:
         # Register the front-end and back-end sockets into the poller
         self.poller.register(self.frontend, zmq.POLLIN)
         self.poller.register(self.backend, zmq.POLLIN)
+        Broker.logger.info( "Broker start: " + "PORT: Frontend: " + str(self.id_frontend) + " Backend: " + str(self.id_backend))
 
     def clean(self):
         """

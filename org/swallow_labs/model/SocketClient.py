@@ -88,6 +88,7 @@ class SocketClient:
         if self.check_port() == 0:
             self.logger.warn("server down")
         while self.check_port() == 0:
+            pass
 
         self.socket.send_json(json.dumps(capsule.__dict__))
         self.logger.debug('sent : {}'.format(capsule.__dict__))
