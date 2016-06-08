@@ -5,7 +5,8 @@ from contextlib import closing
 import time
 from org.swallow_labs.model.Capsule import Capsule
 from org.swallow_labs.tool.CapsuleType import CapsuleType
-
+import logging
+import logging.handlers
 
 
 class SocketClient:
@@ -37,6 +38,14 @@ class SocketClient:
 
 
         """
+        self.logger = logging.getLogger('Client {}'.format(id_client))
+        self.logger.setLevel(logging.DEBUG)
+        self.fh = logging.handlers.SysLogHandler(address=('192.168.1.250', 514), facility='local1')
+        # fh = logging.FileHandler('broker.log')
+        self.fh.setLevel(logging.DEBUG)
+        self.formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+        self.fh.setFormatter(self.formatter)
+        self.logger.addHandler(self.fh)
         # Initialize client
         self.id_client = id_client
         self.address = address
@@ -46,20 +55,17 @@ class SocketClient:
         # Create a DEALER socket
         self.socket = context.socket(zmq.DEALER)
         # Assign an id to the client
-        self.socket.setsockopt(zmq.IDENTITY, bytes(self.id_client,"utf8"))
+        self.socket.setsockopt(zmq.IDENTITY, bytes(self.id_client, "utf8"))
         # Connect to the designed host
         self.socket.connect("tcp://" + self.address + ":" + self.port)
 
     # Method that check if the port server is open or not
-    def CheckPort(self):
-        """
 
+    def check_port(self):
+        """
         DESCRIPTION
         ===========
         Method check if the port server is open or not
-
-
-
         """
         with closing(socket.socket(socket.AF_INET, socket.SOCK_STREAM)) as sock:
             if sock.connect_ex((self.address, int(self.port))) == 0:
@@ -79,9 +85,10 @@ class SocketClient:
         @param capsule : the capsule to send
 
         """
-        while self.CheckPort() == 0:
-            print("server down")
+        while self.check_port() == 0:
+            self.logger.warn("server down")
         self.socket.send_json(json.dumps(capsule.__dict__))
+        self.logger.debug('sent : {}'.format(capsule.__dict__))
         return 1
 
     # Method allowing the client to pull the data concerning him
@@ -93,7 +100,7 @@ class SocketClient:
 
         @rtype: List
         """
-        if self.CheckPort():
+        if self.check_port():
 
             c = Capsule(self.id_client)
             c.set_type(CapsuleType.READY)
@@ -104,6 +111,7 @@ class SocketClient:
                 p = json.dumps(j)
 
                 c = Capsule(j=p)
+                self.logger.debug('messages retrieved {}'.format(c.__dict__))
                 if c.get_type() == CapsuleType.END:
                     break
                 else:
