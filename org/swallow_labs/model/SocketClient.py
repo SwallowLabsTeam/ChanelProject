@@ -33,20 +33,20 @@ class SocketClient:
     @ivar self.socket: the socket enabling the connection
 
     """
-
+    logger = logging.getLogger()
+    logger.setLevel(LoggingConf.LEVEL)
+    fh = logging.handlers.SysLogHandler(address=(LoggingConf.HOST, LoggingConf.PORT), facility='local1')
+    # fh = logging.FileHandler('broker.log')
+    fh.setLevel(logging.DEBUG)
+    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    fh.setFormatter(formatter)
+    logger.addHandler(fh)
     def __init__(self, id_client, address, port):
         """
 
 
         """
-        self.logger = logging.getLogger('Client {}'.format(id_client))
-        self.logger.setLevel(LoggingConf.LEVEL)
-        self.fh = logging.handlers.SysLogHandler(address=(LoggingConf.HOST, LoggingConf.PORT), facility='local1')
-        # fh = logging.FileHandler('broker.log')
-        self.fh.setLevel(logging.DEBUG)
-        self.formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-        self.fh.setFormatter(self.formatter)
-        self.logger.addHandler(self.fh)
+
         # Initialize client
         self.id_client = id_client
         self.address = address
@@ -59,7 +59,8 @@ class SocketClient:
         self.socket.setsockopt(zmq.IDENTITY, bytes(self.id_client, "utf8"))
         # Connect to the designed host
         self.socket.connect("tcp://" + self.address + ":" + self.port)
-        self.logger.info('Client {} Connected to {} on port: {}'.format(self.id_client, self.address, self.port))
+        SocketClient.logger = logging.getLogger('Client {}'.format(self.id_client))
+        SocketClient.logger.info('Client {} Connected to {} on port: {}'.format(self.id_client, self.address, self.port))
     # Method that check if the port server is open or not
 
     def check_port(self):

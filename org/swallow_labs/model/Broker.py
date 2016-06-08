@@ -172,7 +172,3 @@ class Broker:
             if len(self.message_list) > 0:
                 self.clean()
 
-if __name__ == '__main__':
-    b = Broker(5000, 6000)
-    b.clean()
-    b1 = Broker(5001, 6002)
