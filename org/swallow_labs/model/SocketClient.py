@@ -85,8 +85,10 @@ class SocketClient:
         @param capsule : the capsule to send
 
         """
-        while self.check_port() == 0:
+        if self.check_port() == 0:
             self.logger.warn("server down")
+        while self.check_port() == 0:
+
         self.socket.send_json(json.dumps(capsule.__dict__))
         self.logger.debug('sent : {}'.format(capsule.__dict__))
         return 1
