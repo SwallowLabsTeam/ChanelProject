@@ -1,5 +1,7 @@
 from org.swallow_labs.model.SocketClient import SocketClient
 import queue as Q
+import logging
+import logging.handlers
 
 
 class Client:
@@ -23,11 +25,17 @@ class Client:
         @type id_client     : int
         @type list_address  : list
     """
-
     cpt = 0
 
     def __init__(self, id_client, list_address):
-
+        self.logger = logging.getLogger('Client {}'.format(self.id_client))
+        self.logger.setLevel(logging.DEBUG)
+        self.fh = logging.handlers.SysLogHandler(address=('192.168.1.250', 514), facility='local1')
+        # fh = logging.FileHandler('broker.log')
+        self.fh.setLevel(logging.DEBUG)
+        self.formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+        self.fh.setFormatter(self.formatter)
+        self.logger.addHandler(self.fh)
         self.id_client = id_client
         self.list_address = list_address
         self.sock_list = []
@@ -41,7 +49,8 @@ class Client:
             Method generate the Client communication stub (MultiSocket)
          """
         for i in range(self.nbr_broker):
-            self.sock_list.append(SocketClient(str(self.id_client),str(self.list_address[i].address),str(self.list_address[i].port)))
+            self.sock_list.append(SocketClient(str(self.id_client),
+                                               str(self.list_address[i].address),str(self.list_address[i].port)))
 
     def push(self, capsule):
 
@@ -54,6 +63,7 @@ class Client:
         """
 
         self.sock_list[self.cpt].push(capsule)
+        self.logger.debug('sent : {}'.format(capsule.__dict__))
         Client.cpt_inc()
         if Client.cpt == self.nbr_broker:
             Client.cpt_zero()
@@ -70,6 +80,8 @@ class Client:
         for i in range(self.nbr_broker):
             self.pull_list = self.pull_list+self.sock_list[i].pull()
         self.tri()
+        for x in self.pull_list:
+            self.logger.debug('messages retrieved {}'.format(x.__dict__))
         return 1
 
     def tri(self):

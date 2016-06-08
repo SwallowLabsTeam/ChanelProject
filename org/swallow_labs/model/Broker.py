@@ -6,7 +6,6 @@ import json
 import logging
 import logging.handlers
 
-module_logger = logging.getLogger('app.module_broker')
 
 
 class Broker:
@@ -98,7 +97,7 @@ class Broker:
                             self.message_list[k].get_status_capsule() != CapsuleStatus.YES:
                 self.message_list[k].set_status_capsule(CapsuleStatus.YES)
                 end.send_multipart([bytes(client_id, 'utf8'), bytes(json.dumps(self.message_list[k].__dict__), 'utf8')])
-                Broker.logger.debug('Sent to client {} :\n {}'.format(client_id,
+                Broker.logger.debug('Sent to client {} : {}'.format(client_id,
                                                                       json.dumps(self.message_list[k].__dict__)))
         c = Capsule(0)
         c.set_type(CapsuleType.END)
@@ -139,7 +138,7 @@ class Broker:
                 # receive client id and capsule as bytes
                 b_client_id, b_capsule = self.frontend.recv_multipart()
                 client_id, c_recv = Broker.parse(b_client_id, b_capsule)
-                Broker.logger.debug('Received from client {} :\n {}'.format(c_recv.get_id_sender(),
+                Broker.logger.debug('Received from client {} : {}'.format(c_recv.get_id_sender(),
                                                                           json.dumps(c_recv.__dict__)))
                 # Since this is a multipart message The first part will contain the receive id
                 # The second part will contain the payload
@@ -159,7 +158,7 @@ class Broker:
                 b_client_id, b_capsule = self.backend.recv_multipart()
 
                 client_id, c_recv = Broker.parse(b_client_id, b_capsule)
-                Broker.logger.debug('Received from client {} :\n {}'.format(c_recv.get_id_sender(),
+                Broker.logger.debug('Received from client {} : {}'.format(c_recv.get_id_sender(),
                                                                             json.dumps(c_recv.__dict__)))
 
                 if c_recv.get_type() == CapsuleType.READY:
