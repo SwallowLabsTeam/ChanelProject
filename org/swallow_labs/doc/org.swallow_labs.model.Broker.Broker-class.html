@@ -3,7 +3,7 @@
           "DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title>Client.Client</title>
+  <title>org.swallow_labs.model.Broker.Broker</title>
   <link rel="stylesheet" href="epydoc.css" type="text/css" />
   <script type="text/javascript" src="epydoc.js"></script>
 </head>
@@ -34,8 +34,11 @@
   <tr valign="top">
     <td width="100%">
       <span class="breadcrumbs">
-        <a href="Client-module.html">Module&nbsp;Client</a> ::
-        Class&nbsp;Client
+        Package&nbsp;org ::
+        Package&nbsp;swallow_labs ::
+        Package&nbsp;model ::
+        <a href="org.swallow_labs.model.Broker-module.html">Module&nbsp;Broker</a> ::
+        Class&nbsp;Broker
       </span>
     </td>
     <td>
@@ -45,22 +48,21 @@
     onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
         <tr><td align="right"><span class="options"
             >[<a href="frames.html" target="_top">frames</a
-            >]&nbsp;|&nbsp;<a href="Client.Client-class.html"
+            >]&nbsp;|&nbsp;<a href="org.swallow_labs.model.Broker.Broker-class.html"
             target="_top">no&nbsp;frames</a>]</span></td></tr>
       </table>
     </td>
   </tr>
 </table>
 <!-- ==================== CLASS DESCRIPTION ==================== -->
-<h1 class="epydoc">Class Client</h1><p class="nomargin-top"><span class="codelink"><a href="Client-pysrc.html#Client">source&nbsp;code</a></span></p>
-<p>Class creating a client object:</p>
+<h1 class="epydoc">Class Broker</h1><p class="nomargin-top"><span class="codelink"><a href="org.swallow_labs.model.Broker-pysrc.html#Broker">source&nbsp;code</a></span></p>
+<p>Class creating a broker object</p>
   <p></p>
   <p></p>
   <h1 class="heading">DESCRIPTION</h1>
-    <p>Create a client</p>
+    <p>Create a broker</p>
   <h1 class="heading">RETURN</h1>
-    <p>Return a client</p>
-  <h1 class="heading">PARAMETERS</h1>
+    <p>Return a broker</p>
 
 <!-- ==================== INSTANCE METHODS ==================== -->
 <a name="section-InstanceMethods"></a>
@@ -85,12 +87,11 @@
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="Client.Client-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
-        <span class="summary-sig-arg">id_client</span>,
-        <span class="summary-sig-arg">connection</span>)</span><br />
-      :</td>
+          <td><span class="summary-sig"><a href="org.swallow_labs.model.Broker.Broker-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">id_frontend</span>,
+        <span class="summary-sig-arg">id_backend</span>)</span></td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="Client-pysrc.html#Client.__init__">source&nbsp;code</a></span>
+            <span class="codelink"><a href="org.swallow_labs.model.Broker-pysrc.html#Broker.__init__">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -104,13 +105,11 @@
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="Client.Client-class.html#push" class="summary-sig-name">push</a>(<span class="summary-sig-arg">self</span>,
-        <span class="summary-sig-arg">id_receiver</span>,
-        <span class="summary-sig-arg">payload</span>)</span><br />
-      : DESCRIPTION =========== Method providing a way for the client to 
-      send messages through the broker</td>
+          <td><span class="summary-sig"><a name="clean"></a><span class="summary-sig-name">clean</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Method cleaning the message_list attribute of the broker by removing 
+      the messages that were sent</td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="Client-pysrc.html#Client.push">source&nbsp;code</a></span>
+            <span class="codelink"><a href="org.swallow_labs.model.Broker-pysrc.html#Broker.clean">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -124,11 +123,51 @@
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="pull"></a><span class="summary-sig-name">pull</span>(<span class="summary-sig-arg">self</span>)</span><br />
-      : DESCRIPTION =========== Method allowing the client to pull the 
-      messages that concern him from the broker</td>
+          <td><span class="summary-sig"><a href="org.swallow_labs.model.Broker.Broker-class.html#send" class="summary-sig-name">send</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">client_id</span>,
+        <span class="summary-sig-arg">end</span>)</span><br />
+      This method sends the capsules that contain the receiver id matching 
+      the receiver id received as parameter on the specified end</td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="Client-pysrc.html#Client.pull">source&nbsp;code</a></span>
+            <span class="codelink"><a href="org.swallow_labs.model.Broker-pysrc.html#Broker.send">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">List</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="org.swallow_labs.model.Broker.Broker-class.html#parse" class="summary-sig-name">parse</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">b_client_id</span>,
+        <span class="summary-sig-arg">b_capsule</span>)</span><br />
+      Method converting the b_client_id into a string and the b_capsule 
+      into a Capsule object</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="org.swallow_labs.model.Broker-pysrc.html#Broker.parse">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="start"></a><span class="summary-sig-name">start</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Method describing the behaviour of the broker it is the main loop in 
+      which he receives messages and forwards them to the appropriate peer</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="org.swallow_labs.model.Broker-pysrc.html#Broker.start">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -158,24 +197,33 @@
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="self.connection"></a><span class="summary-name">self.connection</span><br />
-      ip address:port of the host the client is connecting to
+        <a name="self.backend"></a><span class="summary-name">self.backend</span><br />
+      back-end socket
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="self.id_client"></a><span class="summary-name">self.id_client</span><br />
-      a client id
+        <a name="self.frontend"></a><span class="summary-name">self.frontend</span><br />
+      front-end socket
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="self.socket"></a><span class="summary-name">self.socket</span><br />
-      the socket enabling the connection
+        <a name="self.message_list"></a><span class="summary-name">self.message_list</span><br />
+      a list containing the messages received from the clients other than 
+      the Ready message
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="self.poller"></a><span class="summary-name">self.poller</span><br />
+      A stateful poll object
     </td>
   </tr>
 </table>
@@ -205,50 +253,81 @@
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
   <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
-        <span class="sig-arg">id_client</span>,
-        <span class="sig-arg">connection</span>)</span>
+        <span class="sig-arg">id_frontend</span>,
+        <span class="sig-arg">id_backend</span>)</span>
     <br /><em class="fname">(Constructor)</em>
   </h3>
   </td><td align="right" valign="top"
-    ><span class="codelink"><a href="Client-pysrc.html#Client.__init__">source&nbsp;code</a></span>&nbsp;
+    ><span class="codelink"><a href="org.swallow_labs.model.Broker-pysrc.html#Broker.__init__">source&nbsp;code</a></span>&nbsp;
     </td>
   </tr></table>
   
-  <p>:</p>
+  
   <dl class="fields">
     <dt>Parameters:</dt>
     <dd><ul class="nomargin-top">
-        <li><strong class="pname"><code>id_client</code></strong> - a client id</li>
-        <li><strong class="pname"><code>connection</code></strong> - ip address:port of the host the client is connecting to</li>
+        <li><strong class="pname"><code>id_frontend</code></strong> (int) - port number for the front-end socket</li>
+        <li><strong class="pname"><code>id_backend</code></strong> (int) - port number for the back-end socket</li>
     </ul></dd>
   </dl>
 </td></tr></table>
 </div>
-<a name="push"></a>
+<a name="send"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
        cellspacing="0" width="100%" bgcolor="white">
 <tr><td>
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">push</span>(<span class="sig-arg">self</span>,
-        <span class="sig-arg">id_receiver</span>,
-        <span class="sig-arg">payload</span>)</span>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">send</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">client_id</span>,
+        <span class="sig-arg">end</span>)</span>
   </h3>
   </td><td align="right" valign="top"
-    ><span class="codelink"><a href="Client-pysrc.html#Client.push">source&nbsp;code</a></span>&nbsp;
+    ><span class="codelink"><a href="org.swallow_labs.model.Broker-pysrc.html#Broker.send">source&nbsp;code</a></span>&nbsp;
     </td>
   </tr></table>
   
-  <p>: DESCRIPTION =========== Method providing a way for the client to 
-  send messages through the broker</p>
-  <h1 class="heading">PARAMETERS</h1>
+  <h1 class="heading">DESCRIPTION</h1>
+    <p>This method sends the capsules that contain the receiver id matching
+    the receiver id received as parameter on the specified end</p>
   <dl class="fields">
     <dt>Parameters:</dt>
     <dd><ul class="nomargin-top">
-        <li><strong class="pname"><code>id_receiver</code></strong> - id of the client that shall receive the message</li>
-        <li><strong class="pname"><code>payload</code></strong> - the data that s being transferred</li>
+        <li><strong class="pname"><code>client_id</code></strong> (string) - id of the client to whom the message is sent</li>
+        <li><strong class="pname"><code>end</code></strong> (socket) - this may take self.backend or self.backend</li>
     </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="parse"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">parse</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">b_client_id</span>,
+        <span class="sig-arg">b_capsule</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="org.swallow_labs.model.Broker-pysrc.html#Broker.parse">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <h1 class="heading">DESCRIPTION</h1>
+    <p>Method converting the b_client_id into a string and the b_capsule 
+    into a Capsule object</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>b_client_id</code></strong> (Bytes) - client id in bytes format</li>
+        <li><strong class="pname"><code>b_capsule</code></strong> (Bytes) - capsule in bytes format</li>
+    </ul></dd>
+    <dt>Returns: List</dt>
+        <dd>return a list containing the client id as a string and the 
+          Capsule object</dd>
   </dl>
 </td></tr></table>
 </div>
@@ -276,7 +355,7 @@
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Mon May 23 14:04:25 2016
+    Generated by Epydoc 3.0.1 on Wed May 25 15:02:28 2016
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

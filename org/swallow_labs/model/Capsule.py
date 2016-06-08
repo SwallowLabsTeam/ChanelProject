@@ -1,4 +1,5 @@
 import json
+import time
 
 
 class Capsule:
@@ -15,15 +16,18 @@ class Capsule:
         ======
         Return a capsule
 
-        PARAMETERS
-        ==========
         @param id_sender:    Sender ID
-        @param id_receiver:    Receiver ID
-        @param payload:    Message wanted to send
-        @param type:    Message type
-        @param date:    creation, sent and received date(the sens from the left to right separated by *)
-        @param status_capsule:    capsule status(yes if road it and no if still not road it by the broker)
+        @param j:    Json object
 
+        @type id_sender: int
+        @type j: String
+
+        @ivar self.id_sender:    Sender ID
+        @ivar self.id_receiver:    Receiver ID
+        @ivar self.payload:    Message wanted to send
+        @ivar self.type:    Message type (PAYLOAD, READY, SENT, END)
+        @ivar self.date:    Sending and receiving date(separated by *)
+        @ivar self.status_capsule:    Capsule status(YES if read it and NO if still not read it by the broker)
         """
     def __init__(self, id_sender=None, j=None):
         """
@@ -32,108 +36,126 @@ class Capsule:
         """
         if j is None:
             self.id_sender = id_sender
+            # By default the status of the capsule is not yet read by the broker
+            self.status_capsule = "NO"
+            # add to the capsule, date of sending
+            self.date = time.strftime('%d/%m/%y %H:%M', time.localtime())
         else:
             self.__dict__ = json.loads(j)
 
-    # Capsule setters
-    def set_id_sender(self, id_sender):
-        """
-            :
-            DESCRIPTION
-            ===========
-            Method providing a way to set the sender ID
-
-        """
-        self.id_sender = id_sender
-
-    def set_id_receiver(self, id_receiver):
-        """
-            :
-            DESCRIPTION
-            ===========
-            Method providing a way to set the receiver ID
-
-        """
-        self.id_receiver = id_receiver
-
-    def set_payload(self, payload):
-        """
-            :
-            DESCRIPTION
-            ===========
-            Method providing a way to set the payload
-
-        """
-        self.payload = payload
-
-    def get_payload(self):
-        """
-            :
-            DESCRIPTION
-            ===========
-            Method providing a way to get the payload
-
-        """
-        return self.payload
-
-    def set_date(self, date):
-        """
-            :
-            DESCRIPTION
-            ===========
-            Method providing a way to get the creaction, sent and received date
-
-        """
-        self.date = date
-
-    def set_status_capsule(self, status_capsule):
-        """
-            :
-            DESCRIPTION
-            ===========
-            Method providing a way to get the creation, sent and received date
-
-        """
-        self.status_capsule = status_capsule
-
-    def set_type(self, type):
-        """
-            :
-            DESCRIPTION
-            ===========
-            Method providing a way to set the capsule type
-
-        """
-        self.type = type
-
     # Capsule getters
+
+    def get_id_sender(self):
+        """
+
+        DESCRIPTION
+        ===========
+        Method providing a way to get the sender ID
+
+        """
+        return self.id_sender
+
     def get_id_receiver(self):
         """
-            :
-            DESCRIPTION
-            ===========
-            Method providing a way to get the receiver ID
+
+        DESCRIPTION
+        ===========
+        Method providing a way to get the receiver ID
 
         """
         return self.id_receiver
 
+    def get_payload(self):
+        """
+
+        DESCRIPTION
+        ===========
+        Method providing a way to get the payload
+
+        """
+        return self.payload
+
     def get_status_capsule(self):
         """
-            :
-            DESCRIPTION
-            ===========
-            Method providing a way to get the capsule status
+
+        DESCRIPTION
+        ===========
+        Method providing a way to get the capsule status
 
         """
         return self.status_capsule
 
     def get_type(self):
         """
-            :
-            DESCRIPTION
-            ===========
-            Method providing a way to get the capsule type
+
+        DESCRIPTION
+        ===========
+        Method providing a way to get the capsule type
 
         """
         return self.type
+
+    def get_date(self):
+        """
+
+        DESCRIPTION
+        ===========
+        Method providing a way to get the time of sending and receiving of the capsule(separated by *)
+
+        """
+        return self.date
+
+    # Capsule setters
+
+    def set_id_receiver(self, id_receiver):
+        """
+
+        DESCRIPTION
+        ===========
+        Method providing a way to set the receiver ID
+
+        """
+        self.id_receiver = id_receiver
+
+    def set_payload(self, payload):
+        """
+
+        DESCRIPTION
+        ===========
+        Method providing a way to set the payload
+
+        """
+        self.payload = payload
+
+    def set_date(self, date):
+        """
+
+        DESCRIPTION
+        ===========
+        Method providing a way to set the sending or receiving date
+
+        """
+        self.date = date
+
+    def set_status_capsule(self, status_capsule):
+        """
+
+        DESCRIPTION
+        ===========
+        Method providing a way to set the capsule status
+
+        """
+        self.status_capsule = status_capsule
+
+    def set_type(self, type):
+        """
+
+        DESCRIPTION
+        ===========
+        Method Setting capsule type
+
+        """
+        self.type = type
+
+
 
