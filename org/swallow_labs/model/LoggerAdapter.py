@@ -59,8 +59,3 @@ class LoggerAdapter:
     def log_server_down(self):
         self.logger.debug('Server down')
 
-
-l = LoggerAdapter(LoggingConf.LEVEL_BROKER, LoggingConf.HOST, LoggingConf.PORT, LoggingConf.FACILITY_BROKER, LoggingConf.FORMAT, 'Broker')
-l.log("Bonjour")
-l.log("Salut")
-l.log("************************************")
