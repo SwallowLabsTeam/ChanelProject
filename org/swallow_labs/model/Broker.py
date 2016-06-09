@@ -1,12 +1,12 @@
 import zmq
 from org.swallow_labs.model.Capsule import Capsule
+from org.swallow_labs.model.LoggerAdapter import LoggerAdapter
 from org.swallow_labs.tool.CapsuleStatus import CapsuleStatus
 from org.swallow_labs.tool.CapsuleType import CapsuleType
 from org.swallow_labs.tool.LoggingConf import LoggingConf
 import json
 import logging
 import logging.handlers
-
 
 
 class Broker:
@@ -34,14 +34,6 @@ class Broker:
     @type id_backend: int
 
     """
-    logger = logging.getLogger('Broker')
-    logger.setLevel(LoggingConf.LEVEL)
-    fh = logging.handlers.SysLogHandler(address=(LoggingConf.HOST, LoggingConf.PORT), facility='local0')
-    #fh = logging.FileHandler('broker.log')
-    fh.setLevel(logging.DEBUG)
-    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-    fh.setFormatter(formatter)
-    logger.addHandler(fh)
 
     def __init__(self, id_frontend, id_backend):
         """
@@ -69,7 +61,10 @@ class Broker:
         # Register the front-end and back-end sockets into the poller
         self.poller.register(self.frontend, zmq.POLLIN)
         self.poller.register(self.backend, zmq.POLLIN)
-        Broker.logger.info( "Broker start: " + "PORT: Frontend: " + str(self.id_frontend) + " Backend: " + str(self.id_backend))
+        self.my_logger = LoggerAdapter(LoggingConf.LEVEL_BROKER, LoggingConf.HOST, LoggingConf.PORT,
+                                  LoggingConf.FACILITY_BROKER, LoggingConf.FORMAT, 'Broker')
+        self.my_logger.log_broker_start(self.id_frontend, self.id_backend)
+        # Broker.logger.info( "Broker start: " + "PORT: Frontend: " + str(self.id_frontend) + " Backend: " + str(self.id_backend))
 
     def clean(self):
         """
@@ -100,8 +95,8 @@ class Broker:
                             self.message_list[k].get_status_capsule() != CapsuleStatus.YES:
                 self.message_list[k].set_status_capsule(CapsuleStatus.YES)
                 end.send_multipart([bytes(client_id, 'utf8'), bytes(json.dumps(self.message_list[k].__dict__), 'utf8')])
-                Broker.logger.debug('Sent to client {} : {}'.format(client_id,
-                                                                      json.dumps(self.message_list[k].__dict__)))
+                self.my_logger.log_broker_send(client_id, self.message_list[k])
+                # Broker.logger.debug('Sent to client {} : {}'.format(client_id,json.dumps(self.message_list[k].__dict__)))
         c = Capsule(0)
         c.set_type(CapsuleType.END)
         end.send_multipart([bytes(client_id, 'utf8'), bytes(json.dumps(c.__dict__), 'utf8')])
@@ -141,8 +136,8 @@ class Broker:
                 # receive client id and capsule as bytes
                 b_client_id, b_capsule = self.frontend.recv_multipart()
                 client_id, c_recv = Broker.parse(b_client_id, b_capsule)
-                Broker.logger.debug('Received from client {} : {}'.format(c_recv.get_id_sender(),
-                                                                          json.dumps(c_recv.__dict__)))
+                self.my_logger.log_broker_receive(c_recv)
+                # Broker.logger.debug('Received from client {} : {}'.format(c_recv.get_id_sender(), json.dumps(c_recv.__dict__)))
                 # Since this is a multipart message The first part will contain the receive id
                 # The second part will contain the payload
                 # if the payload is equal to READY (b stands for bytes conversion)
@@ -161,8 +156,8 @@ class Broker:
                 b_client_id, b_capsule = self.backend.recv_multipart()
 
                 client_id, c_recv = Broker.parse(b_client_id, b_capsule)
-                Broker.logger.debug('Received from client {} : {}'.format(c_recv.get_id_sender(),
-                                                                            json.dumps(c_recv.__dict__)))
+                self.my_logger.log_broker_receive(c_recv)
+                # Broker.logger.debug('Received from client {} : {}'.format(c_recv.get_id_sender(),json.dumps(c_recv.__dict__)))
 
                 if c_recv.get_type() == CapsuleType.READY:
                     self.send(client_id, self.backend)
