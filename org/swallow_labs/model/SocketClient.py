@@ -35,14 +35,10 @@ class SocketClient:
     @ivar self.socket: the socket enabling the connection
 
     """
-    logger = logging.getLogger()
-    logger.setLevel(LoggingConf.LEVEL)
-    fh = logging.handlers.SysLogHandler(address=(LoggingConf.HOST, LoggingConf.PORT), facility='local1')
-    # fh = logging.FileHandler('broker.log')
-    fh.setLevel(logging.DEBUG)
-    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-    fh.setFormatter(formatter)
-    logger.addHandler(fh)
+    parser_log_file = ParserLogFile('parconf')
+    param_log = parser_log_file.get_param_client()
+    my_logger = LoggerAdapter(param_log)
+
     def __init__(self, id_client, address, port):
         """
 
@@ -61,10 +57,10 @@ class SocketClient:
         self.socket.setsockopt(zmq.IDENTITY, bytes(self.id_client, "utf8"))
         # Connect to the designed host
         self.socket.connect("tcp://" + self.address + ":" + self.port)
-        parser_log_file = ParserLogFile('parconf')
-        param_log = parser_log_file.get_param_client(self.id_client)
-        self.my_logger = LoggerAdapter(param_log)
-        self.my_logger.log_client_connect(self.id_client, self.address, self.port)
+
+
+
+        SocketClient.my_logger.log_client_connect(self.id_client, self.address, self.port)
 
     # Method that check if the port server is open or not
 
@@ -93,13 +89,13 @@ class SocketClient:
 
         """
         if self.check_port() == 0:
-            self.my_logger.log_server_down()
+            SocketClient.my_logger.log_server_down()
             # self.logger.warn("server down")
         while self.check_port() == 0:
             pass
 
         self.socket.send_json(json.dumps(capsule.__dict__))
-        self.my_logger.log_client_push(capsule)
+        SocketClient.my_logger.log_client_push(capsule)
         # self.logger.debug('sent : {}'.format(capsule.__dict__))
         return 1
 
@@ -123,7 +119,7 @@ class SocketClient:
                 p = json.dumps(j)
 
                 c = Capsule(j=p)
-                self.my_logger.log_client_pull(c)
+                SocketClient.my_logger.log_client_pull(c)
                 # self.logger.debug('messages retrieved {}'.format(c.__dict__))
                 if c.get_type() == CapsuleType.END:
                     break
