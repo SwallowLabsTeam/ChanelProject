@@ -2,24 +2,35 @@ import logging
 import logging.handlers
 from org.swallow_labs.tool.LoggingConf import LoggingConf
 import json
+from org.swallow_labs.model.ParserLogFile import ParserLogFile
 
 
 class LoggerAdapter:
 
-    def __init__(self, level, host, port, facility, format, id_logger):
+    def __init__(self, arg):
 
-        self.id_logger = id_logger
-        self.level = level
-        self.host = host
-        self.port = port
-        self.facility = facility
-        self.format = format
+        self.id_logger = str(arg[5])
 
-        self.logger = logging.getLogger(id_logger)
-        self.logger.setLevel(level)
-        syslog = logging.handlers.SysLogHandler(address=(host, port), facility=facility)
+        self.host = str(arg[0])
+        self.port = arg[1]
+        self.facility = str(arg[3])
+        self.format = arg[4]
+        if arg[2] == 'DEBUG':
+            self.level = logging.DEBUG
+        if arg[2] == 'INFO':
+            self.level = logging.INFO
+        if arg[2] == 'ERROR':
+            self.level = logging.ERROR
+        if arg[2] == 'WARNING':
+            self.level = logging.WARNING
+        if arg[2] == 'CRITICAL':
+            self.level = logging.CRITICAL
+
+        self.logger = logging.getLogger(self.id_logger)
+        self.logger.setLevel(self.level)
+        syslog = logging.handlers.SysLogHandler(address=(self.host, int(self.port)), facility=self.facility)
         # fh.setLevel(level)
-        formatter = logging.Formatter(format)
+        formatter = logging.Formatter(self.format)
         syslog.setFormatter(formatter)
         self.logger.addHandler(syslog)
 
@@ -29,14 +40,12 @@ class LoggerAdapter:
             self.logger.debug(msg)
         elif level is 'info':
             self.logger.info(msg)
-        elif level is 'emerg':
-            self.logger.emerg(msg)
         elif level is 'error':
             self.logger.error(msg)
         elif level is 'warning':
             self.logger.warning(msg)
-        elif level is 'alert':
-            self.logger.alert(msg)
+        elif level is 'critical':
+            self.logger.critical(msg)
 
     def log_broker_start(self, arg1, arg2):
         self.logger.info('Broker start: ' + 'PORT: Frontend: ' + str(arg1) + ' Backend: ' + str(arg2))
@@ -59,3 +68,13 @@ class LoggerAdapter:
     def log_server_down(self):
         self.logger.debug('Server down')
 
+p = ParserLogFile('parconf')
+param = p.get_param_broker()
+my_logger = LoggerAdapter(param)
+print(my_logger.facility)
+print(my_logger.level)
+print(my_logger.id_logger)
+print(my_logger.host)
+print(my_logger.port)
+
+my_logger.log_broker_start(5,6)

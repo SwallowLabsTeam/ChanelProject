@@ -6,6 +6,8 @@ import time
 from org.swallow_labs.model.Capsule import Capsule
 from org.swallow_labs.tool.CapsuleType import CapsuleType
 from org.swallow_labs.tool.LoggingConf import LoggingConf
+from org.swallow_labs.model.ParserLogFile import ParserLogFile
+from org.swallow_labs.model.LoggerAdapter import LoggerAdapter
 import logging
 import logging.handlers
 
@@ -59,8 +61,11 @@ class SocketClient:
         self.socket.setsockopt(zmq.IDENTITY, bytes(self.id_client, "utf8"))
         # Connect to the designed host
         self.socket.connect("tcp://" + self.address + ":" + self.port)
-        SocketClient.logger = logging.getLogger('Client {}'.format(self.id_client))
-        SocketClient.logger.info('Client {} Connected to {} on port: {}'.format(self.id_client, self.address, self.port))
+        parser_log_file = ParserLogFile('parconf')
+        param_log = parser_log_file.get_param_client(self.id_client)
+        self.my_logger = LoggerAdapter(param_log)
+        self.my_logger.log_client_connect(self.id_client, self.address, self.port)
+
     # Method that check if the port server is open or not
 
     def check_port(self):
@@ -88,12 +93,14 @@ class SocketClient:
 
         """
         if self.check_port() == 0:
-            self.logger.warn("server down")
+            self.my_logger.log_server_down()
+            # self.logger.warn("server down")
         while self.check_port() == 0:
             pass
 
         self.socket.send_json(json.dumps(capsule.__dict__))
-        self.logger.debug('sent : {}'.format(capsule.__dict__))
+        self.my_logger.log_client_push(capsule)
+        # self.logger.debug('sent : {}'.format(capsule.__dict__))
         return 1
 
     # Method allowing the client to pull the data concerning him
@@ -116,7 +123,8 @@ class SocketClient:
                 p = json.dumps(j)
 
                 c = Capsule(j=p)
-                self.logger.debug('messages retrieved {}'.format(c.__dict__))
+                self.my_logger.log_client_pull(c)
+                # self.logger.debug('messages retrieved {}'.format(c.__dict__))
                 if c.get_type() == CapsuleType.END:
                     break
                 else:
