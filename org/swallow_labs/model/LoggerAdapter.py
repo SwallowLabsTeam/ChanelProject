@@ -68,13 +68,3 @@ class LoggerAdapter:
     def log_server_down(self):
         self.logger.debug('Server down')
 
-p = ParserLogFile('parconf')
-param = p.get_param_broker()
-my_logger = LoggerAdapter(param)
-print(my_logger.facility)
-print(my_logger.level)
-print(my_logger.id_logger)
-print(my_logger.host)
-print(my_logger.port)
-
-my_logger.log_broker_start(5,6)
