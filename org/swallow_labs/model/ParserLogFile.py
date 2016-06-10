@@ -7,13 +7,21 @@ class ParserLogFile:
         json_data = open(path).read()
         self.data = json.loads(json_data)
 
-    def get_param_broker(self):
+    def get_param_log_broker(self):
 
-        param = [self.data['HOST'], self.data['PORT'], self.data['LEVEL_BROKER'], self.data['FACILITY_BROKER'], self.data['FORMAT'], "BROKER"]
+        param = [self.data['log_param']['host'], self.data['log_param']['port'], self.data['log_param']['level_broker'],
+                 self.data['log_param']['facility_broker'], self.data['log_param']['format'], "Broker"]
         return param
 
-    def get_param_client(self,id_client):
-        param = [self.data['HOST'], self.data['PORT'], self.data['LEVEL_CLIENT'], self.data['FACILITY_CLIENT'], self.data['FORMAT'], "CLIENT"]
+    def get_param_log_client(self):
+        param = [self.data['log_param']['host'], self.data['log_param']['port'], self.data['log_param']['level_client'],
+                 self.data['log_param']['facility_client'], self.data['log_param']['format'], "Client"]
+        return param
+
+    def get_param_log_capsule(self):
+        param = [self.data['log_param']['host'], self.data['log_param']['port'], self.data['log_param']['level_capsule'],
+                 self.data['log_param']['facility_capsule'],
+                 self.data['log_param']['format'], "Capsule"]
         return param
 
 

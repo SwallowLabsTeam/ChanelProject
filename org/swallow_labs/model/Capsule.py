@@ -1,5 +1,7 @@
 import json
 import time
+from org.swallow_labs.model.ParserLogFile import ParserLogFile
+from org.swallow_labs.model.LoggerAdapter import LoggerAdapter
 
 
 class Capsule:
@@ -41,6 +43,7 @@ class Capsule:
             :
 
         """
+
         if j is None:
             self.id_capsule = str(Capsule.capsule_id()).zfill(10)
             self.id_sender = id_sender
@@ -48,6 +51,10 @@ class Capsule:
             self.status_capsule = "NO"
             # add to the capsule, date of sending
             self.sending_date = time.localtime()
+            parser_log_file = ParserLogFile('parconf')
+            param_log = parser_log_file.get_param_log_capsule()
+            self.my_logger = LoggerAdapter(param_log)
+            self.my_logger.log_init_capsule(self.id_capsule)
         else:
             self.__dict__ = json.loads(j)
 

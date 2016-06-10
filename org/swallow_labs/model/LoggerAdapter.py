@@ -68,3 +68,6 @@ class LoggerAdapter:
     def log_server_down(self):
         self.logger.debug('Server down')
 
+    def log_init_capsule(self, arg1):
+        self.logger.info('Capsule {} created '.format(arg1))
+

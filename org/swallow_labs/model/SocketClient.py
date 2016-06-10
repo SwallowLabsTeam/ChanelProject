@@ -36,7 +36,7 @@ class SocketClient:
 
     """
     parser_log_file = ParserLogFile('parconf')
-    param_log = parser_log_file.get_param_client()
+    param_log = parser_log_file.get_param_log_client()
     my_logger = LoggerAdapter(param_log)
 
     def __init__(self, id_client, address, port):

@@ -63,7 +63,7 @@ class Broker:
         self.poller.register(self.frontend, zmq.POLLIN)
         self.poller.register(self.backend, zmq.POLLIN)
         parser_log_file = ParserLogFile('parconf')
-        param_log = parser_log_file.get_param_broker()
+        param_log = parser_log_file.get_param_log_broker()
         self.my_logger = LoggerAdapter(param_log)
         self.my_logger.log_broker_start(self.id_frontend, self.id_backend)
         # Broker.logger.info( "Broker start: " + "PORT: Frontend: " + str(self.id_frontend) + " Backend: " + str(self.id_backend))
