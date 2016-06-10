@@ -20,8 +20,8 @@ class Parser:
         @type client_path: string
         @type broker_path: string
     """
-    def __init__(self, broker_path, client_path):
-        json_data = open('schema').read()
+    def __init__(self, broker_path, client_path=None):
+        json_data = open('../test/schema').read()
         schema = ast.literal_eval(json_data)
         if broker_path is not None and client_path is not None:
             json_data = open(client_path).read()
@@ -71,5 +71,6 @@ class Parser:
 
     def get_broker_list(self):
         return self.broker_list
+
 
 

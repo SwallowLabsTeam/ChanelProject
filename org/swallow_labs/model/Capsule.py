@@ -38,6 +38,9 @@ class Capsule:
         """
 
     cpt_capsule = 0
+    parser_log_file = Parser('../configuration/Configuration.json')
+    param_log = parser_log_file.get_param_log_capsule()
+    my_logger = LoggerAdapter(param_log)
 
     def __init__(self, id_sender=None, j=None):
         """
@@ -52,10 +55,7 @@ class Capsule:
             self.status_capsule = "NO"
             # add to the capsule, date of sending
             self.sending_date = time.localtime()
-            parser_log_file = Parser('../configuration/Configuration.json')
-            param_log = parser_log_file.get_param_log_capsule()
-            self.my_logger = LoggerAdapter(param_log)
-            self.my_logger.log_init_capsule(self.id_capsule)
+            Capsule.my_logger.log_init_capsule(self.id_capsule)
         else:
             self.__dict__ = json.loads(j)
 
