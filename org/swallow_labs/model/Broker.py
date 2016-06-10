@@ -1,13 +1,12 @@
+import json
+
 import zmq
+
+from org.swallow_labs.log.LoggerAdapter import LoggerAdapter
 from org.swallow_labs.model.Capsule import Capsule
-from org.swallow_labs.model.ParserLogFile import ParserLogFile
-from org.swallow_labs.model.LoggerAdapter import LoggerAdapter
+from org.swallow_labs.model.Parser import Parser
 from org.swallow_labs.tool.CapsuleStatus import CapsuleStatus
 from org.swallow_labs.tool.CapsuleType import CapsuleType
-from org.swallow_labs.tool.LoggingConf import LoggingConf
-import json
-import logging
-import logging.handlers
 
 
 class Broker:
@@ -62,7 +61,7 @@ class Broker:
         # Register the front-end and back-end sockets into the poller
         self.poller.register(self.frontend, zmq.POLLIN)
         self.poller.register(self.backend, zmq.POLLIN)
-        parser_log_file = ParserLogFile('parconf')
+        parser_log_file = Parser('../configuration/Configuration.json')
         param_log = parser_log_file.get_param_log_broker()
         self.my_logger = LoggerAdapter(param_log)
         self.my_logger.log_broker_start(self.id_frontend, self.id_backend)

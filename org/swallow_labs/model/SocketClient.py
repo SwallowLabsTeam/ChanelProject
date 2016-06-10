@@ -1,15 +1,14 @@
-import zmq
 import json
 import socket
-from contextlib import closing
 import time
+from contextlib import closing
+
+import zmq
+
+from org.swallow_labs.log.LoggerAdapter import LoggerAdapter
 from org.swallow_labs.model.Capsule import Capsule
+from org.swallow_labs.model.Parser import Parser
 from org.swallow_labs.tool.CapsuleType import CapsuleType
-from org.swallow_labs.tool.LoggingConf import LoggingConf
-from org.swallow_labs.model.ParserLogFile import ParserLogFile
-from org.swallow_labs.model.LoggerAdapter import LoggerAdapter
-import logging
-import logging.handlers
 
 
 class SocketClient:
@@ -35,7 +34,7 @@ class SocketClient:
     @ivar self.socket: the socket enabling the connection
 
     """
-    parser_log_file = ParserLogFile('parconf')
+    parser_log_file = Parser('../configuration/Configuration.json')
     param_log = parser_log_file.get_param_log_client()
     my_logger = LoggerAdapter(param_log)
 
