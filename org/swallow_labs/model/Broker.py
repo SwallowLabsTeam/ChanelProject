@@ -1,7 +1,5 @@
 import json
-
 import zmq
-
 from org.swallow_labs.log.LoggerAdapter import LoggerAdapter
 from org.swallow_labs.model.Capsule import Capsule
 from org.swallow_labs.model.Parser import Parser

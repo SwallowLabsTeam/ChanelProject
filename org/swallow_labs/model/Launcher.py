@@ -22,9 +22,10 @@ class Launcher:
         self.p = {}
         json_data = open(path).read()
         data = json.loads(json_data)
-        for i in range(len(dict(data)['ip_add'])):
-            if socket.gethostbyname(socket.gethostname()) == dict(data)['ip_add'][i]:
-                self.p[i] = Process(target=self.broker_def, args=(dict(data)['front_end'][i], dict(data)['back_end'][i]))
+        for i in range(len(dict(data)['net_param']['ip_add'])):
+            if socket.gethostbyname(socket.gethostname()) == dict(data)['net_param']['ip_add'][i]:
+                self.p[i] = Process(target=self.broker_def, args=(dict(data)['net_param']['front_end'][i],
+                                                                  dict(data)['net_param']['back_end'][i]))
                 self.p[i].start()
                 time.sleep(0.01)
 

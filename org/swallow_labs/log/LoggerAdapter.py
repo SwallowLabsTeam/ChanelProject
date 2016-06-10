@@ -1,8 +1,7 @@
 import logging
 import logging.handlers
-from org.swallow_labs.tool.LoggingConf import LoggingConf
 import json
-from org.swallow_labs.model.ParserLogFile import ParserLogFile
+
 
 
 class LoggerAdapter:
