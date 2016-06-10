@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties":
+  {
+    "front_end":
+    {
+      "type": "array",
+      "uniqueItems": True,
+      "items":
+      {
+          "type": "integer",
+          "minimum": 5000,
+          "maximum": 6000
+      }
+    },
+    "back_end":
+    {
+        "type": "array",
+        "uniqueItems": True,
+        "items":
+        {
+          "type": "integer",
+          "minimum": 6000,
+          "maximum": 7000
+        }
+    },
+    "ip_add":
+    {
+      "type": "array",
+      "items":
+      {
+        "type": "string",
+        "format": "ipv4"
+      }
+    }
+  },
+  "required":
+  [
+    "front_end",
+    "back_end",
+    "ip_add"
+  ]
+}

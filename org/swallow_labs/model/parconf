@@ -1,0 +1,11 @@
+{
+  "HOST": "192.168.1.250",
+  "PORT": 514,
+  "LEVEL_BROKER": "DEBUG",
+  "LEVEL_CAPSULE": "DEBUG",
+  "LEVEL_CLIENT": "DEBUG",
+  "FACILITY_BROKER": "local0",
+  "FACILITY_CAPSULE": "local1",
+  "FACILITY_CLIENT": "local2",
+  "FORMAT": "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+}

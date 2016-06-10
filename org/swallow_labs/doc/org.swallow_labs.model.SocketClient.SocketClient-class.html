@@ -3,7 +3,7 @@
           "DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title>org.swallow_labs.model.Client.Client</title>
+  <title>org.swallow_labs.model.SocketClient.SocketClient</title>
   <link rel="stylesheet" href="epydoc.css" type="text/css" />
   <script type="text/javascript" src="epydoc.js"></script>
 </head>
@@ -37,8 +37,8 @@
         Package&nbsp;org ::
         Package&nbsp;swallow_labs ::
         Package&nbsp;model ::
-        <a href="org.swallow_labs.model.Client-module.html">Module&nbsp;Client</a> ::
-        Class&nbsp;Client
+        <a href="org.swallow_labs.model.SocketClient-module.html">Module&nbsp;SocketClient</a> ::
+        Class&nbsp;SocketClient
       </span>
     </td>
     <td>
@@ -48,21 +48,21 @@
     onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
         <tr><td align="right"><span class="options"
             >[<a href="frames.html" target="_top">frames</a
-            >]&nbsp;|&nbsp;<a href="org.swallow_labs.model.Client.Client-class.html"
+            >]&nbsp;|&nbsp;<a href="org.swallow_labs.model.SocketClient.SocketClient-class.html"
             target="_top">no&nbsp;frames</a>]</span></td></tr>
       </table>
     </td>
   </tr>
 </table>
 <!-- ==================== CLASS DESCRIPTION ==================== -->
-<h1 class="epydoc">Class Client</h1><p class="nomargin-top"><span class="codelink"><a href="org.swallow_labs.model.Client-pysrc.html#Client">source&nbsp;code</a></span></p>
-<p>Class creating a client object:</p>
+<h1 class="epydoc">Class SocketClient</h1><p class="nomargin-top"><span class="codelink"><a href="org.swallow_labs.model.SocketClient-pysrc.html#SocketClient">source&nbsp;code</a></span></p>
+<p>Class creating a SocketClient object:</p>
   <p></p>
   <p></p>
   <h1 class="heading">DESCRIPTION</h1>
-    <p>Create a client</p>
+    <p>Create a SocketClient</p>
   <h1 class="heading">RETURN</h1>
-    <p>Return a client</p>
+    <p>Return a SocketClient</p>
 
 <!-- ==================== INSTANCE METHODS ==================== -->
 <a name="section-InstanceMethods"></a>
@@ -87,11 +87,12 @@
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="org.swallow_labs.model.Client.Client-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+          <td><span class="summary-sig"><a href="org.swallow_labs.model.SocketClient.SocketClient-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
         <span class="summary-sig-arg">id_client</span>,
-        <span class="summary-sig-arg">list_address</span>)</span></td>
+        <span class="summary-sig-arg">address</span>,
+        <span class="summary-sig-arg">port</span>)</span></td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="org.swallow_labs.model.Client-pysrc.html#Client.__init__">source&nbsp;code</a></span>
+            <span class="codelink"><a href="org.swallow_labs.model.SocketClient-pysrc.html#SocketClient.__init__">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -105,10 +106,10 @@
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="generate"></a><span class="summary-sig-name">generate</span>(<span class="summary-sig-arg">self</span>)</span><br />
-      Method generate the Client communication stub (MultiSocket)</td>
+          <td><span class="summary-sig"><a name="CheckPort"></a><span class="summary-sig-name">CheckPort</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Method check if the port server is open or not</td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="org.swallow_labs.model.Client-pysrc.html#Client.generate">source&nbsp;code</a></span>
+            <span class="codelink"><a href="org.swallow_labs.model.SocketClient-pysrc.html#SocketClient.CheckPort">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -122,11 +123,12 @@
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="org.swallow_labs.model.Client.Client-class.html#push" class="summary-sig-name">push</a>(<span class="summary-sig-arg">self</span>,
+          <td><span class="summary-sig"><a href="org.swallow_labs.model.SocketClient.SocketClient-class.html#push" class="summary-sig-name">push</a>(<span class="summary-sig-arg">self</span>,
         <span class="summary-sig-arg">capsule</span>)</span><br />
-      Method sending capsule for the appropriate broker</td>
+      Method providing a way for the client to send messages through the 
+      broker</td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="org.swallow_labs.model.Client-pysrc.html#Client.push">source&nbsp;code</a></span>
+            <span class="codelink"><a href="org.swallow_labs.model.SocketClient-pysrc.html#SocketClient.push">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -136,32 +138,15 @@
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">List</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td><span class="summary-sig"><a name="pull"></a><span class="summary-sig-name">pull</span>(<span class="summary-sig-arg">self</span>)</span><br />
       Method allowing the client to pull the messages that concern him from
-      all Broker and sort them</td>
+      the broker</td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="org.swallow_labs.model.Client-pysrc.html#Client.pull">source&nbsp;code</a></span>
-            
-          </td>
-        </tr>
-      </table>
-      
-    </td>
-  </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-      <table width="100%" cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td><span class="summary-sig"><a name="tri"></a><span class="summary-sig-name">tri</span>(<span class="summary-sig-arg">self</span>)</span><br />
-      Method that sort the pull_list</td>
-          <td align="right" valign="top">
-            <span class="codelink"><a href="org.swallow_labs.model.Client-pysrc.html#Client.tri">source&nbsp;code</a></span>
+            <span class="codelink"><a href="org.swallow_labs.model.SocketClient-pysrc.html#SocketClient.pull">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -170,17 +155,17 @@
     </td>
   </tr>
 </table>
-<!-- ==================== STATIC METHODS ==================== -->
-<a name="section-StaticMethods"></a>
+<!-- ==================== INSTANCE VARIABLES ==================== -->
+<a name="section-InstanceVariables"></a>
 <table class="summary" border="1" cellpadding="3"
        cellspacing="0" width="100%" bgcolor="white">
 <tr bgcolor="#70b0f0" class="table-header">
   <td colspan="2" class="table-header">
     <table border="0" cellpadding="0" cellspacing="0" width="100%">
       <tr valign="top">
-        <td align="left"><span class="table-header">Static Methods</span></td>
+        <td align="left"><span class="table-header">Instance Variables</span></td>
         <td align="right" valign="top"
-         ><span class="options">[<a href="#section-StaticMethods"
+         ><span class="options">[<a href="#section-InstanceVariables"
          class="privatelink" onclick="toggle_private();"
          >hide private</a>]</span></td>
       </tr>
@@ -191,59 +176,32 @@
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-      <table width="100%" cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td><span class="summary-sig"><a name="cpt_inc"></a><span class="summary-sig-name">cpt_inc</span>()</span><br />
-      Method incrementing the counter</td>
-          <td align="right" valign="top">
-            <span class="codelink"><a href="org.swallow_labs.model.Client-pysrc.html#Client.cpt_inc">source&nbsp;code</a></span>
-            
-          </td>
-        </tr>
-      </table>
-      
+        <a name="self.address"></a><span class="summary-name">self.address</span><br />
+      ip address:server adresse the client is connecting to
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-      <table width="100%" cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td><span class="summary-sig"><a name="cpt_zero"></a><span class="summary-sig-name">cpt_zero</span>()</span><br />
-      Method reinitialising the counter</td>
-          <td align="right" valign="top">
-            <span class="codelink"><a href="org.swallow_labs.model.Client-pysrc.html#Client.cpt_zero">source&nbsp;code</a></span>
-            
-          </td>
-        </tr>
-      </table>
-      
+        <a name="self.id_client"></a><span class="summary-name">self.id_client</span><br />
+      a client id
     </td>
   </tr>
-</table>
-<!-- ==================== CLASS VARIABLES ==================== -->
-<a name="section-ClassVariables"></a>
-<table class="summary" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr bgcolor="#70b0f0" class="table-header">
-  <td colspan="2" class="table-header">
-    <table border="0" cellpadding="0" cellspacing="0" width="100%">
-      <tr valign="top">
-        <td align="left"><span class="table-header">Class Variables</span></td>
-        <td align="right" valign="top"
-         ><span class="options">[<a href="#section-ClassVariables"
-         class="privatelink" onclick="toggle_private();"
-         >hide private</a>]</span></td>
-      </tr>
-    </table>
-  </td>
-</tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="cpt"></a><span class="summary-name">cpt</span> = <code title="0">0</code>
+        <a name="self.port"></a><span class="summary-name">self.port</span><br />
+      port of the host the client is connecting to
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="self.socket"></a><span class="summary-name">self.socket</span><br />
+      the socket enabling the connection
     </td>
   </tr>
 </table>
@@ -274,11 +232,12 @@
   <tr valign="top"><td>
   <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
         <span class="sig-arg">id_client</span>,
-        <span class="sig-arg">list_address</span>)</span>
+        <span class="sig-arg">address</span>,
+        <span class="sig-arg">port</span>)</span>
     <br /><em class="fname">(Constructor)</em>
   </h3>
   </td><td align="right" valign="top"
-    ><span class="codelink"><a href="org.swallow_labs.model.Client-pysrc.html#Client.__init__">source&nbsp;code</a></span>&nbsp;
+    ><span class="codelink"><a href="org.swallow_labs.model.SocketClient-pysrc.html#SocketClient.__init__">source&nbsp;code</a></span>&nbsp;
     </td>
   </tr></table>
   
@@ -286,9 +245,9 @@
   <dl class="fields">
     <dt>Parameters:</dt>
     <dd><ul class="nomargin-top">
-        <li><strong class="pname"><code>id_client</code></strong> (int) - a client id</li>
-        <li><strong class="pname"><code>list_address</code></strong> (list) - List of ip address and ports of the host the client is connecting
-          to</li>
+        <li><strong class="pname"><code>id_client</code></strong> - a client id</li>
+        <li><strong class="pname"><code>address</code></strong> - ip address of the host the client is connecting to</li>
+        <li><strong class="pname"><code>port</code></strong> - port of the host the client is connecting to</li>
     </ul></dd>
   </dl>
 </td></tr></table>
@@ -304,12 +263,13 @@
         <span class="sig-arg">capsule</span>)</span>
   </h3>
   </td><td align="right" valign="top"
-    ><span class="codelink"><a href="org.swallow_labs.model.Client-pysrc.html#Client.push">source&nbsp;code</a></span>&nbsp;
+    ><span class="codelink"><a href="org.swallow_labs.model.SocketClient-pysrc.html#SocketClient.push">source&nbsp;code</a></span>&nbsp;
     </td>
   </tr></table>
   
   <h1 class="heading">DESCRIPTION</h1>
-    <p>Method sending capsule for the appropriate broker</p>
+    <p>Method providing a way for the client to send messages through the 
+    broker</p>
   <dl class="fields">
     <dt>Parameters:</dt>
     <dd><ul class="nomargin-top">
