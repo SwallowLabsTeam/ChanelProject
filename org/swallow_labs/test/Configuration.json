@@ -1,20 +1,35 @@
 {
-  "front_end": [
-    5001,
-    5002,
-    5003,
-    5004
-  ],
-  "back_end": [
-    6001,
-    6002,
-    6003,
-    6004
-  ],
-  "ip_add": [
-    "127.0.1.1",
-    "127.0.1.1",
-    "127.0.1.1",
-    "127.0.1.1"
-  ]
+  "net_param":
+  {
+    "front_end": [
+      5001,
+      5002,
+      5003,
+      5004
+    ],
+    "back_end": [
+      6001,
+      6002,
+      6003,
+      6004
+    ],
+    "ip_add": [
+      "127.0.1.1",
+      "127.0.1.1",
+      "127.0.1.1",
+      "127.0.1.1"
+    ]
+  },
+  "log_param":
+  {
+    "host": "192.168.1.250",
+    "port": 514,
+    "level_broker": "DEBUG",
+    "level_capsule": "DEBUG",
+    "level_client": "DEBUG",
+    "facility_broker": "local0",
+    "facility_capsule": "local1",
+    "facility_client": "local2",
+    "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  }
 }
