@@ -56,9 +56,6 @@ class SocketClient:
         self.socket.setsockopt(zmq.IDENTITY, bytes(self.id_client, "utf8"))
         # Connect to the designed host
         self.socket.connect("tcp://" + self.address + ":" + self.port)
-
-
-
         SocketClient.my_logger.log_client_connect(self.id_client, self.address, self.port)
 
     # Method that check if the port server is open or not

@@ -76,6 +76,7 @@ class Broker:
         """
         self.frontend.close()
         self.backend.close()
+        self.my_logger.log_snapshot()
         return (self.message_list)
 
     def clean(self):
