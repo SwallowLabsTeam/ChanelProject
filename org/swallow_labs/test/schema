@@ -85,7 +85,7 @@
 
     "snapshot_param":
     {
-        "type": "object"
+        "type": "object",
         "properties":
         {
             "path":
@@ -94,7 +94,7 @@
             }
         }
 
-    }
+    },
     "required": [
         "net_param",
         "log_param",

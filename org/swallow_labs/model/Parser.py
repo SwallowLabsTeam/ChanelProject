@@ -31,22 +31,22 @@ class Parser:
             self.broker_list = []
             try:
                 validate(self.data, schema)
-                if self.client_id >= 10:
+            except ValidationError:
+                print("Your json file is INVALID")
+            if self.client_id >= 10:
+                for i in range(len(dict(self.data)['net_param']['ip_add'])):
+                    self.broker_list.append(BrokerData(dict(self.data)['net_param']['ip_add'][i],
+                                                       dict(self.data)['net_param']['back_end'][i]))
+            else:
                     for i in range(len(dict(self.data)['net_param']['ip_add'])):
                         self.broker_list.append(BrokerData(dict(self.data)['net_param']['ip_add'][i],
-                                                           dict(self.data)['net_param']['back_end'][i]))
-                else:
-                        for i in range(len(dict(self.data)['net_param']['ip_add'])):
-                            self.broker_list.append(BrokerData(dict(self.data)['net_param']['ip_add'][i],
-                                                               dict(self.data)['net_param']['front_end'][i]))
-            except:
-                print("Your json file is INVALID")
+                                                           dict(self.data)['net_param']['front_end'][i]))
         else:
             json_data = open(broker_path).read()
             self.data = json.loads(json_data)
             try:
                 validate(self.data, schema)
-            except:
+            except ValidationError:
                 print("Your json file is INVALID")
 
     def get_param_log_broker(self):
