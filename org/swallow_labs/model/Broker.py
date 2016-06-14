@@ -59,7 +59,10 @@ class Broker:
         # Register the front-end and back-end sockets into the poller
         self.poller.register(self.frontend, zmq.POLLIN)
         self.poller.register(self.backend, zmq.POLLIN)
-        parser_log_file = Parser('../configuration/Configuration.json')
+        try:
+            parser_log_file = Parser('../configuration/Configuration.json')
+        except FileNotFoundError:
+            self.my_logger.log_missing_file('Configuration.json')
         param_log = parser_log_file.get_param_log_broker()
         self.my_logger = LoggerAdapter(param_log)
         self.my_logger.log_broker_start(self.id_frontend, self.id_backend)

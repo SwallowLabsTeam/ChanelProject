@@ -31,7 +31,6 @@ class Client:
         self.nbr_broker = len(list_address)
         self.pull_list = []
 
-
     def generate(self):
         """
             DESCRIPTION
