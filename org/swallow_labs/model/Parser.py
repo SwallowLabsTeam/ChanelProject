@@ -68,7 +68,7 @@ class Parser:
         return param
 
     def get_param_snapshot(self):
-        param = [self.data['snapshot_param']['path']]
+        param = self.data['snapshot_param']['path']
         return param
 
     def get_client_id(self):
