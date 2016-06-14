@@ -45,6 +45,7 @@ class Broker:
         # Prepare context and sockets
         # Create a Context object to be able to call socket method
         context = zmq.Context()
+
         # Create a ROUTER socket for front-end connections
         self.frontend = context.socket(zmq.ROUTER)
         # Create a ROUTER socket for back-end connections
@@ -63,7 +64,16 @@ class Broker:
         param_log = parser_log_file.get_param_log_broker()
         self.my_logger = LoggerAdapter(param_log)
         self.my_logger.log_broker_start(self.id_frontend, self.id_backend)
-        # Broker.logger.info( "Broker start: " + "PORT: Frontend: " + str(self.id_frontend) + " Backend: " + str(self.id_backend))
+
+    def snapshot(self):
+        """
+            DESCRIPTION
+            ===========
+            Method close broker sockets and return the messageList
+        """
+        self.frontend.close()
+        self.backend.close()
+        return (self.message_list)
 
     def clean(self):
         """
