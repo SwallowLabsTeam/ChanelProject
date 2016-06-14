@@ -7,9 +7,10 @@ from org.swallow_labs.model.Capsule import *
 from org.swallow_labs.tool.CapsulePriority import *
 import os
 import hashlib
-import bencode
+
 
 class EmergencyToolBox:
+
 
     def __init__(self, path):
         self.path = path
@@ -30,8 +31,9 @@ class EmergencyToolBox:
 
         with open(self.file_store, "w") as json_file:
             json.dump(a, json_file)
-            data_md5 = hashlib.md5(bencode.bencode(data)).hexdigest()
-            print(data_md5)
+            self.hash_org=hashlib.md5(str(a).encode("utf-8")).hexdigest()
+            #print(hashlib.md5(str(a).encode("utf-8")).hexdigest())
+
 
 
 
@@ -45,6 +47,7 @@ class EmergencyToolBox:
 
         son_data = open(self.file_store).read()
         data = json.loads(son_data)
+
 
         li=[]
         for x in data["msg_list"]:
@@ -95,7 +98,7 @@ print(k.id_backend)
 print(k.id_frontend)
 for x in k.message_list:
     print(x.print_capsule())
-
+print(p.hash_org)
 #print(k)
 #print(k['broker_info']['backend'])
 #l=k["msg_list"]
