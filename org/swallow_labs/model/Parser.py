@@ -66,6 +66,7 @@ class Parser:
                  self.data['log_param']['facility_capsule'],
                  self.data['log_param']['format'], "Capsule"]
         return param
+
     def get_client_id(self):
         return self.client_id
 

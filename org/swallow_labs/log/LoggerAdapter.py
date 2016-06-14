@@ -3,7 +3,6 @@ import logging.handlers
 import json
 
 
-
 class LoggerAdapter:
 
     def __init__(self, arg):
@@ -65,8 +64,10 @@ class LoggerAdapter:
         self.logger.debug('Messages received {}'.format(arg1.__dict__))
 
     def log_server_down(self):
-        self.logger.debug('Server down')
+        self.logger.warn('Server down')
 
     def log_init_capsule(self, arg1):
         self.logger.info('Capsule {} created '.format(arg1))
 
+    def log_missing_file(self, file_name):
+        self.logger.error('{} is missing!'.format(file_name))
