@@ -231,5 +231,21 @@ class Capsule:
         """
         self.type = type
 
+    def print_capsule(self):
+        """
 
+        DESCRIPTION
+        ===========
+        Method Print Capsule
 
+        """
+        return('Capsule ID: {}, Priority : {}, ID sender : {}, ID receiver : {}, Capsule Status {},'
+              ' Capsule type : {}, Payload : {}, Sending date : {}'.format(self.get_id_capsule(),
+                                                                                                self.get_priority(),
+                                                                                                self.get_id_sender(),
+                                                                                                self.get_id_receiver(),
+                                                                                                self.get_status_capsule(),
+                                                                                                self.get_type(),
+                                                                                                self.get_payload(),
+                                                                                                self.get_sending_date()
+                                                                                                ))
