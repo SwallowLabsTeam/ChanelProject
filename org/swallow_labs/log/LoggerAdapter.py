@@ -71,3 +71,6 @@ class LoggerAdapter:
 
     def log_missing_file(self, file_name):
         self.logger.error('{} is missing!'.format(file_name))
+
+    def log_snapshot(self):
+        self.logger.warn('Broker snapshot done')
