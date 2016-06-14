@@ -38,7 +38,8 @@
             ]
         }
     },
-    "log_param": {
+    "log_param":
+    {
         "type": "object",
         "properties": {
             "host": {
@@ -81,8 +82,22 @@
             "format"
         ]
     },
+
+    "snapshot_param":
+    {
+        "type": "object"
+        "properties":
+        {
+            "path":
+            {
+                "type": "string"
+            }
+        }
+
+    }
     "required": [
         "net_param",
-        "log_param"
+        "log_param",
+        "snapshot_param"
     ]
 }
