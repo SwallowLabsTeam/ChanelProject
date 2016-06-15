@@ -5,6 +5,8 @@ from org.swallow_labs.model.Capsule import Capsule
 from org.swallow_labs.model.Parser import Parser
 from org.swallow_labs.tool.CapsuleStatus import CapsuleStatus
 from org.swallow_labs.tool.CapsuleType import CapsuleType
+import logging
+import logging.handlers
 
 
 class Broker:
@@ -62,11 +64,19 @@ class Broker:
         self.poller.register(self.backend, zmq.POLLIN)
         try:
             parser_log_file = Parser('../configuration/Configuration.json')
+            param_log = parser_log_file.get_param_log_broker()
+            self.my_logger = LoggerAdapter(param_log)
+            self.my_logger.log_broker_start(self.id_frontend, self.id_backend)
         except FileNotFoundError:
-            self.my_logger.log_missing_file('Configuration.json')
-        param_log = parser_log_file.get_param_log_broker()
-        self.my_logger = LoggerAdapter(param_log)
-        self.my_logger.log_broker_start(self.id_frontend, self.id_backend)
+            self.logger = logging.getLogger(self.id_logger)
+            self.logger.setLevel(self.level)
+            syslog = logging.handlers.SysLogHandler(address=("localhost", 514), facility="local0")
+            # fh.setLevel(level)
+            formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+            syslog.setFormatter(formatter)
+            self.logger.addHandler(syslog)
+            self.logger.error('Configuration.json is missing!')
+
 
     def snapshot(self):
         """
