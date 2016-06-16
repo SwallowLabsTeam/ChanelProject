@@ -27,6 +27,10 @@ class Parser:
     __capsule_log_param = []
     __snapshot_param = ''
 
+    def __init__(self):
+        Parser.read()
+        Parser.set_all()
+
     @staticmethod
     def read(files_path_list=['../conf/Configuration.json'], schema_path='../test/schema'):
         schema = ast.literal_eval(open(schema_path).read())
@@ -138,6 +142,6 @@ class Parser:
 
 if __name__ == '__main__':
 
-    Parser.set_all()
+    Parser()
     print(Parser.get_backend_broker_list())
 
