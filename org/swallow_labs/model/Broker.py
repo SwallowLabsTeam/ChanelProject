@@ -64,8 +64,7 @@ class Broker:
         self.poller.register(self.frontend, zmq.POLLIN)
         self.poller.register(self.backend, zmq.POLLIN)
         try:
-            parser_log_file = Parser('../conf/Configuration.json')
-            param_log = parser_log_file.get_param_log_broker()
+            param_log = Parser().get_broker_log_param()
             self.my_logger = LoggerAdapter(param_log)
             self.my_logger.log_broker_start(self.id_frontend, self.id_backend)
         except FileNotFoundError:
@@ -86,7 +85,7 @@ class Broker:
         """
         self.frontend.close()
         self.backend.close()
-        self.my_logger.log_snapshot()
+        #self.my_logger.log_snapshot()
         return self.message_list
 
     def clean(self):
