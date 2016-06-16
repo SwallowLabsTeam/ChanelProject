@@ -41,7 +41,7 @@ class Capsule:
     param_log = parser_log_file.get_param_log_capsule()
     my_logger = LoggerAdapter(param_log)
 
-    def __init__(self, id_sender=None, j=None):
+    def __init__(self, id_sender=None, type=None, j=None):
         """
             :
 
@@ -52,11 +52,13 @@ class Capsule:
             self.id_sender = id_sender
             # By default the status of the capsule is not yet read by the broker
             self.status_capsule = "NO"
+            self.type = type
             # add to the capsule, date of sending
             self.sending_date = time.localtime()
-            Capsule.my_logger.log_init_capsule(self.id_capsule)
+            Capsule.my_logger.log_init_capsule(self.id_capsule, self.get_id_sender(), self.get_type())
         else:
             self.__dict__ = json.loads(j)
+
 
     @staticmethod
     def capsule_id():

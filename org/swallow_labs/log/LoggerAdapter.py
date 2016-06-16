@@ -66,8 +66,11 @@ class LoggerAdapter:
     def log_server_down(self):
         self.logger.warn('Server down')
 
-    def log_init_capsule(self, arg1):
-        self.logger.info('Capsule {} created '.format(arg1))
+    def log_init_capsule(self, arg1, arg2, arg3):
+        self.logger.info('Capsule {} created by {} and type {}'.format(arg1, arg2, arg3))
+
+    def log_receive_capsule(self, arg1, arg2, arg3, arg4):
+        self.logger.info('Capsule {} received by {} from {} and type {}'.format(arg1, arg2, arg3, arg4))
 
     def log_missing_file(self, file_name):
         self.logger.error('{} is missing!'.format(file_name))

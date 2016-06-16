@@ -7,6 +7,7 @@ from org.swallow_labs.tool.CapsuleStatus import CapsuleStatus
 from org.swallow_labs.tool.CapsuleType import CapsuleType
 import logging
 import logging.handlers
+import socket
 
 
 class Broker:
@@ -119,8 +120,9 @@ class Broker:
                 end.send_multipart([bytes(client_id, 'utf8'), bytes(json.dumps(self.message_list[k].__dict__), 'utf8')])
                 self.my_logger.log_broker_send(client_id, self.message_list[k])
             # Broker.logger.debug('Sent to client {} : {}'.format(client_id,json.dumps(self.message_list[k].__dict__)))
-        c = Capsule(0)
-        c.set_type(CapsuleType.END)
+        broker_id = str(socket.gethostbyname(socket.gethostname()))+"-"+str(self.id_frontend)+"-"+str(self.id_backend)
+        c = Capsule(broker_id, CapsuleType.END)
+        # c.set_type(CapsuleType.END)
         end.send_multipart([bytes(client_id, 'utf8'), bytes(json.dumps(c.__dict__), 'utf8')])
 
     @staticmethod

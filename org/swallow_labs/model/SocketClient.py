@@ -104,8 +104,8 @@ class SocketClient:
         """
         if self.check_port():
 
-            c = Capsule(self.id_client)
-            c.set_type(CapsuleType.READY)
+            c = Capsule(self.id_client, CapsuleType.READY)
+            # c.set_type(CapsuleType.READY)
             self.socket.send_json(json.dumps(c.__dict__))
             message_list = []
             while True:
@@ -124,4 +124,4 @@ class SocketClient:
 
         else:
 
-            return [None]
+            return []
