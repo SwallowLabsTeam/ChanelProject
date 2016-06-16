@@ -3,6 +3,35 @@ import logging.handlers
 import json
 
 
+class InfoFilter(logging.Filter):
+
+    def filter(self, rec):
+        return rec.levelno == logging.INFO
+
+
+class DebugFilter(logging.Filter):
+
+    def filter(self, rec):
+        return rec.levelno == logging.DEBUG
+
+
+class WarningFilter(logging.Filter):
+
+    def filter(self, rec):
+        return rec.levelno == logging.WARNING
+
+
+class CriticalFilter(logging.Filter):
+
+     def filter(self, rec):
+         return rec.levelno == logging.CRITICAL
+
+
+class ErrorFilter(logging.Filter):
+    def filter(self, rec):
+        return rec.levelno == logging.ERROR
+
+
 class LoggerAdapter:
 
     def __init__(self, arg):
@@ -28,6 +57,7 @@ class LoggerAdapter:
         self.logger.setLevel(self.level)
         syslog = logging.handlers.SysLogHandler(address=(self.host, int(self.port)), facility=self.facility)
         # fh.setLevel(level)
+        self.logger.addFilter(InfoFilter())
         formatter = logging.Formatter(self.format)
         syslog.setFormatter(formatter)
         self.logger.addHandler(syslog)
