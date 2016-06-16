@@ -111,7 +111,7 @@ class Parser:
     @staticmethod
     def set_snapshot_param():
         try:
-            Parser.__snapshot_param = Parser.data['snapshot_param']['path']
+            Parser.__snapshot_param = Parser.__data['snapshot_param']['path']
         except:
             pass
 
