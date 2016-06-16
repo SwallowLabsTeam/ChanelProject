@@ -74,3 +74,6 @@ class LoggerAdapter:
 
     def log_snapshot(self):
         self.logger.warn('Broker snapshot done')
+
+    def log_broker_reload(self):
+        self.logger.warn('Broker reload')

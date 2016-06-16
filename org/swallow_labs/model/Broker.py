@@ -72,12 +72,12 @@ class Broker:
         """
             DESCRIPTION
             ===========
-            Method close broker sockets and return the messageList
+            Method close broker sockets and return the messages list
         """
         self.frontend.close()
         self.backend.close()
         self.my_logger.log_snapshot()
-        return (self.message_list)
+        return self.message_list
 
     def clean(self):
         """
