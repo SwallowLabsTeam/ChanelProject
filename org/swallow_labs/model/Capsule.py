@@ -1,7 +1,7 @@
+from org.swallow_labs.model.Parser import Parser
 import json
 import time
 from org.swallow_labs.log.LoggerAdapter import LoggerAdapter
-from org.swallow_labs.model.Parser import Parser
 
 
 class Capsule:
@@ -37,9 +37,8 @@ class Capsule:
         """
 
     cpt_capsule = 0
-    parser_log_file = Parser('../conf/Configuration.json')
-    param_log = parser_log_file.get_param_log_capsule()
-    my_logger = LoggerAdapter(param_log)
+
+    my_logger = LoggerAdapter(Parser().get_capsule_log_param())
 
     def __init__(self, id_sender=None, type=None, j=None):
         """

@@ -1,13 +1,11 @@
 '''Script to instance a client stub and push two capsule'''
+from org.swallow_labs.model.Parser import *
 from org.swallow_labs.model.Client import Client
 from org.swallow_labs.model.Capsule import Capsule
-from org.swallow_labs.model.Parser import *
 from org.swallow_labs.tool.CapsulePriority import CapsulePriority
 from org.swallow_labs.tool.CapsuleType import CapsuleType
-p = Parser( '../conf/Configuration.json', 'client')
-a = p.get_client_id()
-l = p.get_broker_list()
-c = Client(a, l)
+l = Parser.get_backend_broker_list()
+c = Client(5, l)
 print("client launched")
 capsule = Capsule(c.id_client, CapsuleType.PAYLOAD)
 # capsule.set_type("PAYLOAD")
