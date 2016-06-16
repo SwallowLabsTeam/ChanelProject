@@ -2,7 +2,7 @@ from org.swallow_labs.model.Parser import *
 from org.swallow_labs.model.Client import *
 from org.swallow_labs.model.Launcher import *
 
-json_data = open('../configuration/Configuration.json').read()
+json_data = open('../conf/Configuration.json').read()
 data = json.loads(json_data)
 json_data = open('../test/schema').read()
 schema = ast.literal_eval(json_data)
@@ -11,7 +11,7 @@ try:
     print("Your json file is VALID")
 except ValidationError:
     print("Your json file is INVALID")
-parser = Parser('../configuration/Configuration.json', 'client')
+parser = Parser('../conf/Configuration.json', 'client')
 client = Client(parser.get_client_id(), parser.get_broker_list())
 print("client launched")
-broker_launcher = Launcher('../configuration/Configuration.json')
+broker_launcher = Launcher('../conf/Configuration.json')

@@ -63,7 +63,7 @@ class Broker:
         self.poller.register(self.frontend, zmq.POLLIN)
         self.poller.register(self.backend, zmq.POLLIN)
         try:
-            parser_log_file = Parser('../configuration/Configuration.json')
+            parser_log_file = Parser('../conf/Configuration.json')
             param_log = parser_log_file.get_param_log_broker()
             self.my_logger = LoggerAdapter(param_log)
             self.my_logger.log_broker_start(self.id_frontend, self.id_backend)
@@ -76,7 +76,6 @@ class Broker:
             syslog.setFormatter(formatter)
             self.logger.addHandler(syslog)
             self.logger.error('Configuration.json is missing!')
-
 
     def snapshot(self):
         """
@@ -119,7 +118,7 @@ class Broker:
                 self.message_list[k].set_status_capsule(CapsuleStatus.YES)
                 end.send_multipart([bytes(client_id, 'utf8'), bytes(json.dumps(self.message_list[k].__dict__), 'utf8')])
                 self.my_logger.log_broker_send(client_id, self.message_list[k])
-                # Broker.logger.debug('Sent to client {} : {}'.format(client_id,json.dumps(self.message_list[k].__dict__)))
+            # Broker.logger.debug('Sent to client {} : {}'.format(client_id,json.dumps(self.message_list[k].__dict__)))
         c = Capsule(0)
         c.set_type(CapsuleType.END)
         end.send_multipart([bytes(client_id, 'utf8'), bytes(json.dumps(c.__dict__), 'utf8')])
@@ -160,7 +159,7 @@ class Broker:
                 b_client_id, b_capsule = self.frontend.recv_multipart()
                 client_id, c_recv = Broker.parse(b_client_id, b_capsule)
                 self.my_logger.log_broker_receive(c_recv)
-                # Broker.logger.debug('Received from client {} : {}'.format(c_recv.get_id_sender(), json.dumps(c_recv.__dict__)))
+             # Broker.logger.debug('Received from client {} : {}'.format(c_recv.get_id_sender(), json.dumps(c_recv.__dict__)))
                 # Since this is a multipart message The first part will contain the receive id
                 # The second part will contain the payload
                 # if the payload is equal to READY (b stands for bytes conversion)

@@ -3,7 +3,7 @@ from org.swallow_labs.model.Parser import *
 from org.swallow_labs.model.Capsule import Capsule
 from org.swallow_labs.tool.CapsulePriority import CapsulePriority
 
-p = Parser('../configuration/Configuration.json', 'client')
+p = Parser('../conf/Configuration.json', 'client')
 id_client = p.get_client_id()
 connexions = p.get_broker_list()
 client = Client(id_client, connexions)

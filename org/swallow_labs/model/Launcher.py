@@ -11,9 +11,9 @@ class Launcher:
         G{classtree}
         DESCRIPTION
         ===========
-        Class that launches the brokers according to the configuration file
+        Class that launches the brokers according to the conf file
 
-        @param path:    the path of the configuration file
+        @param path:    the path of the conf file
 
         @type path: string
 

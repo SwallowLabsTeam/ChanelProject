@@ -3,7 +3,7 @@ from org.swallow_labs.model.Client import Client
 from org.swallow_labs.model.Capsule import Capsule
 from org.swallow_labs.model.Parser import *
 from org.swallow_labs.tool.CapsulePriority import CapsulePriority
-p = Parser('../configuration/Configuration.json', 'client')
+p = Parser('../conf/Configuration.json', 'client')
 a = p.get_client_id()
 l = p.get_broker_list()
 c = Client(a, l)
@@ -24,7 +24,7 @@ if c.push(capsule2) == 1:
 if c.push(capsule) == 1:
     print("Capsule Sent")
 
-p = Parser('../configuration/Configuration.json', 'client2')
+p = Parser('../conf/Configuration.json', 'client2')
 a = p.get_client_id()
 l = p.get_broker_list()
 c1 = Client(a, l)
