@@ -49,6 +49,6 @@
   },
   "snapshot_param":
   {
-    "path":"Snap.txt"
+    "path":"Snap.json"
   }
 }
