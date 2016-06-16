@@ -1,3 +1,4 @@
+from org.swallow_labs.model.Parser import Parser
 import json
 import socket
 import time
@@ -5,7 +6,7 @@ from contextlib import closing
 import zmq
 from org.swallow_labs.log.LoggerAdapter import LoggerAdapter
 from org.swallow_labs.model.Capsule import Capsule
-from org.swallow_labs.model.Parser import Parser
+
 from org.swallow_labs.tool.CapsuleType import CapsuleType
 
 
@@ -32,9 +33,8 @@ class SocketClient:
     @ivar self.socket: the socket enabling the connection
 
     """
-    parser_log_file = Parser('../conf/Configuration.json')
-    param_log = parser_log_file.get_param_log_client()
-    my_logger = LoggerAdapter(param_log)
+
+    my_logger = LoggerAdapter(Parser.get_client_log_param())
 
     def __init__(self, id_client, address, port):
         """

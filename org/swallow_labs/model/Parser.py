@@ -27,13 +27,16 @@ class Parser:
     __capsule_log_param = []
     __snapshot_param = ''
 
+    def __init__(self):
+        Parser.read()
+        Parser.set_all()
+
     @staticmethod
     def read(files_path_list=['../conf/Configuration.json'], schema_path='../test/schema'):
         schema = ast.literal_eval(open(schema_path).read())
         for f in files_path_list:
             try:
                 Parser.__data = {**Parser.__data, **json.loads(open(f).read())}
-                print(Parser.__data)
                 if 'Configuration.json' in f:
                     try:
                         validate(json.loads(open(f).read()), schema)
@@ -72,11 +75,11 @@ class Parser:
     @staticmethod
     def set_broker_log_param():
         try:
-            Parser.__broker_log_param = [Parser.__data['log_param']['host'],
-                                         Parser.__data['log_param']['port'],
-                                         Parser.__data['log_param']['level_broker'],
-                                         Parser.__data['log_param']['facility_broker'],
-                                         Parser.__data['log_param']['format'],
+            Parser.__broker_log_param = [Parser.__data['log_param']['broker']['host'],
+                                         Parser.__data['log_param']['broker']['port'],
+                                         Parser.__data['log_param']['broker']['level'],
+                                         Parser.__data['log_param']['broker']['facility'],
+                                         Parser.__data['log_param']['broker']['format'],
                                          "Broker"]
         except:
             pass
@@ -84,11 +87,11 @@ class Parser:
     @staticmethod
     def set_client_log_param():
         try:
-            Parser.__client_log_param = [Parser.__data['log_param']['host'],
-                                         Parser.__data['log_param']['port'],
-                                         Parser.__data['log_param']['level_client'],
-                                         Parser.__data['log_param']['facility_client'],
-                                         Parser.__data['log_param']['format'],
+            Parser.__client_log_param = [Parser.__data['log_param']['client']['host'],
+                                         Parser.__data['log_param']['client']['port'],
+                                         Parser.__data['log_param']['client']['level'],
+                                         Parser.__data['log_param']['client']['facility'],
+                                         Parser.__data['log_param']['client']['format'],
                                          "Client"]
         except:
             pass
@@ -96,11 +99,11 @@ class Parser:
     @staticmethod
     def set_capsule_log_param():
         try:
-            Parser.__capsule_log_param = [Parser.__data['log_param']['host'],
-                                          Parser.__data['log_param']['port'],
-                                          Parser.__data['log_param']['level_capsule'],
-                                          Parser.__data['log_param']['facility_capsule'],
-                                          Parser.__data['log_param']['format'],
+            Parser.__capsule_log_param = [Parser.__data['log_param']['capsule']['host'],
+                                          Parser.__data['log_param']['capsule']['port'],
+                                          Parser.__data['log_param']['capsule']['level'],
+                                          Parser.__data['log_param']['capsule']['facility'],
+                                          Parser.__data['log_param']['capsule']['format'],
                                           "Capsule"]
         except:
             pass
@@ -108,7 +111,7 @@ class Parser:
     @staticmethod
     def set_snapshot_param():
         try:
-            Parser.__snapshot_param = Parser.data['snapshot_param']['path']
+            Parser.__snapshot_param = Parser.__data['snapshot_param']['path']
         except:
             pass
 
@@ -138,6 +141,6 @@ class Parser:
 
 if __name__ == '__main__':
 
-    Parser.set_all()
-    print(Parser.get_backend_broker_list())
+    Parser()
+
 

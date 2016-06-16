@@ -22,18 +22,33 @@
   },
   "log_param":
   {
-    "host": "192.168.1.250",
-    "port": 514,
-    "level_broker": "DEBUG",
-    "level_capsule": "DEBUG",
-    "level_client": "DEBUG",
-    "facility_broker": "local0",
-    "facility_capsule": "local2",
-    "facility_client": "local1",
-    "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+    "broker":
+    {
+      "host": "192.168.1.250",
+      "port": 514,
+      "level": "DEBUG",
+      "facility": "local0",
+      "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+    },
+    "capsule":
+    {
+      "host": "192.168.1.250",
+      "port": 514,
+      "level": "DEBUG",
+      "facility": "local2",
+      "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+    },
+    "client":
+    {
+      "host": "192.168.1.250",
+      "port": 514,
+      "level": "DEBUG",
+      "facility": "local1",
+      "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+    }
   },
   "snapshot_param":
   {
-    "path":"Snap.txt"
+    "path":"Snap.json"
   }
 }
