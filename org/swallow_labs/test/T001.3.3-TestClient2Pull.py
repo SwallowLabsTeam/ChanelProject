@@ -1,8 +1,8 @@
 " script to instance a client stub and pull messages from brokers"
 from org.swallow_labs.model.Client import Client
 from org.swallow_labs.model.Parser import *
-l = Parser.get_frontend_broker_list()
-c1 = Client(20, l)
+Parser()
+c1 = Client(20, Parser.get_backend_broker_list())
 print("Client launched")
 c1.generate()
 if c1.pull():

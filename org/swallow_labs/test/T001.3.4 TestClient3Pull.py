@@ -2,10 +2,8 @@
 from org.swallow_labs.model.Client import Client
 from org.swallow_labs.model.Parser import *
 
-p = Parser('../conf/Configuration.json', 'client3')
-a = p.get_client_id()
-l = p.get_broker_list()
-c1 = Client(a, l)
+Parser()
+c1 = Client(25, Parser.get_backend_broker_list())
 print("Client launched")
 c1.generate()
 if c1.pull():

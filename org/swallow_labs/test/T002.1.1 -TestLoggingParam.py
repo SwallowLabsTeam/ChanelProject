@@ -11,7 +11,7 @@ try:
     print("Your json file is VALID")
 except ValidationError:
     print("Your json file is INVALID")
-parser = Parser('../conf/Configuration.json', 'client')
-client = Client(parser.get_client_id(), parser.get_broker_list())
+Parser()
+client = Client(5, Parser.get_frontend_broker_list())
 print("client launched")
 broker_launcher = Launcher('../conf/Configuration.json')

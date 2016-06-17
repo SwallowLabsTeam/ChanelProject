@@ -6,11 +6,8 @@ from org.swallow_labs.model.Parser import *
 from org.swallow_labs.tool.CapsulePriority import CapsulePriority
 from org.swallow_labs.tool.CapsuleType import CapsuleType
 
-
-parser = Parser('../conf/Configuration.json', 'client')
-client_id = parser.get_client_id()
-broker_list = parser.get_broker_list()
-c = Client(client_id, broker_list)
+Parser()
+c = Client(5, Parser.get_frontend_broker_list())
 print("Client launched")
 
 capsule1 = Capsule(c.id_client, CapsuleType.PAYLOAD)

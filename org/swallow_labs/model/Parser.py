@@ -27,12 +27,12 @@ class Parser:
     __capsule_log_param = []
     __snapshot_param = ''
 
-    def __init__(self):
-        Parser.read()
+    def __init__(self, files_path_list=['../conf/Configuration.json']):
+        Parser.read(files_path_list)
         Parser.set_all()
 
     @staticmethod
-    def read(files_path_list=['../conf/Configuration.json'], schema_path='../test/schema'):
+    def read(files_path_list, schema_path='../test/schema'):
         schema = ast.literal_eval(open(schema_path).read())
         for f in files_path_list:
             try:
