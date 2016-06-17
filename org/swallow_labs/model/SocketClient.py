@@ -124,4 +124,5 @@ class SocketClient:
 
         else:
 
+            SocketClient.my_logger.log_server_down()
             return []

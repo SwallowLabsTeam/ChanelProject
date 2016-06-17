@@ -57,8 +57,7 @@ class LoggerAdapter:
         self.logger = logging.getLogger(self.id_logger)
         self.logger.setLevel(self.level)
         syslog = logging.handlers.SysLogHandler(address=(self.host, int(self.port)), facility=self.facility)
-        # fh.setLevel(level)
-        self.logger.addFilter(InfoFilter())
+        #self.logger.addFilter(InfoFilter())
         formatter = logging.Formatter(self.format)
         syslog.setFormatter(formatter)
         self.logger.addHandler(syslog)
@@ -106,8 +105,6 @@ class LoggerAdapter:
     def log_missing_file(self, file_name):
         self.logger.error('{} is missing!'.format(file_name))
 
-    def log_snapshot(self):
-        self.logger.warn('Broker snapshot done')
+    def log_snapshot(self, arg):
+        self.logger.info('Broker snapshot done: '+arg)
 
-    def log_broker_reload(self):
-        self.logger.warn('Broker reload')

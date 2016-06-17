@@ -85,7 +85,7 @@ class Broker:
         """
         self.frontend.close()
         self.backend.close()
-        #self.my_logger.log_snapshot()
+        self.my_logger.log_snapshot(str(socket.gethostbyname(socket.gethostname()))+"-"+str(self.id_frontend)+"-"+str(self.id_backend))
         return self.message_list
 
     def clean(self):
