@@ -38,49 +38,105 @@
             ]
         }
     },
-    "log_param":
-    {
-        "type": "object",
-        "properties": {
+    "log_param": {
+      "type": "object",
+      "properties": {
+        "broker": {
+          "type": "object",
+          "properties": {
             "host": {
-                "type": "string"
+                "type": "string",
+                "format": "ipv4"
             },
             "port": {
                 "type": "integer"
             },
-            "level_broker": {
-                "type": "string"
+            "level": {
+              "type": "string",
+                "enum":["DEBUG", "INFO", "WARNING","ERROR", "CRITICAL"]
             },
-            "level_capsule": {
-                "type": "string"
-            },
-            "level_client": {
-                "type": "string"
-            },
-            "facility_broker": {
-                "type": "string"
-            },
-            "facility_capsule": {
-                "type": "string"
-            },
-            "facility_client": {
-                "type": "string"
+            "facility": {
+              "type": "string",
+                "enum":["local0"]
             },
             "format": {
-                "type": "string"
+              "type": "string"
             }
-        },
-        "required": [
+          },
+          "required": [
             "host",
             "port",
-            "level_broker",
-            "level_capsule",
-            "level_client",
-            "facility_broker",
-            "facility_capsule",
-            "facility_client",
+            "level",
+            "facility",
             "format"
-        ]
+          ]
+        },
+        "capsule": {
+          "type": "object",
+          "properties": {
+            "host": {
+              "type": "string",
+                "format": "ipv4"
+            },
+            "port": {
+              "type": "integer"
+            },
+            "level": {
+              "type": "string",
+                "enum":["DEBUG", "INFO", "WARNING","ERROR", "CRITICAL"]
+            },
+            "facility": {
+              "type": "string",
+                "enum":["local2"]
+            },
+            "format": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "host",
+            "port",
+            "level",
+            "facility",
+            "format"
+          ]
+        },
+        "client": {
+          "type": "object",
+          "properties": {
+            "host": {
+              "type": "string",
+                "format": "ipv4"
+            },
+            "port": {
+              "type": "integer"
+            },
+            "level": {
+              "type": "string",
+                "enum":["DEBUG", "INFO", "WARNING","ERROR", "CRITICAL"]
+            },
+            "facility": {
+              "type": "string",
+                "enum":["local1"]
+            },
+            "format": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "host",
+            "port",
+            "level",
+            "facility",
+            "format"
+          ]
+        }
+      },
+      "required": [
+        "broker",
+        "capsule",
+        "client"
+      ]
     },
 
     "snapshot_param":
