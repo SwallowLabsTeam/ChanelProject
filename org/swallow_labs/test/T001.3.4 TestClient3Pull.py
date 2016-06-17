@@ -2,7 +2,6 @@
 from org.swallow_labs.model.Client import Client
 from org.swallow_labs.model.Parser import *
 
-Parser()
 c1 = Client(25, Parser.get_backend_broker_list())
 print("Client launched")
 c1.generate()

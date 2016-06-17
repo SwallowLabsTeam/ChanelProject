@@ -6,7 +6,6 @@ from org.swallow_labs.model.Parser import *
 from org.swallow_labs.tool.CapsulePriority import CapsulePriority
 from org.swallow_labs.tool.CapsuleType import CapsuleType
 
-Parser()
 c = Client(5, Parser.get_frontend_broker_list())
 print("Client launched")
 
