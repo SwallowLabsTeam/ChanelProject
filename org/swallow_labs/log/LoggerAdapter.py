@@ -1,6 +1,7 @@
 import logging
 import logging.handlers
 import json
+import socket
 
 
 class InfoFilter(logging.Filter):
@@ -76,7 +77,7 @@ class LoggerAdapter:
             self.logger.critical(msg)
 
     def log_broker_start(self, arg1, arg2):
-        self.logger.info('Broker start: ' + 'PORT: Frontend: ' + str(arg1) + ' Backend: ' + str(arg2))
+        self.logger.info('Broker start: ' + ' with address: ' + str(socket.gethostbyname(socket.gethostname())) + 'PORT: Frontend: ' + str(arg1) + ' Backend: ' + str(arg2))
 
     def log_broker_send(self, arg1, arg2):
         self.logger.debug('Sent to client {} : {}'.format(arg1, json.dumps(arg2.__dict__)))
