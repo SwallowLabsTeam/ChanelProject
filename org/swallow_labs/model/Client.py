@@ -1,4 +1,5 @@
 from org.swallow_labs.model.SocketClient import SocketClient
+from org.swallow_labs.tool.CapsuleType import CapsuleType
 import queue as Q
 
 
@@ -30,6 +31,7 @@ class Client:
         self.sock_list = []
         self.nbr_broker = len(list_address)
         self.pull_list = []
+        self.lists_dictionary = {}
 
     def generate(self):
         """
@@ -68,6 +70,12 @@ class Client:
         for i in range(self.nbr_broker):
             self.pull_list = self.pull_list+self.sock_list[i].pull()
         self.tri()
+
+        for key, value in {k: v for k, v in CapsuleType.__dict__.items() if k != '__dict__' and k != '__doc__' and k != '__module__' and k != '__weakref__' and k != 'READY' and k != 'END'}.items():
+            self.lists_dictionary[value] = []
+            for cap in self.pull_list:
+                if cap.get_type() == value:
+                    self.lists_dictionary[value].append(cap)
         return 1
 
     def tri(self):
@@ -81,7 +89,7 @@ class Client:
         aux = Q.PriorityQueue()
         for i in range(len(self.pull_list)):
 
-            aux.put((self.pull_list[i].get_priority(),i))
+            aux.put((self.pull_list[i].get_priority(), i))
 
         while not aux.empty():
             inter.append(self.pull_list[aux.get()[1]])
