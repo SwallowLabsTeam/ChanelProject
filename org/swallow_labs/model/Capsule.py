@@ -109,6 +109,15 @@ class Capsule:
         """
         return self.priority
 
+    def get_sort(self):
+        """
+
+        DESCRIPTION
+        ===========
+        Method providing a way to get the capsule sort
+
+        """
+        return self.sort
     def get_payload(self):
         """
 
@@ -230,6 +239,16 @@ class Capsule:
 
         """
         self.type = type
+
+    def set_sort(self, sort):
+        """
+
+        DESCRIPTION
+        ===========
+        Method Setting capsule sort
+
+        """
+        self.sort = sort
 
     def print_capsule(self):
         """
