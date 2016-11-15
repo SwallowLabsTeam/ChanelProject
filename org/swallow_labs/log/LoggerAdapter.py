@@ -105,6 +105,9 @@ class LoggerAdapter:
     def log_missing_file(self, file_name):
         self.logger.error('{} is missing!'.format(file_name))
 
+    def log_treated_capsule(self, arg):
+        self.logger.debug('capsule treated {}'.format(arg.__dict__))
+
     def log_snapshot(self, arg):
         self.logger.info('Broker snapshot done: '+arg)
 
