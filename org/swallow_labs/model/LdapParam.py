@@ -11,7 +11,7 @@ class LdapParam:
     """
 
     def __init__(self):
-        self.admin = '"'+Parser.get_ldap_param()[0]+'"'
+        self.admin = Parser.get_ldap_param()[0]
         self.password = Parser.get_ldap_param()[1]
 
 
