@@ -2,7 +2,7 @@ from org.swallow_labs.model.Parser import *
 
 class LdapParam:
     """
-        Class creating a BrokerData object
+        Class creating a LdapParam object
         G{classtree}
         DESCRIPTION
         ===========
