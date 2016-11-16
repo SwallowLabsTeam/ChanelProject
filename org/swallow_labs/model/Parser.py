@@ -26,6 +26,7 @@ class Parser:
     __client_log_param = []
     __capsule_log_param = []
     __snapshot_param = ''
+    __ldap_param = []
 
     def __init__(self, files_path_list=['../conf/Configuration.json']):
         Parser.read(files_path_list)
@@ -53,7 +54,7 @@ class Parser:
         Parser.set_capsule_log_param()
         Parser.set_client_log_param()
         Parser.set_snapshot_param()
-
+        Parser.set_ldap_param()
     @staticmethod
     def set_backend_broker_list():
         try:
@@ -116,6 +117,14 @@ class Parser:
             pass
 
     @staticmethod
+    def set_ldap_param():
+        try:
+            Parser.__ldap_param = [Parser.__data['ldap_param']['admin'],
+                                   Parser.__data['ldap_param']['password']]
+        except:
+            pass
+
+    @staticmethod
     def get_backend_broker_list():
         return Parser.__backend_broker_list
 
@@ -138,6 +147,11 @@ class Parser:
     @staticmethod
     def get_snapshot_param():
         return Parser.__snapshot_param
+
+    @staticmethod
+    def get_ldap_param():
+        return Parser.__ldap_param
+
 
 if __name__ == '__main__':
 
