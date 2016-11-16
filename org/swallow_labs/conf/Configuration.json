@@ -24,7 +24,7 @@
   {
     "broker":
     {
-      "host": "192.168.1.250",
+      "host": "10.10.10.2",
       "port": 514,
       "level": "DEBUG",
       "facility": "local0",
@@ -32,7 +32,7 @@
     },
     "capsule":
     {
-      "host": "192.168.1.250",
+      "host": "10.10.10.2",
       "port": 514,
       "level": "DEBUG",
       "facility": "local2",
@@ -40,7 +40,7 @@
     },
     "client":
     {
-      "host": "192.168.1.250",
+      "host": "10.10.10.2",
       "port": 514,
       "level": "DEBUG",
       "facility": "local1",
@@ -50,5 +50,10 @@
   "snapshot_param":
   {
     "path":"/home/salmen"
+  },
+  "ldap_param":
+  {
+    "admin":"cn=directory manager",
+    "password":"salmenF03"
   }
 }
