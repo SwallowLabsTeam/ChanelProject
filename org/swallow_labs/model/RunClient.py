@@ -62,5 +62,5 @@ class RunClient:
                  self.client.pull_list.pop(0)
                  # pop the treated capsule from the pull_list
              # treat pull_list capsule
-             time.sleep(3)
+             time.sleep(0.5)
 
