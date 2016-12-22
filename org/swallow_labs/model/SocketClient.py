@@ -34,6 +34,8 @@ class SocketClient:
 
     """
 
+
+    global my_logger
     my_logger = LoggerAdapter(Parser.get_client_log_param())
 
     def __init__(self, id_client, address, port):
@@ -54,7 +56,7 @@ class SocketClient:
         self.socket.setsockopt(zmq.IDENTITY, bytes(self.id_client, "utf8"))
         # Connect to the designed host
         self.socket.connect("tcp://" + self.address + ":" + self.port)
-        SocketClient.my_logger.log_client_connect(self.id_client, self.address, self.port)
+        my_logger.log_client_connect(self.id_client, self.address, self.port)
 
     # Method that check if the port server is open or not
 
@@ -83,13 +85,13 @@ class SocketClient:
 
         """
         if self.check_port() == 0:
-            SocketClient.my_logger.log_server_down()
+            my_logger.log_server_down()
             # self.logger.warn("server down")
         while self.check_port() == 0:
             pass
 
         self.socket.send_json(json.dumps(capsule.__dict__))
-        SocketClient.my_logger.log_client_push(capsule)
+        my_logger.log_client_push(capsule)
         # self.logger.debug('sent : {}'.format(capsule.__dict__))
         return 1
 
@@ -113,7 +115,7 @@ class SocketClient:
                 p = json.dumps(j)
 
                 c = Capsule(j=p)
-                SocketClient.my_logger.log_client_pull(c)
+                my_logger.log_client_pull(c)
                 # self.logger.debug('messages retrieved {}'.format(c.__dict__))
                 if c.get_type() == CapsuleType.END:
                     break
@@ -124,5 +126,5 @@ class SocketClient:
 
         else:
 
-            SocketClient.my_logger.log_server_down()
+            my_logger.log_server_down()
             return []
