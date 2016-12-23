@@ -259,12 +259,13 @@ class Capsule:
 
         """
         return('Capsule ID: {}, Priority : {}, ID sender : {}, ID receiver : {}, Capsule Status {},'
-              ' Capsule type : {}, Payload : {}, Sending date : {}'.format(self.get_id_capsule(),
+              ' Capsule type : {}, Payload : {}, Sending date : {}, Capsule Sort : {}'.format(self.get_id_capsule(),
                                                                                                 self.get_priority(),
                                                                                                 self.get_id_sender(),
                                                                                                 self.get_id_receiver(),
                                                                                                 self.get_status_capsule(),
                                                                                                 self.get_type(),
                                                                                                 self.get_payload(),
-                                                                                                self.get_sending_date()
+                                                                                                self.get_sending_date(),
+                                                                                                self.get_sort()
                                                                                                 ))

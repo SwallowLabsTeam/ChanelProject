@@ -111,3 +111,11 @@ class LoggerAdapter:
     def log_snapshot(self, arg):
         self.logger.info('Broker snapshot done: '+arg)
 
+    def log_sendACK_error_request(self,arg,arg2):
+        self.logger.debug('capsule request error id: ' + arg +'  id_client: '+arg2)
+
+    def log_sendACK_error_structure(self,arg,arg2):
+        self.logger.debug('capsule structure error id: ' + arg+'  id_client: '+arg2)
+
+    def log_sendACK_error_server_down(self,arg,arg2):
+        self.logger.debug('server LDAP down error id: ' + arg+'  id_client: '+arg2)

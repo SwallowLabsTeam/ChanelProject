@@ -24,13 +24,18 @@ class RunClient:
     def __init__(self, id_client):
 
         """
-
+            DESCRIPTION
+        ===========
 
         """
+
         self.id_client = id_client
         self.list_address = Parser.get_backend_broker_list()
-        # Load client param
-        self.client = Client(self.id_client, self.list_address)
+        # Load global client param
+       # global RR
+        #RR = 5
+        global client
+        client = Client(self.id_client, self.list_address)
         # instantiate a Client
         p = Process(target=self.routine)
         p.start()
@@ -46,21 +51,23 @@ class RunClient:
         Method that run a client stub and pull capsule in loop
 
          """
-         self.client.generate()
-         while(True):
-          # loop for pull
-             self.client.pull()
-            # client pull
-             for x in self.client.pull_list:
-                 print(x)
+         client.generate()
+         while (True):
+             # loop for pull
+             client.pull()
+             # client pull
+             for x in client.pull_list:
+                 print(x.print_capsule())
                  t = CapsuleProcessor(x)
                  # instantiate a CapsuleProcessor that will treat capsule
                  t.treat()
                  # treat capsule
                  x.my_logger.log_treated_capsule(x)
                  # log that the capsule was treated
-                 self.client.pull_list.pop(0)
+                 client.pull_list.pop(0)
                  # pop the treated capsule from the pull_list
              # treat pull_list capsule
              time.sleep(0.5)
+
+
 

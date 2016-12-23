@@ -172,6 +172,7 @@ class Broker:
                     # If the message is anything other then the ready message
                     # Store it into the messageList
                     self.message_list.append(c_recv)
+                    print("ok1")
             # the back-end works the same as the front-end
             if socks.get(self.backend) == zmq.POLLIN:
 
@@ -186,6 +187,7 @@ class Broker:
                     self.send(client_id, self.backend)
                 else:
                     self.message_list.append(c_recv)
+                    print("ok")
 
             if len(self.message_list) > 0:
                 self.clean()
