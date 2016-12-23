@@ -10,7 +10,8 @@ print("client launched")
 capsule = Capsule(c.id_client, CapsuleType.PAYLOAD)
 # capsule.set_type("PAYLOAD")
 capsule.set_payload({'nom': 'gammoudi', 'prenom': 'seif'})
-capsule.set_id_receiver("20")
+capsule.set_id_receiver("25")
+#capsule.set_id_receiver("25")
 capsule.set_priority(CapsulePriority.BOOKING_MSG)
 capsule2 = Capsule(c.id_client, CapsuleType.PAYLOAD)
 # capsule2.set_type("PAYLOAD")
@@ -20,6 +21,8 @@ capsule2.set_priority(CapsulePriority.INFORMATION_DEVICE_MSG)
 c.generate()
 if c.push(capsule2) == 1:
     print("Capsule Sent")
+    print(capsule2.print_capsule())
 if c.push(capsule) == 1:
     print("Capsule Sent")
+    print(capsule.print_capsule())
 

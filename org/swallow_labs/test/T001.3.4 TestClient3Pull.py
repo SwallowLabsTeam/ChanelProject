@@ -11,6 +11,7 @@ if c1.pull():
     else:
         for x in c1.pull_list:
             print("Capsule received")
+            print(x.print_capsule())
 
 
 
