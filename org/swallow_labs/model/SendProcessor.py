@@ -49,6 +49,7 @@ class SendProcessor:
 
     def send(self,x):
         if self.cpl.get_priority() == CapsulePriority.BOOKING_MSG:
+            self.cpl.set_sending_date(datetime.datetime.utcnow())
             SendProcessor.sending_list.append(x)
 
         org.swallow_labs.model.RunClient.Client.push(x)
@@ -61,7 +62,8 @@ class SendProcessor:
         @type x: Capsule
         @rtype: bool
         """
-        if (x.get_sending_date()+ datetime.timedelta(0, x.get_tts())>=datetime.datetime.utcnow()):
+        w = datetime.datetime.strptime(x.get_sending_date(), "%a %b %d %H:%M:%S %Y")
+        if (w+ datetime.timedelta(0, x.get_tts())>=datetime.datetime.now()):
             return False
         else:
             return True

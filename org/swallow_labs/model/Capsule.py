@@ -55,7 +55,7 @@ class Capsule:
             self.status_capsule = "NO"
             self.type = type
             # add to the capsule, date of sending
-            self.sending_date = datetime.datetime.utcnow()
+            self.sending_date = time.ctime()
             Capsule.my_logger.log_init_capsule(self.id_capsule, self.get_id_sender(), self.get_type())
             self.ACK= "NO"
         else:
