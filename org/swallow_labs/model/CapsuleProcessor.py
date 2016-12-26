@@ -26,12 +26,15 @@ class CapsuleProcessor:
 
     """
     ldap_param = LdapParam()
+
+    list_capsuleACK_all_msg = []
+
     #get LDAP param
-    list_capsuleACK_add_msg = []
+   # list_capsuleACK_add_msg = []
     #liste of capsuleADD
-    list_capsuleACK_mod_msg = []
+    #list_capsuleACK_mod_msg = []
     # liste of capsuleMOD
-    list_capsuleACK_del_msg = []
+    #list_capsuleACK_del_msg = []
     # liste of capsuleDEL
     # Static variable that contain ldap connexion param
     def __init__(self, cpl):
@@ -42,7 +45,7 @@ class CapsuleProcessor:
         self.cpl = cpl
         # initialize the capsule  that will be treated
 
-    def treat(self):
+    def treat(self,obj_ACK):
         """
         DESCRIPTION
         ===========
@@ -50,20 +53,20 @@ class CapsuleProcessor:
         """
         if self.cpl.get_sort() == CapsuleSort.LDAP_ADD_MSG:
         # Test the sort of capsule
-            self.treat_ldap_add_msg()
+            self.ladp_add_sendACK(obj_ACK)
             # Run the method that treat the LDAP_ADD_MSG capsule
 
         elif self.cpl.get_sort() == CapsuleSort.LDAP_MOD_MSG:
         # Test the sort of capsule
-            self.treat_ldap_mod_msg()
+            self.ladp_mod_sendACK(obj_ACK)
             # Run the method that treat the LDAP_MOD_MSG capsule
 
         elif self.cpl.get_sort() == CapsuleSort.LDAP_DEL_MSG:
         # Test the sort of capsule
-            self.treat_ldap_del_msg()
+            self.ladp_del_sendACK(obj_ACK)
             # Run the method that treat the LDAP_DEL_MSG capsule
 
-    def treat_ldap_add_msg(self):
+    def verif_msg(self):
         """
         DESCRIPTION
         ===========
@@ -74,29 +77,31 @@ class CapsuleProcessor:
         #id for capsule ACK
         print(id_capACK)
         b = False
-        print("list:",self.list_capsuleACK_add_msg)
-        for h in self.list_capsuleACK_add_msg:
+        print("list:",self.list_capsuleACK_all_msg)
+        for h in self.list_capsuleACK_all_msg:
             if h.id_capsule == id_capACK:
                 b = True
                 obj_ACK = h
         # to verifie existens of capsule in the list of capsuleADD
+        result = None
         if(b):
           if(obj_ACK.status == "NO" ):
            #test of the capsule is not treated
-                self.ladp_add_sendACK(obj_ACK)
-                # Do the Ldap-Add process and send ACK
-          else:
-            # Test of the capsule is Treated
-              print("reject")
-              #reject Capsule Ack
+                #self.ladp_add_sendACK(obj_ACK)
+                result = obj_ACK
 
         else:
         # new capsule to treat
             obj_capsuleACK = CapsuleACK(id_capACK,"NO")
-            self.list_capsuleACK_add_msg.append(obj_capsuleACK)
+            self.list_capsuleACK_all_msg.append(obj_capsuleACK)
             # Add capsule Ack status in the status list
-            self.ladp_add_sendACK(obj_capsuleACK)
+           # self.ladp_add_sendACK(obj_capsuleACK)
+            result = obj_capsuleACK
             # Do the Ldap-Add process and send ACK
+        return result
+
+
+
 
     def ladp_add_sendACK(self,objACK):
 
@@ -128,8 +133,8 @@ class CapsuleProcessor:
         elif (str1.find('adding new entry') > 0):
 
             # Test if the entry is added succeful
-            f = self.list_capsuleACK_add_msg.index(objACK)
-            self.list_capsuleACK_add_msg[f].status = "YES"
+            f = self.list_capsuleACK_all_msg.index(objACK)
+            self.list_capsuleACK_all_msg[f].status = "YES"
             # Change status capsule Ack
             self.sendACK(CapsuleSort.LDAP_ADD_MSG_ACK_POSITIF, self.cpl.id_capsule, self.cpl.id_sender)
             # send positif ACk
@@ -142,43 +147,6 @@ class CapsuleProcessor:
 
 
 
-
-    def treat_ldap_mod_msg(self):
-        """
-        DESCRIPTION
-        ===========
-        Method that treat a LDAP_MOD_MSG capsule
-        """
-
-        id_capACK = self.cpl.get_id_capsule();
-        # id for capsule ACK
-        print(id_capACK)
-        b = False
-
-        print("list:", self.list_capsuleACK_mod_msg)
-        for h in self.list_capsuleACK_mod_msg:
-            if h.id_capsule == id_capACK:
-                b = True
-                obj_ACK = h
-        # to verifie existens of capsule in the list of capsuleMOD
-
-        if (b):
-            if (obj_ACK.status == "NO"):
-            # test of the capsule is not treated
-                self.ladp_mod_sendACK(obj_ACK)
-                # Do the Ldap-mod process and send ACK
-            else:
-                # Test of the capsule is Treated
-                print("reject")
-                # reject ACK
-
-        else:
-            # send new ACK
-            obj_capsuleACK = CapsuleACK(id_capACK, "NO")
-            self.list_capsuleACK_mod_msg.append(obj_capsuleACK)
-            # Add capsule Ack status in the status list
-            self.ladp_mod_sendACK(obj_capsuleACK)
-            # Do the Ldap-MOD process and send ACK
 
 
 
@@ -213,8 +181,8 @@ class CapsuleProcessor:
 
         elif (str1.find('modifying entry') > 0):
             # Test if the entry is modify succeful
-            f = self.list_capsuleACK_mod_msg.index(objACK)
-            self.list_capsuleACK_mod_msg[f].status = "YES"
+            f = self.list_capsuleACK_all_msg.index(objACK)
+            self.list_capsuleACK_all_msg[f].status = "YES"
             # Change status capsule Ack
             self.sendACK(CapsuleSort.LDAP_MOD_MSG_ACK_POSITIF, self.cpl.id_capsule, self.cpl.id_sender)
             #send positif ACK
@@ -225,38 +193,6 @@ class CapsuleProcessor:
         os.remove("./" + str(mod_file))
         # delete ldap_mod_file
 
-
-    def treat_ldap_del_msg(self):
-        """
-        DESCRIPTION
-        ===========
-        Method that treat a LDAP_DEL_MSG capsule
-        """
-        id_capACK = self.cpl.get_id_capsule();
-        # id for capsule ACK
-        b = False
-        for h in self.list_capsuleACK_del_msg:
-            if h.id_capsule == id_capACK:
-                b = True
-                obj_ACK = h
-        # to verifie existens of capsule in the list of capsuleDEL
-
-        if (b):
-            if (obj_ACK.status == "NO"):
-                # test of the capsule is not treated
-                self.ladp_del_sendACK(obj_ACK)
-                # Do the Ldap-del process and send ACK
-            else:
-                # Test of the capsule is Treated
-                print("reject")
-                # reject ACK
-        else:
-            # new capsule to treat
-            obj_capsuleACK = CapsuleACK(id_capACK, "NO")
-            self.list_capsuleACK_del_msg.append(obj_capsuleACK)
-            # Add capsule Ack status in the status list
-            self.ladp_del_sendACK(obj_capsuleACK)
-            # Do the Ldap-del process and send ACK
 
 
     def ladp_del_sendACK(self, objACK):
@@ -290,8 +226,8 @@ class CapsuleProcessor:
         elif(str1.find('eleting entry') > 0):
 
             # Test if the entry is deleted succeful
-            f = self.list_capsuleACK_del_msg.index(objACK)
-            self.list_capsuleACK_del_msg[f].status = "YES"
+            f = self.list_capsuleACK_all_msg.index(objACK)
+            self.list_capsuleACK_all_msg[f].status = "YES"
             # Change status capsule Ack
             self.sendACK(CapsuleSort.LDAP_DEL_MSG_ACK_POSITIF, self.cpl.id_capsule, self.cpl.id_sender)
             # send positif ACK
@@ -365,6 +301,7 @@ class CapsuleProcessor:
         """
         capsule = Capsule(org.swallow_labs.model.RunClient.client.id_client, CapsuleType.PAYLOAD)
         # initialize capsule
+        capsule.set_yes_ACK()
         capsule.set_payload({'id': id_capsule})
         capsule.set_id_receiver(str(id_sender))
         capsule.set_sort(capsule_sort)
