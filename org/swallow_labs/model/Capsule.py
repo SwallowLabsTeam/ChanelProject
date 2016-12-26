@@ -2,7 +2,7 @@ from org.swallow_labs.model.Parser import Parser
 import json
 import time
 from org.swallow_labs.log.LoggerAdapter import LoggerAdapter
-
+import datetime
 
 class Capsule:
 
@@ -34,6 +34,8 @@ class Capsule:
         @ivar self.sending_date:    Capsule sending date
         @ivar self.receiving_date:    Capsule receiving date
         @ivar self.status_capsule:    Capsule status(YES if read it and NO if still not read it by the broker)
+        @ivar self.tts      Capsule time taking to send
+        @ivar self.ACK      Capsule ACK(YES/NO if YES it an ACK or is simple message)
         """
 
     cpt_capsule = 0
@@ -53,8 +55,9 @@ class Capsule:
             self.status_capsule = "NO"
             self.type = type
             # add to the capsule, date of sending
-            self.sending_date = time.ctime()
+            self.sending_date = datetime.datetime.utcnow()
             Capsule.my_logger.log_init_capsule(self.id_capsule, self.get_id_sender(), self.get_type())
+            self.ACK= "NO"
         else:
             self.__dict__ = json.loads(j)
 
@@ -79,6 +82,25 @@ class Capsule:
         """
         return self.id_capsule
 
+    def get_tts(self):
+        """
+
+        DESCRIPTION
+        ===========
+        Method providing a way to get the capsule tts
+
+        """
+        return self.tts
+
+    def get_ACK(self):
+        """
+
+        DESCRIPTION
+        ===========
+        Method providing a way to get the capsule ACK
+
+        """
+        return self.ACK
     def get_id_sender(self):
         """
 
@@ -209,6 +231,26 @@ class Capsule:
 
         """
         self.sending_date = sending_date
+
+    def set_yes_ACK(self):
+        """
+
+        DESCRIPTION
+        ===========
+        Method providing a way to st yes to the capsule ACK
+
+        """
+        self.ACK = "YES"
+
+    def set_tts(self,tts):
+        """
+
+        DESCRIPTION
+        ===========
+        Method providing a way to st the capsule tts
+
+        """
+        self.tts = tts
 
     def set_receiving_date(self, receiving_date):
         """
