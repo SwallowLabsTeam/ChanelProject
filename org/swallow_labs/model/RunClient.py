@@ -3,6 +3,7 @@ from org.swallow_labs.model.Parser import *
 from multiprocessing import Process
 from org.swallow_labs.model.CapsuleProcessor import CapsuleProcessor
 import time
+import org.swallow_labs.model.SendProcessor
 class RunClient:
     """
         Class creating a RunClient object
@@ -58,16 +59,34 @@ class RunClient:
              # client pull
              for x in client.pull_list:
                  print(x.print_capsule())
-                 t = CapsuleProcessor(x)
-                 # instantiate a CapsuleProcessor that will treat capsule
-                 t.treat()
-                 # treat capsule
-                 x.my_logger.log_treated_capsule(x)
-                 # log that the capsule was treated
-                 client.pull_list.pop(0)
-                 # pop the treated capsule from the pull_list
-             # treat pull_list capsule
-             time.sleep(0.5)
+
+                 if(x.get_ACK=="YES"):
+                     pld=x.get_payload()
+                     for w in org.swallow_labs.model.SendProcessor.sending_list:
+                         if(w.get_id_sender()==pld["id"]):
+                             org.swallow_labs.model.SendProcessor.sending_list.remove(w)
+                 else:
+                     t = CapsuleProcessor(x)
+                     # instantiate a CapsuleProcessor that will treat capsule
+                     y = t.verif_msg()
+                     print("yyy ", y)
+                     if (y == None):
+                         print('capsule verif false')
+                         org.swallow_labs.model.SocketClient.my_logger.log_sendACK_verif(
+                             str(x.id_capsule), str(
+                                 org.swallow_labs.model.RunClient.client.id_client))
+                     else:
+                         t.treat(y)
+
+                     # instantiate a CapsuleProcessor that will treat capsule
+                     # t.treat()
+                     # treat capsule
+                     x.my_logger.log_treated_capsule(x)
+                     # log that the capsule was treated
+                     client.pull_list.pop(0)
+                     # pop the treated capsule from the pull_list
+                 # treat pull_list capsule
+                 time.sleep(0.5)
 
 
 

@@ -26,17 +26,10 @@ class CapsuleProcessor:
 
     """
     ldap_param = LdapParam()
-
+    # load ldap connexion param
     list_capsuleACK_all_msg = []
+    # list capsuleACK_all_msg
 
-    #get LDAP param
-   # list_capsuleACK_add_msg = []
-    #liste of capsuleADD
-    #list_capsuleACK_mod_msg = []
-    # liste of capsuleMOD
-    #list_capsuleACK_del_msg = []
-    # liste of capsuleDEL
-    # Static variable that contain ldap connexion param
     def __init__(self, cpl):
         """
                    :
