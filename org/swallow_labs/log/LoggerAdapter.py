@@ -119,3 +119,6 @@ class LoggerAdapter:
 
     def log_sendACK_error_server_down(self,arg,arg2):
         self.logger.debug('server LDAP down error id: ' + arg+'  id_client: '+arg2)
+
+    def log_sendACK_verif(self, arg, arg2):
+        self.logger.debug('capsule is already treated id: ' + arg + '  id_client: ' + arg2)
