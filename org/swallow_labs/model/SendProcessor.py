@@ -9,7 +9,6 @@ import org.swallow_labs.model.RunClient
 import org.swallow_labs.model.SocketClient
 from subprocess import *
 import datetime
-
 class SendProcessor:
 
     """
@@ -38,23 +37,25 @@ class SendProcessor:
         """
         self.cpl = cpl
         # initialize the capsule  that will be sent
-    def send_capsule(self):
-        self.send_in_sending_list()
-        self.send(self.cpl)
-    def send_in_sending_list(self):
-        for x in SendProcessor.sending_list:
-            if(self.verify_tts(x)):
-                self.send(x)
+    def send_capsule(self,x):
+        SendProcessor.send_in_sending_list(x)
+        SendProcessor.send(self.cpl,x)
+    @staticmethod
+    def send_in_sending_list(y):
+        for x in sending_list:
+            if SendProcessor.verify_tts(x):
+                SendProcessor.send(x,y)
+
+    @staticmethod
+    def send(x,y):
+        if x.get_priority() == CapsulePriority.BOOKING_MSG:
+            sending_list.append(x)
+
+        y.push(x)
 
 
-    def send(self,x):
-        if self.cpl.get_priority() == CapsulePriority.BOOKING_MSG:
-            self.cpl.set_sending_date(datetime.datetime.utcnow())
-            SendProcessor.sending_list.append(x)
-
-        org.swallow_labs.model.RunClient.Client.push(x)
-
-    def verify_tts(self,x):
+    @staticmethod
+    def verify_tts(x):
         """
 
         @param x: Verify tts Capsule

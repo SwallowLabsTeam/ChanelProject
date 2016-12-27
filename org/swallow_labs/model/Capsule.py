@@ -240,7 +240,7 @@ class Capsule:
         Method providing a way to st yes to the capsule ACK
 
         """
-        self.ACK = "YES"
+        self.ACK ="YES"
 
     def set_tts(self,tts):
         """
