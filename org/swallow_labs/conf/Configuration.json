@@ -55,5 +55,11 @@
   {
     "admin":"cn=directory manager",
     "password":"salmenF03"
+  },
+ "client_id":
+  {
+    "salmen-ubuntu":"44",
+    "mahdi":"53"
   }
 }
+

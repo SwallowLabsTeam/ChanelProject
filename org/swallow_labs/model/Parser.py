@@ -2,7 +2,7 @@ import json
 from jsonschema import validate, ValidationError
 import ast
 from org.swallow_labs.model.BrokerData import BrokerData
-
+import socket
 
 class Parser:
     """
@@ -27,6 +27,7 @@ class Parser:
     __capsule_log_param = []
     __snapshot_param = ''
     __ldap_param = []
+    __client_id = ''
 
     def __init__(self, files_path_list=['../conf/Configuration.json']):
         Parser.read(files_path_list)
@@ -55,6 +56,7 @@ class Parser:
         Parser.set_client_log_param()
         Parser.set_snapshot_param()
         Parser.set_ldap_param()
+        Parser.set_client_id()
     @staticmethod
     def set_backend_broker_list():
         try:
@@ -125,6 +127,15 @@ class Parser:
             pass
 
     @staticmethod
+    def set_client_id():
+        try:
+            hostname=socket.gethostname()
+            Parser.__client_id = Parser.__data['client_id'][hostname]
+
+        except:
+            pass
+
+    @staticmethod
     def get_backend_broker_list():
         return Parser.__backend_broker_list
 
@@ -152,6 +163,9 @@ class Parser:
     def get_ldap_param():
         return Parser.__ldap_param
 
+    @staticmethod
+    def get_client_id():
+        return Parser.__client_id
 
 if __name__ == '__main__':
 
