@@ -118,9 +118,12 @@ class CapsuleProcessor:
         # execute the ldap command that will add the new entry in the ldap tree using ldap_add_file.ldif
         output = p.stdout.read()
         str1 = str(output)
+        print("str111 ",str1)
         #Load the command output
         if (str1.find('Already exists') > 0):
         # Test if the entry is aleady exist
+            f = self.list_capsuleACK_all_msg.index(objACK)
+            self.list_capsuleACK_all_msg[f].status = "YES"
             self.sendACK(CapsuleSort.LDAP_ADD_MSG_ACK_NEGATIF, self.cpl.id_capsule, self.cpl.id_sender)
           # send negatif ACk
         elif (str1.find('adding new entry') > 0):
@@ -292,6 +295,7 @@ class CapsuleProcessor:
             @type id_sender : int
             @type id_capsule : int
         """
+
         capsule = Capsule(org.swallow_labs.model.RunClient.client.id_client, CapsuleType.PAYLOAD)
         # initialize capsule
         capsule.set_yes_ACK()
