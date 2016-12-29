@@ -39,19 +39,21 @@ class SendProcessor:
         # initialize the capsule  that will be sent
     def send_capsule(self,x):
         SendProcessor.send_in_sending_list(x)
-        SendProcessor.send(self.cpl,x)
+        SendProcessor.append(self.cpl)
+        x.push(self.cpl)
+        print("sending list",sending_list)
     @staticmethod
     def send_in_sending_list(y):
         for x in sending_list:
-            if SendProcessor.verify_tts(x):
-                SendProcessor.send(x,y)
+            #if SendProcessor.verify_tts(x):
+                y.push(x)
 
     @staticmethod
-    def send(x,y):
+    def append(x):
         if x.get_priority() == CapsulePriority.BOOKING_MSG:
             sending_list.append(x)
 
-        y.push(x)
+
 
 
     @staticmethod
