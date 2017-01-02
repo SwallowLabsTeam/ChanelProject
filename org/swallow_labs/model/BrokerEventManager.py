@@ -58,15 +58,13 @@ class BrokerEventManager:
         Method describing the behaviour of the broker it is the main loop in which he receives messages
         and forwards them to the MOM
         """
-        print("okkkkkkkkkkkkkkkkkkkkkkkkk")
         while(True):
-            print("ok1")
+            print("ok")
             socks = dict(self.poller.poll())
             # Convert the return of the poll method into a dictionary
             if socks.get(self.frontend) == zmq.POLLIN:
                 # if the the argument iss true, it means that a message is received on the front-end socket
                 b_client_id, b_capsule = self.frontend.recv_multipart()
-                print("ok1")
                 print(b_client_id, b_capsule)
                 # receive client id and capsule as bytes
                 s_capsule=b_capsule.decode("utf-8")

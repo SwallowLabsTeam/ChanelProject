@@ -1,6 +1,6 @@
 var NAVTREE =
 [
-  [ "Message Oriented Middleware Project", "index.html", [
+  [ "MOM Chanel Project", "index.html", [
     [ "Namespaces", null, [
       [ "Namespace List", "namespaces.html", "namespaces" ]
     ] ],

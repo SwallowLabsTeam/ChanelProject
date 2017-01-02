@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.9.1"/>
-<title>Message Oriented Middleware Project: org.swallow_labs.model.Broker.Broker Class Reference</title>
+<title>Chanel MOM Project: org.swallow_labs.model.Broker.Broker Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -17,13 +17,11 @@
   $(window).load(resizeHeight);
 </script>
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <script type="text/javascript">
-  $(document).ready(function() {
-    if ($('.searchresults').length > 0) { searchBox.DOMSearchField().focus(); }
-  });
+  $(document).ready(function() { init_search(); });
 </script>
-<link rel="search" href="../../search_opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="Message Oriented Middleware Project"/>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -34,9 +32,8 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="../../image001.png"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Message Oriented Middleware Project
+   <div id="projectname">Chanel MOM Project
    </div>
-   <div id="projectbrief">MOM</div>
   </td>
  </tr>
  </tbody>
@@ -55,14 +52,18 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
       <li><a href="../../files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
-          <div class="left">
-            <form id="FSearchBox" action="../../search.php" method="get">
-              <img id="MSearchSelect" src="../../search/mag.png" alt=""/>
-              <input type="text" id="MSearchField" name="query" value="Search" size="20" accesskey="S" 
-                     onfocus="searchBox.OnSearchFieldFocus(true)" 
-                     onblur="searchBox.OnSearchFieldFocus(false)"/>
-            </form>
-          </div><div class="right"></div>
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
         </div>
       </li>
     </ul>
@@ -89,6 +90,20 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 $(document).ready(function(){initNavTree('d8/d20/classorg_1_1swallow__labs_1_1model_1_1_broker_1_1_broker.html','../../');});
 </script>
 <div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -215,10 +230,6 @@ Method cleaning the message_list attribute of the broker by removing the message
 </pre> 
 <p>Definition at line <a class="el" href="../../df/d81/_broker_8py_source.html#l00091">91</a> of file <a class="el" href="../../df/d81/_broker_8py_source.html">Broker.py</a>.</p>
 
-<p>References <a class="el" href="../../df/d81/_broker_8py_source.html#l00045">org.swallow_labs.model.Broker.Broker.message_list</a>.</p>
-
-<p>Referenced by <a class="el" href="../../df/d81/_broker_8py_source.html#l00144">org.swallow_labs.model.Broker.Broker.start()</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="ae6ed636aa76d6b9e0002952aeb7ec1f0"></a>
@@ -306,10 +317,6 @@ on the specified end
 </pre> 
 <p>Definition at line <a class="el" href="../../df/d81/_broker_8py_source.html#l00104">104</a> of file <a class="el" href="../../df/d81/_broker_8py_source.html">Broker.py</a>.</p>
 
-<p>References <a class="el" href="../../df/d81/_broker_8py_source.html#l00047">org.swallow_labs.model.Broker.Broker.id_backend</a>, <a class="el" href="../../df/d81/_broker_8py_source.html#l00046">org.swallow_labs.model.Broker.Broker.id_frontend</a>, and <a class="el" href="../../df/d81/_broker_8py_source.html#l00045">org.swallow_labs.model.Broker.Broker.message_list</a>.</p>
-
-<p>Referenced by <a class="el" href="../../df/d81/_broker_8py_source.html#l00144">org.swallow_labs.model.Broker.Broker.start()</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a2f4469e8372d8937c1868eab75fe8bbd"></a>
@@ -330,8 +337,6 @@ on the specified end
     Method close broker sockets and return the messages list
 </pre> 
 <p>Definition at line <a class="el" href="../../df/d81/_broker_8py_source.html#l00080">80</a> of file <a class="el" href="../../df/d81/_broker_8py_source.html">Broker.py</a>.</p>
-
-<p>References <a class="el" href="../../df/d81/_broker_8py_source.html#l00047">org.swallow_labs.model.Broker.Broker.id_backend</a>, <a class="el" href="../../df/d81/_broker_8py_source.html#l00046">org.swallow_labs.model.Broker.Broker.id_frontend</a>, and <a class="el" href="../../df/d81/_broker_8py_source.html#l00045">org.swallow_labs.model.Broker.Broker.message_list</a>.</p>
 
 </div>
 </div>
@@ -355,8 +360,6 @@ and forwards them to the appropriate peer
 </pre> 
 <p>Definition at line <a class="el" href="../../df/d81/_broker_8py_source.html#l00144">144</a> of file <a class="el" href="../../df/d81/_broker_8py_source.html">Broker.py</a>.</p>
 
-<p>References <a class="el" href="../../df/d81/_broker_8py_source.html#l00055">org.swallow_labs.model.Broker.Broker.backend</a>, <a class="el" href="../../df/d81/_broker_8py_source.html#l00091">org.swallow_labs.model.Broker.Broker.clean()</a>, <a class="el" href="../../df/d81/_broker_8py_source.html#l00053">org.swallow_labs.model.Broker.Broker.frontend</a>, <a class="el" href="../../df/d81/_broker_8py_source.html#l00045">org.swallow_labs.model.Broker.Broker.message_list</a>, and <a class="el" href="../../df/d81/_broker_8py_source.html#l00104">org.swallow_labs.model.Broker.Broker.send()</a>.</p>
-
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -372,8 +375,6 @@ and forwards them to the appropriate peer
 
 <p>Definition at line <a class="el" href="../../df/d81/_broker_8py_source.html#l00055">55</a> of file <a class="el" href="../../df/d81/_broker_8py_source.html">Broker.py</a>.</p>
 
-<p>Referenced by <a class="el" href="../../df/d81/_broker_8py_source.html#l00144">org.swallow_labs.model.Broker.Broker.start()</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a69f6f1340002bf89c987bec9b095030b"></a>
@@ -387,8 +388,6 @@ and forwards them to the appropriate peer
 </div><div class="memdoc">
 
 <p>Definition at line <a class="el" href="../../df/d81/_broker_8py_source.html#l00053">53</a> of file <a class="el" href="../../df/d81/_broker_8py_source.html">Broker.py</a>.</p>
-
-<p>Referenced by <a class="el" href="../../df/d81/_broker_8py_source.html#l00144">org.swallow_labs.model.Broker.Broker.start()</a>.</p>
 
 </div>
 </div>
@@ -404,8 +403,6 @@ and forwards them to the appropriate peer
 
 <p>Definition at line <a class="el" href="../../df/d81/_broker_8py_source.html#l00047">47</a> of file <a class="el" href="../../df/d81/_broker_8py_source.html">Broker.py</a>.</p>
 
-<p>Referenced by <a class="el" href="../../df/d81/_broker_8py_source.html#l00104">org.swallow_labs.model.Broker.Broker.send()</a>, and <a class="el" href="../../df/d81/_broker_8py_source.html#l00080">org.swallow_labs.model.Broker.Broker.snapshot()</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a5c4a3bbe7c49f1c96b2fbed32c5a4761"></a>
@@ -419,8 +416,6 @@ and forwards them to the appropriate peer
 </div><div class="memdoc">
 
 <p>Definition at line <a class="el" href="../../df/d81/_broker_8py_source.html#l00046">46</a> of file <a class="el" href="../../df/d81/_broker_8py_source.html">Broker.py</a>.</p>
-
-<p>Referenced by <a class="el" href="../../df/d81/_broker_8py_source.html#l00104">org.swallow_labs.model.Broker.Broker.send()</a>, and <a class="el" href="../../df/d81/_broker_8py_source.html#l00080">org.swallow_labs.model.Broker.Broker.snapshot()</a>.</p>
 
 </div>
 </div>
@@ -449,8 +444,6 @@ and forwards them to the appropriate peer
 </div><div class="memdoc">
 
 <p>Definition at line <a class="el" href="../../df/d81/_broker_8py_source.html#l00045">45</a> of file <a class="el" href="../../df/d81/_broker_8py_source.html">Broker.py</a>.</p>
-
-<p>Referenced by <a class="el" href="../../df/d81/_broker_8py_source.html#l00091">org.swallow_labs.model.Broker.Broker.clean()</a>, <a class="el" href="../../df/d81/_broker_8py_source.html#l00104">org.swallow_labs.model.Broker.Broker.send()</a>, <a class="el" href="../../df/d81/_broker_8py_source.html#l00080">org.swallow_labs.model.Broker.Broker.snapshot()</a>, and <a class="el" href="../../df/d81/_broker_8py_source.html#l00144">org.swallow_labs.model.Broker.Broker.start()</a>.</p>
 
 </div>
 </div>
@@ -483,7 +476,7 @@ and forwards them to the appropriate peer
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>/root/PycharmProjects/ChanelProject/org/swallow_labs/model/<a class="el" href="../../df/d81/_broker_8py_source.html">Broker.py</a></li>
+<li>/home/mahdi/PycharmProjects/ChanelProject/org/swallow_labs/model/<a class="el" href="../../df/d81/_broker_8py_source.html">Broker.py</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -491,7 +484,7 @@ and forwards them to the appropriate peer
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../db/d96/namespaceorg.html">org</a></li><li class="navelem"><a class="el" href="../../df/d83/namespaceorg_1_1swallow__labs.html">swallow_labs</a></li><li class="navelem"><a class="el" href="../../d9/da1/namespaceorg_1_1swallow__labs_1_1model.html">model</a></li><li class="navelem"><a class="el" href="../../db/d4f/namespaceorg_1_1swallow__labs_1_1model_1_1_broker.html">Broker</a></li><li class="navelem"><a class="el" href="../../d8/d20/classorg_1_1swallow__labs_1_1model_1_1_broker_1_1_broker.html">Broker</a></li>
-    <li class="footer">Generated on Fri Dec 23 2016 14:55:46 for Message Oriented Middleware Project by
+    <li class="footer">Generated on Fri Dec 30 2016 16:24:44 for Chanel MOM Project by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

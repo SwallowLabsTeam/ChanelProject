@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.9.1"/>
-<title>Message Oriented Middleware Project: org.swallow_labs.model.Capsule.Capsule Class Reference</title>
+<title>Chanel MOM Project: org.swallow_labs.model.Capsule.Capsule Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -17,13 +17,11 @@
   $(window).load(resizeHeight);
 </script>
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <script type="text/javascript">
-  $(document).ready(function() {
-    if ($('.searchresults').length > 0) { searchBox.DOMSearchField().focus(); }
-  });
+  $(document).ready(function() { init_search(); });
 </script>
-<link rel="search" href="../../search_opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="Message Oriented Middleware Project"/>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -34,9 +32,8 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="../../image001.png"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Message Oriented Middleware Project
+   <div id="projectname">Chanel MOM Project
    </div>
-   <div id="projectbrief">MOM</div>
   </td>
  </tr>
  </tbody>
@@ -55,14 +52,18 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
       <li><a href="../../files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
-          <div class="left">
-            <form id="FSearchBox" action="../../search.php" method="get">
-              <img id="MSearchSelect" src="../../search/mag.png" alt=""/>
-              <input type="text" id="MSearchField" name="query" value="Search" size="20" accesskey="S" 
-                     onfocus="searchBox.OnSearchFieldFocus(true)" 
-                     onblur="searchBox.OnSearchFieldFocus(false)"/>
-            </form>
-          </div><div class="right"></div>
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
         </div>
       </li>
     </ul>
@@ -89,6 +90,20 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 $(document).ready(function(){initNavTree('d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html','../../');});
 </script>
 <div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -108,6 +123,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a3dbf49bb0dee95d96d69f45d07dcffaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3a1a40328823c7c3966528d43b2d0d84"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#a3a1a40328823c7c3966528d43b2d0d84">get_id_capsule</a> (self)</td></tr>
 <tr class="separator:a3a1a40328823c7c3966528d43b2d0d84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27bc4bb32feefe56085584994867a7ae"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#a27bc4bb32feefe56085584994867a7ae">get_tts</a> (self)</td></tr>
+<tr class="separator:a27bc4bb32feefe56085584994867a7ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f37e86eb595e28f7d3021cb04b5bd1a"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#a9f37e86eb595e28f7d3021cb04b5bd1a">get_ACK</a> (self)</td></tr>
+<tr class="separator:a9f37e86eb595e28f7d3021cb04b5bd1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae9f636fc06a82fd3edba6863b5e88e18"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#ae9f636fc06a82fd3edba6863b5e88e18">get_id_sender</a> (self)</td></tr>
 <tr class="separator:ae9f636fc06a82fd3edba6863b5e88e18"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa10e7f0cea0690ebc3f424a2135f89c2"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#aa10e7f0cea0690ebc3f424a2135f89c2">get_id_receiver</a> (self)</td></tr>
@@ -134,6 +153,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ad715fd269e5947ab4a0e7a7cbdfd3a8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae9b449f46a294d0b083adb6cdafbdf1a"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#ae9b449f46a294d0b083adb6cdafbdf1a">set_sending_date</a> (self, <a class="el" href="../../d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#ab23e955752bc3568b2ba74b924b34499">sending_date</a>)</td></tr>
 <tr class="separator:ae9b449f46a294d0b083adb6cdafbdf1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae7896b127c66d8d03edfe872a110b1c"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#aae7896b127c66d8d03edfe872a110b1c">set_yes_ACK</a> (self)</td></tr>
+<tr class="separator:aae7896b127c66d8d03edfe872a110b1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adac4153ec93d94d0f5a3f9dbf0c63faf"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#adac4153ec93d94d0f5a3f9dbf0c63faf">set_tts</a> (self, <a class="el" href="../../d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#a46b2d125351092038fd0601b1519b13b">tts</a>)</td></tr>
+<tr class="separator:adac4153ec93d94d0f5a3f9dbf0c63faf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a828ac5991545d04e362204b1b94d7811"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#a828ac5991545d04e362204b1b94d7811">set_receiving_date</a> (self, <a class="el" href="../../d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#a60c8e6cbe6da0be8a3b5932469d1d25f">receiving_date</a>)</td></tr>
 <tr class="separator:a828ac5991545d04e362204b1b94d7811"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0375f0a9360d53d530bcc11759896dcd"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#a0375f0a9360d53d530bcc11759896dcd">set_status_capsule</a> (self, <a class="el" href="../../d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#a528b698181018c0cbd08a0979d4728e1">status_capsule</a>)</td></tr>
@@ -162,12 +185,16 @@ Public Attributes</h2></td></tr>
 <tr class="separator:aed9abad78f00038e60e379dcf16a1e83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab23e955752bc3568b2ba74b924b34499"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#ab23e955752bc3568b2ba74b924b34499">sending_date</a></td></tr>
 <tr class="separator:ab23e955752bc3568b2ba74b924b34499"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93ee9f98f7900d9a599d71582f473f18"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#a93ee9f98f7900d9a599d71582f473f18">ACK</a></td></tr>
+<tr class="separator:a93ee9f98f7900d9a599d71582f473f18"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a27d82d64b37fbba7d333fadc4fb32537"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#a27d82d64b37fbba7d333fadc4fb32537">id_receiver</a></td></tr>
 <tr class="separator:a27d82d64b37fbba7d333fadc4fb32537"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b0e2156dcc268e73b9e3dd1c9d4b24c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#a9b0e2156dcc268e73b9e3dd1c9d4b24c">priority</a></td></tr>
 <tr class="separator:a9b0e2156dcc268e73b9e3dd1c9d4b24c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a64f07928f2d3ea9a480ac1724ecfe764"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#a64f07928f2d3ea9a480ac1724ecfe764">payload</a></td></tr>
 <tr class="separator:a64f07928f2d3ea9a480ac1724ecfe764"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46b2d125351092038fd0601b1519b13b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#a46b2d125351092038fd0601b1519b13b">tts</a></td></tr>
+<tr class="separator:a46b2d125351092038fd0601b1519b13b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60c8e6cbe6da0be8a3b5932469d1d25f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#a60c8e6cbe6da0be8a3b5932469d1d25f">receiving_date</a></td></tr>
 <tr class="separator:a60c8e6cbe6da0be8a3b5932469d1d25f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a61626192eb5683e913927da399d8e779"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#a61626192eb5683e913927da399d8e779">sort</a></td></tr>
@@ -211,8 +238,10 @@ Private Attributes</h2></td></tr>
     @ivar self.type:    Message type (PAYLOAD, READY, END)
     @ivar self.sending_date:    Capsule sending date
     @ivar self.receiving_date:    Capsule receiving date
-    @ivar self.status_capsule:    Capsule status(YES if read it and NO if still not read it by the broker)</pre> 
-<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00007">7</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
+    @ivar self.status_capsule:    Capsule status(YES if read it and NO if still not read it by the broker)
+    @ivar self.tts      Capsule time taking to send
+    @ivar self.ACK      Capsule ACK(YES/NO if YES it an ACK or is simple message)</pre> 
+<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00006">6</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a3dbf49bb0dee95d96d69f45d07dcffaf"></a>
 <div class="memitem">
@@ -250,7 +279,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <pre class="fragment">    :</pre> 
-<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00043">43</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00044">44</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
 
 </div>
 </div>
@@ -276,7 +305,27 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00063">63</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00065">65</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9f37e86eb595e28f7d3021cb04b5bd1a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def org.swallow_labs.model.Capsule.Capsule.get_ACK </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">DESCRIPTION
+===========
+Method providing a way to get the capsule ACK</pre> 
+<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00094">94</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
 
 </div>
 </div>
@@ -296,11 +345,7 @@ Private Attributes</h2></td></tr>
 <pre class="fragment">DESCRIPTION
 ===========
 Method providing a way to get the capsule ID</pre> 
-<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00072">72</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
-
-<p>References <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00050">org.swallow_labs.model.Capsule.Capsule.id_capsule</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00253">org.swallow_labs.model.Capsule.Capsule.print_capsule()</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00074">74</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
 
 </div>
 </div>
@@ -320,11 +365,7 @@ Method providing a way to get the capsule ID</pre>
 <pre class="fragment">DESCRIPTION
 ===========
 Method providing a way to get the receiver ID</pre> 
-<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00092">92</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
-
-<p>References <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00181">org.swallow_labs.model.Capsule.Capsule.id_receiver</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00253">org.swallow_labs.model.Capsule.Capsule.print_capsule()</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00113">113</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
 
 </div>
 </div>
@@ -344,11 +385,7 @@ Method providing a way to get the receiver ID</pre>
 <pre class="fragment">DESCRIPTION
 ===========
 Method providing a way to get the sender ID</pre> 
-<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00082">82</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
-
-<p>References <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00051">org.swallow_labs.model.Capsule.Capsule.id_sender</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00253">org.swallow_labs.model.Capsule.Capsule.print_capsule()</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00103">103</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
 
 </div>
 </div>
@@ -368,11 +405,7 @@ Method providing a way to get the sender ID</pre>
 <pre class="fragment">DESCRIPTION
 ===========
 Method providing a way to get the payload</pre> 
-<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00121">121</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
-
-<p>References <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00201">org.swallow_labs.model.Capsule.Capsule.payload</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00253">org.swallow_labs.model.Capsule.Capsule.print_capsule()</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00142">142</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
 
 </div>
 </div>
@@ -392,11 +425,7 @@ Method providing a way to get the payload</pre>
 <pre class="fragment">DESCRIPTION
 ===========
 Method providing a way to get the capsule priority</pre> 
-<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00102">102</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
-
-<p>References <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00191">org.swallow_labs.model.Capsule.Capsule.priority</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00253">org.swallow_labs.model.Capsule.Capsule.print_capsule()</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00123">123</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
 
 </div>
 </div>
@@ -416,9 +445,7 @@ Method providing a way to get the capsule priority</pre>
 <pre class="fragment">DESCRIPTION
 ===========
 Method providing a way to get the time of receiving of the capsule</pre> 
-<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00161">161</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
-
-<p>References <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00221">org.swallow_labs.model.Capsule.Capsule.receiving_date</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00182">182</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
 
 </div>
 </div>
@@ -438,11 +465,7 @@ Method providing a way to get the time of receiving of the capsule</pre>
 <pre class="fragment">DESCRIPTION
 ===========
 Method providing a way to get the time of sending of the capsule</pre> 
-<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00151">151</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
-
-<p>References <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00056">org.swallow_labs.model.Capsule.Capsule.sending_date</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00253">org.swallow_labs.model.Capsule.Capsule.print_capsule()</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00172">172</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
 
 </div>
 </div>
@@ -462,11 +485,7 @@ Method providing a way to get the time of sending of the capsule</pre>
 <pre class="fragment">DESCRIPTION
 ===========
 Method providing a way to get the capsule sort</pre> 
-<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00112">112</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
-
-<p>References <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00251">org.swallow_labs.model.Capsule.Capsule.sort</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00253">org.swallow_labs.model.Capsule.Capsule.print_capsule()</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00133">133</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
 
 </div>
 </div>
@@ -486,11 +505,27 @@ Method providing a way to get the capsule sort</pre>
 <pre class="fragment">DESCRIPTION
 ===========
 Method providing a way to get the capsule status</pre> 
-<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00131">131</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00152">152</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
 
-<p>References <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00053">org.swallow_labs.model.Capsule.Capsule.status_capsule</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00253">org.swallow_labs.model.Capsule.Capsule.print_capsule()</a>.</p>
+</div>
+</div>
+<a class="anchor" id="a27bc4bb32feefe56085584994867a7ae"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def org.swallow_labs.model.Capsule.Capsule.get_tts </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">DESCRIPTION
+===========
+Method providing a way to get the capsule tts</pre> 
+<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00084">84</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
 
 </div>
 </div>
@@ -510,11 +545,7 @@ Method providing a way to get the capsule status</pre>
 <pre class="fragment">DESCRIPTION
 ===========
 Method providing a way to get the capsule type</pre> 
-<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00141">141</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
-
-<p>References <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00054">org.swallow_labs.model.Capsule.Capsule.type</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00253">org.swallow_labs.model.Capsule.Capsule.print_capsule()</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00162">162</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
 
 </div>
 </div>
@@ -534,9 +565,7 @@ Method providing a way to get the capsule type</pre>
 <pre class="fragment">DESCRIPTION
 ===========
 Method Print Capsule</pre> 
-<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00253">253</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
-
-<p>References <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00072">org.swallow_labs.model.Capsule.Capsule.get_id_capsule()</a>, <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00092">org.swallow_labs.model.Capsule.Capsule.get_id_receiver()</a>, <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00082">org.swallow_labs.model.Capsule.Capsule.get_id_sender()</a>, <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00121">org.swallow_labs.model.Capsule.Capsule.get_payload()</a>, <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00102">org.swallow_labs.model.Capsule.Capsule.get_priority()</a>, <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00151">org.swallow_labs.model.Capsule.Capsule.get_sending_date()</a>, <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00112">org.swallow_labs.model.Capsule.Capsule.get_sort()</a>, <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00131">org.swallow_labs.model.Capsule.Capsule.get_status_capsule()</a>, and <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00141">org.swallow_labs.model.Capsule.Capsule.get_type()</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00294">294</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
 
 </div>
 </div>
@@ -566,7 +595,7 @@ Method Print Capsule</pre>
 <pre class="fragment">DESCRIPTION
 ===========
 Method providing a way to set the receiver ID</pre> 
-<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00173">173</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00194">194</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
 
 </div>
 </div>
@@ -596,7 +625,7 @@ Method providing a way to set the receiver ID</pre>
 <pre class="fragment">DESCRIPTION
 ===========
 Method providing a way to set the payload</pre> 
-<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00193">193</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00214">214</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
 
 </div>
 </div>
@@ -626,7 +655,7 @@ Method providing a way to set the payload</pre>
 <pre class="fragment">DESCRIPTION
 ===========
 Method providing a way to set the capsule priority</pre> 
-<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00183">183</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00204">204</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
 
 </div>
 </div>
@@ -656,7 +685,7 @@ Method providing a way to set the capsule priority</pre>
 <pre class="fragment">DESCRIPTION
 ===========
 Method providing a way to set the receiving date</pre> 
-<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00213">213</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00254">254</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
 
 </div>
 </div>
@@ -686,9 +715,7 @@ Method providing a way to set the receiving date</pre>
 <pre class="fragment">DESCRIPTION
 ===========
 Method providing a way to set the sending date</pre> 
-<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00203">203</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
-
-<p>References <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00056">org.swallow_labs.model.Capsule.Capsule.sending_date</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00224">224</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
 
 </div>
 </div>
@@ -718,7 +745,7 @@ Method providing a way to set the sending date</pre>
 <pre class="fragment">DESCRIPTION
 ===========
 Method Setting capsule sort</pre> 
-<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00243">243</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00284">284</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
 
 </div>
 </div>
@@ -748,9 +775,37 @@ Method Setting capsule sort</pre>
 <pre class="fragment">DESCRIPTION
 ===========
 Method providing a way to set the capsule status</pre> 
-<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00223">223</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00264">264</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
 
-<p>References <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00053">org.swallow_labs.model.Capsule.Capsule.status_capsule</a>.</p>
+</div>
+</div>
+<a class="anchor" id="adac4153ec93d94d0f5a3f9dbf0c63faf"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def org.swallow_labs.model.Capsule.Capsule.set_tts </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>tts</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">DESCRIPTION
+===========
+Method providing a way to st the capsule tts</pre> 
+<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00244">244</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
 
 </div>
 </div>
@@ -780,9 +835,27 @@ Method providing a way to set the capsule status</pre>
 <pre class="fragment">DESCRIPTION
 ===========
 Method Setting capsule type</pre> 
-<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00233">233</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00274">274</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
 
-<p>References <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00054">org.swallow_labs.model.Capsule.Capsule.type</a>.</p>
+</div>
+</div>
+<a class="anchor" id="aae7896b127c66d8d03edfe872a110b1c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def org.swallow_labs.model.Capsule.Capsule.set_yes_ACK </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">DESCRIPTION
+===========
+Method providing a way to st yes to the capsule ACK</pre> 
+<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00234">234</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
 
 </div>
 </div>
@@ -803,6 +876,20 @@ Method Setting capsule type</pre>
 <span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00061">61</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a93ee9f98f7900d9a599d71582f473f18"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">org.swallow_labs.model.Capsule.Capsule.ACK</td>
+        </tr>
+      </table>
 </div><div class="memdoc">
 
 <p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00059">59</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
@@ -827,7 +914,7 @@ Method Setting capsule type</pre>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00039">39</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00040">40</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
 
 </div>
 </div>
@@ -841,9 +928,7 @@ Method Setting capsule type</pre>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00050">50</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d9/d38/_capsule_a_c_k_8py_source.html#l00032">org.swallow_labs.model.CapsuleACK.CapsuleACK.get_id_capsule()</a>, <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00072">org.swallow_labs.model.Capsule.Capsule.get_id_capsule()</a>, and <a class="el" href="../../d9/d38/_capsule_a_c_k_8py_source.html#l00052">org.swallow_labs.model.CapsuleACK.CapsuleACK.set_id_capsule()</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00051">51</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
 
 </div>
 </div>
@@ -857,9 +942,7 @@ Method Setting capsule type</pre>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00181">181</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00092">org.swallow_labs.model.Capsule.Capsule.get_id_receiver()</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00202">202</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
 
 </div>
 </div>
@@ -873,9 +956,7 @@ Method Setting capsule type</pre>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00051">51</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00082">org.swallow_labs.model.Capsule.Capsule.get_id_sender()</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00052">52</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
 
 </div>
 </div>
@@ -897,7 +978,7 @@ Method Setting capsule type</pre>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00041">41</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00042">42</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
 
 </div>
 </div>
@@ -911,9 +992,7 @@ Method Setting capsule type</pre>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00201">201</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00121">org.swallow_labs.model.Capsule.Capsule.get_payload()</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00222">222</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
 
 </div>
 </div>
@@ -927,9 +1006,7 @@ Method Setting capsule type</pre>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00191">191</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00102">org.swallow_labs.model.Capsule.Capsule.get_priority()</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00212">212</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
 
 </div>
 </div>
@@ -943,9 +1020,7 @@ Method Setting capsule type</pre>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00221">221</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00161">org.swallow_labs.model.Capsule.Capsule.get_receiving_date()</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00262">262</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
 
 </div>
 </div>
@@ -959,9 +1034,7 @@ Method Setting capsule type</pre>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00056">56</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00151">org.swallow_labs.model.Capsule.Capsule.get_sending_date()</a>, and <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00203">org.swallow_labs.model.Capsule.Capsule.set_sending_date()</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00057">57</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
 
 </div>
 </div>
@@ -975,9 +1048,7 @@ Method Setting capsule type</pre>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00251">251</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00112">org.swallow_labs.model.Capsule.Capsule.get_sort()</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00292">292</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
 
 </div>
 </div>
@@ -991,9 +1062,21 @@ Method Setting capsule type</pre>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00053">53</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00054">54</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00131">org.swallow_labs.model.Capsule.Capsule.get_status_capsule()</a>, and <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00223">org.swallow_labs.model.Capsule.Capsule.set_status_capsule()</a>.</p>
+</div>
+</div>
+<a class="anchor" id="a46b2d125351092038fd0601b1519b13b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">org.swallow_labs.model.Capsule.Capsule.tts</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00252">252</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
 
 </div>
 </div>
@@ -1007,14 +1090,12 @@ Method Setting capsule type</pre>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00054">54</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00141">org.swallow_labs.model.Capsule.Capsule.get_type()</a>, and <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00233">org.swallow_labs.model.Capsule.Capsule.set_type()</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d03/_capsule_8py_source.html#l00055">55</a> of file <a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>/root/PycharmProjects/ChanelProject/org/swallow_labs/model/<a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a></li>
+<li>/home/mahdi/PycharmProjects/ChanelProject/org/swallow_labs/model/<a class="el" href="../../d5/d03/_capsule_8py_source.html">Capsule.py</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -1022,7 +1103,7 @@ Method Setting capsule type</pre>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../db/d96/namespaceorg.html">org</a></li><li class="navelem"><a class="el" href="../../df/d83/namespaceorg_1_1swallow__labs.html">swallow_labs</a></li><li class="navelem"><a class="el" href="../../d9/da1/namespaceorg_1_1swallow__labs_1_1model.html">model</a></li><li class="navelem"><a class="el" href="../../d6/d87/namespaceorg_1_1swallow__labs_1_1model_1_1_capsule.html">Capsule</a></li><li class="navelem"><a class="el" href="../../d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html">Capsule</a></li>
-    <li class="footer">Generated on Fri Dec 23 2016 14:55:46 for Message Oriented Middleware Project by
+    <li class="footer">Generated on Fri Dec 30 2016 16:24:44 for Chanel MOM Project by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

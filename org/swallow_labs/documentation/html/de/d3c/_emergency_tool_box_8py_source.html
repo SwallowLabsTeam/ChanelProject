@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.9.1"/>
-<title>Message Oriented Middleware Project: /root/PycharmProjects/ChanelProject/org/swallow_labs/model/EmergencyToolBox.py Source File</title>
+<title>Chanel MOM Project: /home/mahdi/PycharmProjects/ChanelProject/org/swallow_labs/model/EmergencyToolBox.py Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -17,13 +17,11 @@
   $(window).load(resizeHeight);
 </script>
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <script type="text/javascript">
-  $(document).ready(function() {
-    if ($('.searchresults').length > 0) { searchBox.DOMSearchField().focus(); }
-  });
+  $(document).ready(function() { init_search(); });
 </script>
-<link rel="search" href="../../search_opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="Message Oriented Middleware Project"/>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -34,9 +32,8 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="../../image001.png"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Message Oriented Middleware Project
+   <div id="projectname">Chanel MOM Project
    </div>
-   <div id="projectbrief">MOM</div>
   </td>
  </tr>
  </tbody>
@@ -55,14 +52,18 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
       <li class="current"><a href="../../files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
-          <div class="left">
-            <form id="FSearchBox" action="../../search.php" method="get">
-              <img id="MSearchSelect" src="../../search/mag.png" alt=""/>
-              <input type="text" id="MSearchField" name="query" value="Search" size="20" accesskey="S" 
-                     onfocus="searchBox.OnSearchFieldFocus(true)" 
-                     onblur="searchBox.OnSearchFieldFocus(false)"/>
-            </form>
-          </div><div class="right"></div>
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
         </div>
       </li>
     </ul>
@@ -87,6 +88,20 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 $(document).ready(function(){initNavTree('de/d3c/_emergency_tool_box_8py_source.html','../../');});
 </script>
 <div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
 <div class="header">
   <div class="headertitle">
 <div class="title">EmergencyToolBox.py</div>  </div>
@@ -227,7 +242,7 @@ $(document).ready(function(){initNavTree('de/d3c/_emergency_tool_box_8py_source.
 <div class="ttc" id="classorg_1_1swallow__labs_1_1model_1_1_emergency_tool_box_1_1_emergency_tool_box_html_a24e1fa1d5664369ac64fa6b45410a6b7"><div class="ttname"><a href="../../d8/d15/classorg_1_1swallow__labs_1_1model_1_1_emergency_tool_box_1_1_emergency_tool_box.html#a24e1fa1d5664369ac64fa6b45410a6b7">org.swallow_labs.model.EmergencyToolBox.EmergencyToolBox.__init__</a></div><div class="ttdeci">def __init__(self)</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d3c/_emergency_tool_box_8py_source.html#l00026">EmergencyToolBox.py:26</a></div></div>
 <div class="ttc" id="namespaceorg_1_1swallow__labs_1_1model_1_1_broker_html"><div class="ttname"><a href="../../db/d4f/namespaceorg_1_1swallow__labs_1_1model_1_1_broker.html">org.swallow_labs.model.Broker</a></div><div class="ttdef"><b>Definition:</b> <a href="../../df/d81/_broker_8py_source.html#l00001">Broker.py:1</a></div></div>
 <div class="ttc" id="namespaceorg_1_1swallow__labs_1_1model_1_1_capsule_html"><div class="ttname"><a href="../../d6/d87/namespaceorg_1_1swallow__labs_1_1model_1_1_capsule.html">org.swallow_labs.model.Capsule</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d03/_capsule_8py_source.html#l00001">Capsule.py:1</a></div></div>
-<div class="ttc" id="classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule_html"><div class="ttname"><a href="../../d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html">org.swallow_labs.model.Capsule.Capsule</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d03/_capsule_8py_source.html#l00007">Capsule.py:7</a></div></div>
+<div class="ttc" id="classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule_html"><div class="ttname"><a href="../../d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html">org.swallow_labs.model.Capsule.Capsule</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d03/_capsule_8py_source.html#l00006">Capsule.py:6</a></div></div>
 <div class="ttc" id="classorg_1_1swallow__labs_1_1model_1_1_emergency_tool_box_1_1_emergency_tool_box_html_a2d1b47a07a667694728b06f05b00567d"><div class="ttname"><a href="../../d8/d15/classorg_1_1swallow__labs_1_1model_1_1_emergency_tool_box_1_1_emergency_tool_box.html#a2d1b47a07a667694728b06f05b00567d">org.swallow_labs.model.EmergencyToolBox.EmergencyToolBox.reload</a></div><div class="ttdeci">def reload(path)</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d3c/_emergency_tool_box_8py_source.html#l00077">EmergencyToolBox.py:77</a></div></div>
 <div class="ttc" id="classorg_1_1swallow__labs_1_1model_1_1_parser_1_1_parser_html"><div class="ttname"><a href="../../df/dba/classorg_1_1swallow__labs_1_1model_1_1_parser_1_1_parser.html">org.swallow_labs.model.Parser.Parser</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dc0/_parser_8py_source.html#l00007">Parser.py:7</a></div></div>
 <div class="ttc" id="classorg_1_1swallow__labs_1_1model_1_1_emergency_tool_box_1_1_emergency_tool_box_html"><div class="ttname"><a href="../../d8/d15/classorg_1_1swallow__labs_1_1model_1_1_emergency_tool_box_1_1_emergency_tool_box.html">org.swallow_labs.model.EmergencyToolBox.EmergencyToolBox</a></div><div class="ttdef"><b>Definition:</b> <a href="../../de/d3c/_emergency_tool_box_8py_source.html#l00008">EmergencyToolBox.py:8</a></div></div>
@@ -238,7 +253,7 @@ $(document).ready(function(){initNavTree('de/d3c/_emergency_tool_box_8py_source.
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_3f14f6767c31cb4a1d22c13c18cc6fc3.html">model</a></li><li class="navelem"><a class="el" href="../../de/d3c/_emergency_tool_box_8py.html">EmergencyToolBox.py</a></li>
-    <li class="footer">Generated on Fri Dec 23 2016 14:55:46 for Message Oriented Middleware Project by
+    <li class="footer">Generated on Fri Dec 30 2016 16:24:44 for Chanel MOM Project by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

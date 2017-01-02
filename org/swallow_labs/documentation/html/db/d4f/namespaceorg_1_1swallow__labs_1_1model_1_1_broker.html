@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.9.1"/>
-<title>Message Oriented Middleware Project: org.swallow_labs.model.Broker Namespace Reference</title>
+<title>Chanel MOM Project: org.swallow_labs.model.Broker Namespace Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -17,13 +17,11 @@
   $(window).load(resizeHeight);
 </script>
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <script type="text/javascript">
-  $(document).ready(function() {
-    if ($('.searchresults').length > 0) { searchBox.DOMSearchField().focus(); }
-  });
+  $(document).ready(function() { init_search(); });
 </script>
-<link rel="search" href="../../search_opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="Message Oriented Middleware Project"/>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -34,9 +32,8 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="../../image001.png"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Message Oriented Middleware Project
+   <div id="projectname">Chanel MOM Project
    </div>
-   <div id="projectbrief">MOM</div>
   </td>
  </tr>
  </tbody>
@@ -55,14 +52,18 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
       <li><a href="../../files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
-          <div class="left">
-            <form id="FSearchBox" action="../../search.php" method="get">
-              <img id="MSearchSelect" src="../../search/mag.png" alt=""/>
-              <input type="text" id="MSearchField" name="query" value="Search" size="20" accesskey="S" 
-                     onfocus="searchBox.OnSearchFieldFocus(true)" 
-                     onblur="searchBox.OnSearchFieldFocus(false)"/>
-            </form>
-          </div><div class="right"></div>
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
         </div>
       </li>
     </ul>
@@ -87,6 +88,20 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 $(document).ready(function(){initNavTree('db/d4f/namespaceorg_1_1swallow__labs_1_1model_1_1_broker.html','../../');});
 </script>
 <div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a>  </div>
@@ -106,7 +121,7 @@ Classes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../db/d96/namespaceorg.html">org</a></li><li class="navelem"><a class="el" href="../../df/d83/namespaceorg_1_1swallow__labs.html">swallow_labs</a></li><li class="navelem"><a class="el" href="../../d9/da1/namespaceorg_1_1swallow__labs_1_1model.html">model</a></li><li class="navelem"><a class="el" href="../../db/d4f/namespaceorg_1_1swallow__labs_1_1model_1_1_broker.html">Broker</a></li>
-    <li class="footer">Generated on Fri Dec 23 2016 14:55:46 for Message Oriented Middleware Project by
+    <li class="footer">Generated on Fri Dec 30 2016 16:24:44 for Chanel MOM Project by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

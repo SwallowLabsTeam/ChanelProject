@@ -52,7 +52,7 @@ class Client:
 
             @param capsule : the capsule to send
         """
-
+        print('type: ',type(capsule))
         self.sock_list[self.cpt].push(capsule)
         Client.cpt_inc()
         if Client.cpt == self.nbr_broker:

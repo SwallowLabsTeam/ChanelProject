@@ -2,7 +2,6 @@ from org.swallow_labs.model.Parser import Parser
 import json
 import time
 from org.swallow_labs.log.LoggerAdapter import LoggerAdapter
-import datetime
 
 class Capsule:
 
@@ -300,8 +299,8 @@ class Capsule:
         Method Print Capsule
 
         """
-        return('Capsule ID: {}, Priority : {}, ID sender : {}, ID receiver : {}, Capsule Status {},'
-              ' Capsule type : {}, Payload : {}, Sending date : {}, Capsule Sort : {}'.format(self.get_id_capsule(),
+        return('Capsule ID: {}, Priority : {}, ID sender : {}, ID receiver : {}, Capsule Status : {},'
+              ' Capsule type : {}, Payload : {}, Sending date : {}, Capsule Sort : {}, Capsule ACK : {}'.format(self.get_id_capsule(),
                                                                                                 self.get_priority(),
                                                                                                 self.get_id_sender(),
                                                                                                 self.get_id_receiver(),
@@ -309,5 +308,6 @@ class Capsule:
                                                                                                 self.get_type(),
                                                                                                 self.get_payload(),
                                                                                                 self.get_sending_date(),
-                                                                                                self.get_sort()
+                                                                                                self.get_sort(),
+                                                                                                self.get_ACK()
                                                                                                 ))

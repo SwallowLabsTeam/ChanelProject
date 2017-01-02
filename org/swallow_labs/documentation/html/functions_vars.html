@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.9.1"/>
-<title>Message Oriented Middleware Project: Class Members - Variables</title>
+<title>MOM Chanel Project: Class Members - Variables</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -17,13 +17,11 @@
   $(window).load(resizeHeight);
 </script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
-  $(document).ready(function() {
-    if ($('.searchresults').length > 0) { searchBox.DOMSearchField().focus(); }
-  });
+  $(document).ready(function() { init_search(); });
 </script>
-<link rel="search" href="search_opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="Message Oriented Middleware Project"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -34,9 +32,8 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="image001.png"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Message Oriented Middleware Project
+   <div id="projectname">MOM Chanel Project
    </div>
-   <div id="projectbrief">MOM</div>
   </td>
  </tr>
  </tbody>
@@ -55,14 +52,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
-          <div class="left">
-            <form id="FSearchBox" action="search.php" method="get">
-              <img id="MSearchSelect" src="search/mag.png" alt=""/>
-              <input type="text" id="MSearchField" name="query" value="Search" size="20" accesskey="S" 
-                     onfocus="searchBox.OnSearchFieldFocus(true)" 
-                     onblur="searchBox.OnSearchFieldFocus(false)"/>
-            </form>
-          </div><div class="right"></div>
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
         </div>
       </li>
     </ul>
@@ -87,6 +88,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="#index_a"><span>a</span></a></li>
       <li><a href="#index_b"><span>b</span></a></li>
       <li><a href="#index_c"><span>c</span></a></li>
+      <li><a href="#index_e"><span>e</span></a></li>
       <li><a href="#index_f"><span>f</span></a></li>
       <li><a href="#index_i"><span>i</span></a></li>
       <li><a href="#index_l"><span>l</span></a></li>
@@ -113,209 +115,240 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 $(document).ready(function(){initNavTree('functions_vars.html','');});
 </script>
 <div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
 <div class="contents">
 &#160;
 
 <h3><a class="anchor" id="index__"></a>- _ -</h3><ul>
 <li>__backend_broker_list
-: <a class="el" href="df/dba/classorg_1_1swallow__labs_1_1model_1_1_parser_1_1_parser.html#ad2354f7370808f6d9bf65b9f6132e5aa">org.swallow_labs.model.Parser.Parser</a>
+: <a class="el" href="da/dc5/classorg_1_1swallow__labs_1_1model_1_1Parser_1_1Parser.html#ad2354f7370808f6d9bf65b9f6132e5aa">org.swallow_labs.model.Parser.Parser</a>
 </li>
 <li>__broker_log_param
-: <a class="el" href="df/dba/classorg_1_1swallow__labs_1_1model_1_1_parser_1_1_parser.html#a9ed81a5f492426bf98875220c69cda1e">org.swallow_labs.model.Parser.Parser</a>
+: <a class="el" href="da/dc5/classorg_1_1swallow__labs_1_1model_1_1Parser_1_1Parser.html#a9ed81a5f492426bf98875220c69cda1e">org.swallow_labs.model.Parser.Parser</a>
 </li>
 <li>__capsule_log_param
-: <a class="el" href="df/dba/classorg_1_1swallow__labs_1_1model_1_1_parser_1_1_parser.html#a52d900c7433d1651fc768803149555fa">org.swallow_labs.model.Parser.Parser</a>
+: <a class="el" href="da/dc5/classorg_1_1swallow__labs_1_1model_1_1Parser_1_1Parser.html#a52d900c7433d1651fc768803149555fa">org.swallow_labs.model.Parser.Parser</a>
+</li>
+<li>__client_id
+: <a class="el" href="da/dc5/classorg_1_1swallow__labs_1_1model_1_1Parser_1_1Parser.html#a0d043e70ffa03bd13faf65921d22fb23">org.swallow_labs.model.Parser.Parser</a>
 </li>
 <li>__client_log_param
-: <a class="el" href="df/dba/classorg_1_1swallow__labs_1_1model_1_1_parser_1_1_parser.html#a98d09a9ac67dfb136357a9dca1eea73b">org.swallow_labs.model.Parser.Parser</a>
+: <a class="el" href="da/dc5/classorg_1_1swallow__labs_1_1model_1_1Parser_1_1Parser.html#a98d09a9ac67dfb136357a9dca1eea73b">org.swallow_labs.model.Parser.Parser</a>
 </li>
 <li>__data
-: <a class="el" href="df/dba/classorg_1_1swallow__labs_1_1model_1_1_parser_1_1_parser.html#aa7fc87f6b79fe636e7351f92b5b832ab">org.swallow_labs.model.Parser.Parser</a>
+: <a class="el" href="da/dc5/classorg_1_1swallow__labs_1_1model_1_1Parser_1_1Parser.html#aa7fc87f6b79fe636e7351f92b5b832ab">org.swallow_labs.model.Parser.Parser</a>
 </li>
 <li>__dict__
-: <a class="el" href="d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#a20ba1645f766dc5d65b23715e1649bed">org.swallow_labs.model.Capsule.Capsule</a>
+: <a class="el" href="d8/dd7/classorg_1_1swallow__labs_1_1model_1_1Capsule_1_1Capsule.html#a20ba1645f766dc5d65b23715e1649bed">org.swallow_labs.model.Capsule.Capsule</a>
 </li>
 <li>__frontend_broker_list
-: <a class="el" href="df/dba/classorg_1_1swallow__labs_1_1model_1_1_parser_1_1_parser.html#ac5f5df7bb807c0efec0b3723f52a246c">org.swallow_labs.model.Parser.Parser</a>
+: <a class="el" href="da/dc5/classorg_1_1swallow__labs_1_1model_1_1Parser_1_1Parser.html#ac5f5df7bb807c0efec0b3723f52a246c">org.swallow_labs.model.Parser.Parser</a>
 </li>
 <li>__ldap_param
-: <a class="el" href="df/dba/classorg_1_1swallow__labs_1_1model_1_1_parser_1_1_parser.html#a83cad8478d41005abc71a3c79936f07f">org.swallow_labs.model.Parser.Parser</a>
+: <a class="el" href="da/dc5/classorg_1_1swallow__labs_1_1model_1_1Parser_1_1Parser.html#a83cad8478d41005abc71a3c79936f07f">org.swallow_labs.model.Parser.Parser</a>
 </li>
 <li>__snapshot_param
-: <a class="el" href="df/dba/classorg_1_1swallow__labs_1_1model_1_1_parser_1_1_parser.html#ad6f456d1bb5a7d87b78ac5cca1d5002c">org.swallow_labs.model.Parser.Parser</a>
+: <a class="el" href="da/dc5/classorg_1_1swallow__labs_1_1model_1_1Parser_1_1Parser.html#ad6f456d1bb5a7d87b78ac5cca1d5002c">org.swallow_labs.model.Parser.Parser</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_a"></a>- a -</h3><ul>
+<li>ACK
+: <a class="el" href="d8/dd7/classorg_1_1swallow__labs_1_1model_1_1Capsule_1_1Capsule.html#a93ee9f98f7900d9a599d71582f473f18">org.swallow_labs.model.Capsule.Capsule</a>
+</li>
 <li>address
-: <a class="el" href="d6/d92/classorg_1_1swallow__labs_1_1model_1_1_broker_data_1_1_broker_data.html#a5e9fd1b4dd1ca682d73cb2c0d8f18095">org.swallow_labs.model.BrokerData.BrokerData</a>
-, <a class="el" href="df/d1d/classorg_1_1swallow__labs_1_1model_1_1_socket_client_1_1_socket_client.html#af1d5ea9c128d59a3d92678fdd44a8bce">org.swallow_labs.model.SocketClient.SocketClient</a>
+: <a class="el" href="d1/db6/classorg_1_1swallow__labs_1_1model_1_1BrokerData_1_1BrokerData.html#a5e9fd1b4dd1ca682d73cb2c0d8f18095">org.swallow_labs.model.BrokerData.BrokerData</a>
+, <a class="el" href="d4/d17/classorg_1_1swallow__labs_1_1model_1_1SocketClient_1_1SocketClient.html#af1d5ea9c128d59a3d92678fdd44a8bce">org.swallow_labs.model.SocketClient.SocketClient</a>
 </li>
 <li>admin
-: <a class="el" href="db/db4/classorg_1_1swallow__labs_1_1model_1_1_ldap_param_1_1_ldap_param.html#a6cde47a5629db22ca10e6e20e1d5434d">org.swallow_labs.model.LdapParam.LdapParam</a>
+: <a class="el" href="d0/d77/classorg_1_1swallow__labs_1_1model_1_1LdapParam_1_1LdapParam.html#a6cde47a5629db22ca10e6e20e1d5434d">org.swallow_labs.model.LdapParam.LdapParam</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_b"></a>- b -</h3><ul>
 <li>backend
-: <a class="el" href="d8/d20/classorg_1_1swallow__labs_1_1model_1_1_broker_1_1_broker.html#ae600ed1993c03c4675c4f20177ac9128">org.swallow_labs.model.Broker.Broker</a>
+: <a class="el" href="d9/d39/classorg_1_1swallow__labs_1_1model_1_1Broker_1_1Broker.html#ae600ed1993c03c4675c4f20177ac9128">org.swallow_labs.model.Broker.Broker</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_c"></a>- c -</h3><ul>
 <li>cpl
-: <a class="el" href="db/dc3/classorg_1_1swallow__labs_1_1model_1_1_capsule_processor_1_1_capsule_processor.html#a3e50eeedb4af8e8b92317a258f6acb8c">org.swallow_labs.model.CapsuleProcessor.CapsuleProcessor</a>
+: <a class="el" href="da/db8/classorg_1_1swallow__labs_1_1model_1_1CapsuleProcessor_1_1CapsuleProcessor.html#a3e50eeedb4af8e8b92317a258f6acb8c">org.swallow_labs.model.CapsuleProcessor.CapsuleProcessor</a>
+, <a class="el" href="dc/d71/classorg_1_1swallow__labs_1_1model_1_1SendProcessor_1_1SendProcessor.html#a714da88a1a056af3ca3e5d399f5220b4">org.swallow_labs.model.SendProcessor.SendProcessor</a>
 </li>
 <li>cpt
-: <a class="el" href="d1/d7f/classorg_1_1swallow__labs_1_1model_1_1_client_1_1_client.html#a1ef135df1c96ec4bacfd82986effccda">org.swallow_labs.model.Client.Client</a>
+: <a class="el" href="d6/dfd/classorg_1_1swallow__labs_1_1model_1_1Client_1_1Client.html#a1ef135df1c96ec4bacfd82986effccda">org.swallow_labs.model.Client.Client</a>
 </li>
 <li>cpt_capsule
-: <a class="el" href="d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#a51112c87a445359ee142a67e2f774a16">org.swallow_labs.model.Capsule.Capsule</a>
+: <a class="el" href="d8/dd7/classorg_1_1swallow__labs_1_1model_1_1Capsule_1_1Capsule.html#a51112c87a445359ee142a67e2f774a16">org.swallow_labs.model.Capsule.Capsule</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_e"></a>- e -</h3><ul>
+<li>event
+: <a class="el" href="db/d30/classorg_1_1swallow__labs_1_1model_1_1RunClient_1_1RunClient.html#aafd1cf4e3096b014856c116b70edd3c5">org.swallow_labs.model.RunClient.RunClient</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_f"></a>- f -</h3><ul>
 <li>file_store
-: <a class="el" href="d8/d15/classorg_1_1swallow__labs_1_1model_1_1_emergency_tool_box_1_1_emergency_tool_box.html#a883bd55e3480f580d1618ddbda8bb123">org.swallow_labs.model.EmergencyToolBox.EmergencyToolBox</a>
+: <a class="el" href="dc/dcb/classorg_1_1swallow__labs_1_1model_1_1EmergencyToolBox_1_1EmergencyToolBox.html#a883bd55e3480f580d1618ddbda8bb123">org.swallow_labs.model.EmergencyToolBox.EmergencyToolBox</a>
 </li>
 <li>frontend
-: <a class="el" href="d8/d20/classorg_1_1swallow__labs_1_1model_1_1_broker_1_1_broker.html#a69f6f1340002bf89c987bec9b095030b">org.swallow_labs.model.Broker.Broker</a>
+: <a class="el" href="d9/d39/classorg_1_1swallow__labs_1_1model_1_1Broker_1_1Broker.html#a69f6f1340002bf89c987bec9b095030b">org.swallow_labs.model.Broker.Broker</a>
+, <a class="el" href="d4/ddc/classorg_1_1swallow__labs_1_1model_1_1BrokerEventManager_1_1BrokerEventManager.html#a480e2a96bea6c0d1337a1086bca05e74">org.swallow_labs.model.BrokerEventManager.BrokerEventManager</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_i"></a>- i -</h3><ul>
 <li>id_backend
-: <a class="el" href="d8/d20/classorg_1_1swallow__labs_1_1model_1_1_broker_1_1_broker.html#a0b51a4ff2cd757eefb1f979147b73266">org.swallow_labs.model.Broker.Broker</a>
+: <a class="el" href="d9/d39/classorg_1_1swallow__labs_1_1model_1_1Broker_1_1Broker.html#a0b51a4ff2cd757eefb1f979147b73266">org.swallow_labs.model.Broker.Broker</a>
 </li>
 <li>id_capsule
-: <a class="el" href="d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#a0d70a26af63e5442cba26d47d8db99de">org.swallow_labs.model.Capsule.Capsule</a>
-, <a class="el" href="dc/d7f/classorg_1_1swallow__labs_1_1model_1_1_capsule_a_c_k_1_1_capsule_a_c_k.html#a5e9e3ae752888459429ad5fa12d2dffa">org.swallow_labs.model.CapsuleACK.CapsuleACK</a>
+: <a class="el" href="d8/dd7/classorg_1_1swallow__labs_1_1model_1_1Capsule_1_1Capsule.html#a0d70a26af63e5442cba26d47d8db99de">org.swallow_labs.model.Capsule.Capsule</a>
+, <a class="el" href="d5/d9f/classorg_1_1swallow__labs_1_1model_1_1CapsuleACK_1_1CapsuleACK.html#a5e9e3ae752888459429ad5fa12d2dffa">org.swallow_labs.model.CapsuleACK.CapsuleACK</a>
 </li>
 <li>id_client
-: <a class="el" href="d1/d7f/classorg_1_1swallow__labs_1_1model_1_1_client_1_1_client.html#aa1b9db614dafd1c78c5c02846a6f6095">org.swallow_labs.model.Client.Client</a>
-, <a class="el" href="d6/d80/classorg_1_1swallow__labs_1_1model_1_1_run_client_1_1_run_client.html#a876ad6e3b9f3e77dd2862a89b6b920a3">org.swallow_labs.model.RunClient.RunClient</a>
-, <a class="el" href="df/d1d/classorg_1_1swallow__labs_1_1model_1_1_socket_client_1_1_socket_client.html#a259852110cb3e5dbf4aeb353806bf09e">org.swallow_labs.model.SocketClient.SocketClient</a>
+: <a class="el" href="d6/dfd/classorg_1_1swallow__labs_1_1model_1_1Client_1_1Client.html#aa1b9db614dafd1c78c5c02846a6f6095">org.swallow_labs.model.Client.Client</a>
+, <a class="el" href="db/d30/classorg_1_1swallow__labs_1_1model_1_1RunClient_1_1RunClient.html#a876ad6e3b9f3e77dd2862a89b6b920a3">org.swallow_labs.model.RunClient.RunClient</a>
+, <a class="el" href="d4/d17/classorg_1_1swallow__labs_1_1model_1_1SocketClient_1_1SocketClient.html#a259852110cb3e5dbf4aeb353806bf09e">org.swallow_labs.model.SocketClient.SocketClient</a>
+</li>
+<li>id_event
+: <a class="el" href="db/d30/classorg_1_1swallow__labs_1_1model_1_1RunClient_1_1RunClient.html#aa3f3af8033016ab341f4507385e00784">org.swallow_labs.model.RunClient.RunClient</a>
 </li>
 <li>id_frontend
-: <a class="el" href="d8/d20/classorg_1_1swallow__labs_1_1model_1_1_broker_1_1_broker.html#a5c4a3bbe7c49f1c96b2fbed32c5a4761">org.swallow_labs.model.Broker.Broker</a>
+: <a class="el" href="d9/d39/classorg_1_1swallow__labs_1_1model_1_1Broker_1_1Broker.html#a5c4a3bbe7c49f1c96b2fbed32c5a4761">org.swallow_labs.model.Broker.Broker</a>
+, <a class="el" href="d4/ddc/classorg_1_1swallow__labs_1_1model_1_1BrokerEventManager_1_1BrokerEventManager.html#addf55d2820f86711ae0629019783ac11">org.swallow_labs.model.BrokerEventManager.BrokerEventManager</a>
 </li>
 <li>id_receiver
-: <a class="el" href="d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#a27d82d64b37fbba7d333fadc4fb32537">org.swallow_labs.model.Capsule.Capsule</a>
+: <a class="el" href="d8/dd7/classorg_1_1swallow__labs_1_1model_1_1Capsule_1_1Capsule.html#a27d82d64b37fbba7d333fadc4fb32537">org.swallow_labs.model.Capsule.Capsule</a>
 </li>
 <li>id_sender
-: <a class="el" href="d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#a8fd5fae5583b531350c9f3fc041bba1a">org.swallow_labs.model.Capsule.Capsule</a>
+: <a class="el" href="d8/dd7/classorg_1_1swallow__labs_1_1model_1_1Capsule_1_1Capsule.html#a8fd5fae5583b531350c9f3fc041bba1a">org.swallow_labs.model.Capsule.Capsule</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_l"></a>- l -</h3><ul>
 <li>ldap_param
-: <a class="el" href="db/dc3/classorg_1_1swallow__labs_1_1model_1_1_capsule_processor_1_1_capsule_processor.html#ac2867f41749903c2041d705713b10efd">org.swallow_labs.model.CapsuleProcessor.CapsuleProcessor</a>
+: <a class="el" href="da/db8/classorg_1_1swallow__labs_1_1model_1_1CapsuleProcessor_1_1CapsuleProcessor.html#ac2867f41749903c2041d705713b10efd">org.swallow_labs.model.CapsuleProcessor.CapsuleProcessor</a>
 </li>
 <li>list_address
-: <a class="el" href="d1/d7f/classorg_1_1swallow__labs_1_1model_1_1_client_1_1_client.html#aa1c95ff2f7906c4bb40432fc145670ab">org.swallow_labs.model.Client.Client</a>
-, <a class="el" href="d6/d80/classorg_1_1swallow__labs_1_1model_1_1_run_client_1_1_run_client.html#ad4854628e4a05a680f45b9bd47de74d2">org.swallow_labs.model.RunClient.RunClient</a>
+: <a class="el" href="d6/dfd/classorg_1_1swallow__labs_1_1model_1_1Client_1_1Client.html#aa1c95ff2f7906c4bb40432fc145670ab">org.swallow_labs.model.Client.Client</a>
+, <a class="el" href="db/d30/classorg_1_1swallow__labs_1_1model_1_1RunClient_1_1RunClient.html#ad4854628e4a05a680f45b9bd47de74d2">org.swallow_labs.model.RunClient.RunClient</a>
 </li>
-<li>list_capsuleACK_add_msg
-: <a class="el" href="db/dc3/classorg_1_1swallow__labs_1_1model_1_1_capsule_processor_1_1_capsule_processor.html#a4e9f930f4af14352a396408933f16f37">org.swallow_labs.model.CapsuleProcessor.CapsuleProcessor</a>
-</li>
-<li>list_capsuleACK_del_msg
-: <a class="el" href="db/dc3/classorg_1_1swallow__labs_1_1model_1_1_capsule_processor_1_1_capsule_processor.html#a7be20b0a7e7273d8a5f0a5b4f04d09b7">org.swallow_labs.model.CapsuleProcessor.CapsuleProcessor</a>
-</li>
-<li>list_capsuleACK_mod_msg
-: <a class="el" href="db/dc3/classorg_1_1swallow__labs_1_1model_1_1_capsule_processor_1_1_capsule_processor.html#a3243ed7e1cad290779b595009e17bb8b">org.swallow_labs.model.CapsuleProcessor.CapsuleProcessor</a>
+<li>list_capsuleACK_all_msg
+: <a class="el" href="da/db8/classorg_1_1swallow__labs_1_1model_1_1CapsuleProcessor_1_1CapsuleProcessor.html#a5542cdd5be2ac30e0e8755d4bf0e105d">org.swallow_labs.model.CapsuleProcessor.CapsuleProcessor</a>
 </li>
 <li>lists_dictionary
-: <a class="el" href="d1/d7f/classorg_1_1swallow__labs_1_1model_1_1_client_1_1_client.html#abf20192df349971a3d8a8e5a0118be64">org.swallow_labs.model.Client.Client</a>
+: <a class="el" href="d6/dfd/classorg_1_1swallow__labs_1_1model_1_1Client_1_1Client.html#abf20192df349971a3d8a8e5a0118be64">org.swallow_labs.model.Client.Client</a>
 </li>
 <li>logger
-: <a class="el" href="d8/d20/classorg_1_1swallow__labs_1_1model_1_1_broker_1_1_broker.html#a1780f0df0ab7a9451dd0b6206748d7c4">org.swallow_labs.model.Broker.Broker</a>
+: <a class="el" href="d9/d39/classorg_1_1swallow__labs_1_1model_1_1Broker_1_1Broker.html#a1780f0df0ab7a9451dd0b6206748d7c4">org.swallow_labs.model.Broker.Broker</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_m"></a>- m -</h3><ul>
 <li>message_list
-: <a class="el" href="d8/d20/classorg_1_1swallow__labs_1_1model_1_1_broker_1_1_broker.html#a19b75aea4bc3ea205ab3203d0a739a75">org.swallow_labs.model.Broker.Broker</a>
+: <a class="el" href="d9/d39/classorg_1_1swallow__labs_1_1model_1_1Broker_1_1Broker.html#a19b75aea4bc3ea205ab3203d0a739a75">org.swallow_labs.model.Broker.Broker</a>
 </li>
 <li>my_logger
-: <a class="el" href="d8/d20/classorg_1_1swallow__labs_1_1model_1_1_broker_1_1_broker.html#a7ece99006b26876febf987fb0929f064">org.swallow_labs.model.Broker.Broker</a>
-, <a class="el" href="d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#a8d6126628399575afaf2f0371f3ce9c0">org.swallow_labs.model.Capsule.Capsule</a>
-, <a class="el" href="df/d1d/classorg_1_1swallow__labs_1_1model_1_1_socket_client_1_1_socket_client.html#adae69670203178ce48555e08638215f7">org.swallow_labs.model.SocketClient.SocketClient</a>
+: <a class="el" href="d9/d39/classorg_1_1swallow__labs_1_1model_1_1Broker_1_1Broker.html#a7ece99006b26876febf987fb0929f064">org.swallow_labs.model.Broker.Broker</a>
+, <a class="el" href="d8/dd7/classorg_1_1swallow__labs_1_1model_1_1Capsule_1_1Capsule.html#a8d6126628399575afaf2f0371f3ce9c0">org.swallow_labs.model.Capsule.Capsule</a>
+, <a class="el" href="d4/d17/classorg_1_1swallow__labs_1_1model_1_1SocketClient_1_1SocketClient.html#adae69670203178ce48555e08638215f7">org.swallow_labs.model.SocketClient.SocketClient</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_n"></a>- n -</h3><ul>
 <li>nbr_broker
-: <a class="el" href="d1/d7f/classorg_1_1swallow__labs_1_1model_1_1_client_1_1_client.html#ab49af80de652554b9ac58266d0e1b04e">org.swallow_labs.model.Client.Client</a>
+: <a class="el" href="d6/dfd/classorg_1_1swallow__labs_1_1model_1_1Client_1_1Client.html#ab49af80de652554b9ac58266d0e1b04e">org.swallow_labs.model.Client.Client</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_p"></a>- p -</h3><ul>
 <li>p
-: <a class="el" href="d3/d52/classorg_1_1swallow__labs_1_1model_1_1_launcher_1_1_launcher.html#ac5073912dab4b48f7a8118f32c6a239b">org.swallow_labs.model.Launcher.Launcher</a>
+: <a class="el" href="da/d85/classorg_1_1swallow__labs_1_1model_1_1Launcher_1_1Launcher.html#ac5073912dab4b48f7a8118f32c6a239b">org.swallow_labs.model.Launcher.Launcher</a>
 </li>
 <li>password
-: <a class="el" href="db/db4/classorg_1_1swallow__labs_1_1model_1_1_ldap_param_1_1_ldap_param.html#acc72fb8ecddc33b55986c4831e14e27d">org.swallow_labs.model.LdapParam.LdapParam</a>
+: <a class="el" href="d0/d77/classorg_1_1swallow__labs_1_1model_1_1LdapParam_1_1LdapParam.html#acc72fb8ecddc33b55986c4831e14e27d">org.swallow_labs.model.LdapParam.LdapParam</a>
 </li>
 <li>payload
-: <a class="el" href="d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#a64f07928f2d3ea9a480ac1724ecfe764">org.swallow_labs.model.Capsule.Capsule</a>
+: <a class="el" href="d8/dd7/classorg_1_1swallow__labs_1_1model_1_1Capsule_1_1Capsule.html#a64f07928f2d3ea9a480ac1724ecfe764">org.swallow_labs.model.Capsule.Capsule</a>
 </li>
 <li>poller
-: <a class="el" href="d8/d20/classorg_1_1swallow__labs_1_1model_1_1_broker_1_1_broker.html#aa3d2bda64c3780e855e3e9ce8ea6d4f8">org.swallow_labs.model.Broker.Broker</a>
+: <a class="el" href="d9/d39/classorg_1_1swallow__labs_1_1model_1_1Broker_1_1Broker.html#aa3d2bda64c3780e855e3e9ce8ea6d4f8">org.swallow_labs.model.Broker.Broker</a>
+, <a class="el" href="d4/ddc/classorg_1_1swallow__labs_1_1model_1_1BrokerEventManager_1_1BrokerEventManager.html#a7f7421f757762687c2f7dccda8e94d85">org.swallow_labs.model.BrokerEventManager.BrokerEventManager</a>
 </li>
 <li>port
-: <a class="el" href="d6/d92/classorg_1_1swallow__labs_1_1model_1_1_broker_data_1_1_broker_data.html#a7267e34808592f541332ee87dd3f0202">org.swallow_labs.model.BrokerData.BrokerData</a>
-, <a class="el" href="df/d1d/classorg_1_1swallow__labs_1_1model_1_1_socket_client_1_1_socket_client.html#a4623d6e991ae9f63c1829e0929dc709c">org.swallow_labs.model.SocketClient.SocketClient</a>
+: <a class="el" href="d1/db6/classorg_1_1swallow__labs_1_1model_1_1BrokerData_1_1BrokerData.html#a7267e34808592f541332ee87dd3f0202">org.swallow_labs.model.BrokerData.BrokerData</a>
+, <a class="el" href="d4/d17/classorg_1_1swallow__labs_1_1model_1_1SocketClient_1_1SocketClient.html#a4623d6e991ae9f63c1829e0929dc709c">org.swallow_labs.model.SocketClient.SocketClient</a>
 </li>
 <li>priority
-: <a class="el" href="d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#a9b0e2156dcc268e73b9e3dd1c9d4b24c">org.swallow_labs.model.Capsule.Capsule</a>
+: <a class="el" href="d8/dd7/classorg_1_1swallow__labs_1_1model_1_1Capsule_1_1Capsule.html#a9b0e2156dcc268e73b9e3dd1c9d4b24c">org.swallow_labs.model.Capsule.Capsule</a>
 </li>
 <li>pull_list
-: <a class="el" href="d1/d7f/classorg_1_1swallow__labs_1_1model_1_1_client_1_1_client.html#a353c434d848b6713f66f940df08a0198">org.swallow_labs.model.Client.Client</a>
+: <a class="el" href="d6/dfd/classorg_1_1swallow__labs_1_1model_1_1Client_1_1Client.html#a353c434d848b6713f66f940df08a0198">org.swallow_labs.model.Client.Client</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_r"></a>- r -</h3><ul>
 <li>receiving_date
-: <a class="el" href="d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#a60c8e6cbe6da0be8a3b5932469d1d25f">org.swallow_labs.model.Capsule.Capsule</a>
+: <a class="el" href="d8/dd7/classorg_1_1swallow__labs_1_1model_1_1Capsule_1_1Capsule.html#a60c8e6cbe6da0be8a3b5932469d1d25f">org.swallow_labs.model.Capsule.Capsule</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_s"></a>- s -</h3><ul>
 <li>sending_date
-: <a class="el" href="d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#ab23e955752bc3568b2ba74b924b34499">org.swallow_labs.model.Capsule.Capsule</a>
+: <a class="el" href="d8/dd7/classorg_1_1swallow__labs_1_1model_1_1Capsule_1_1Capsule.html#ab23e955752bc3568b2ba74b924b34499">org.swallow_labs.model.Capsule.Capsule</a>
 </li>
 <li>sock_list
-: <a class="el" href="d1/d7f/classorg_1_1swallow__labs_1_1model_1_1_client_1_1_client.html#a4cd216428d2ba58070bd3c162425f686">org.swallow_labs.model.Client.Client</a>
+: <a class="el" href="d6/dfd/classorg_1_1swallow__labs_1_1model_1_1Client_1_1Client.html#a4cd216428d2ba58070bd3c162425f686">org.swallow_labs.model.Client.Client</a>
 </li>
 <li>socket
-: <a class="el" href="df/d1d/classorg_1_1swallow__labs_1_1model_1_1_socket_client_1_1_socket_client.html#aeab713d38e3db149b7d037bec30a3c43">org.swallow_labs.model.SocketClient.SocketClient</a>
+: <a class="el" href="d4/d17/classorg_1_1swallow__labs_1_1model_1_1SocketClient_1_1SocketClient.html#aeab713d38e3db149b7d037bec30a3c43">org.swallow_labs.model.SocketClient.SocketClient</a>
 </li>
 <li>sort
-: <a class="el" href="d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#a61626192eb5683e913927da399d8e779">org.swallow_labs.model.Capsule.Capsule</a>
+: <a class="el" href="d8/dd7/classorg_1_1swallow__labs_1_1model_1_1Capsule_1_1Capsule.html#a61626192eb5683e913927da399d8e779">org.swallow_labs.model.Capsule.Capsule</a>
 </li>
 <li>status
-: <a class="el" href="dc/d7f/classorg_1_1swallow__labs_1_1model_1_1_capsule_a_c_k_1_1_capsule_a_c_k.html#a0836e64d5e775dd0749b670ae38a9ea3">org.swallow_labs.model.CapsuleACK.CapsuleACK</a>
+: <a class="el" href="d5/d9f/classorg_1_1swallow__labs_1_1model_1_1CapsuleACK_1_1CapsuleACK.html#a0836e64d5e775dd0749b670ae38a9ea3">org.swallow_labs.model.CapsuleACK.CapsuleACK</a>
 </li>
 <li>status_capsule
-: <a class="el" href="d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#a528b698181018c0cbd08a0979d4728e1">org.swallow_labs.model.Capsule.Capsule</a>
+: <a class="el" href="d8/dd7/classorg_1_1swallow__labs_1_1model_1_1Capsule_1_1Capsule.html#a528b698181018c0cbd08a0979d4728e1">org.swallow_labs.model.Capsule.Capsule</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_t"></a>- t -</h3><ul>
+<li>tts
+: <a class="el" href="d8/dd7/classorg_1_1swallow__labs_1_1model_1_1Capsule_1_1Capsule.html#a46b2d125351092038fd0601b1519b13b">org.swallow_labs.model.Capsule.Capsule</a>
+</li>
 <li>type
-: <a class="el" href="d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#aed9abad78f00038e60e379dcf16a1e83">org.swallow_labs.model.Capsule.Capsule</a>
+: <a class="el" href="d8/dd7/classorg_1_1swallow__labs_1_1model_1_1Capsule_1_1Capsule.html#aed9abad78f00038e60e379dcf16a1e83">org.swallow_labs.model.Capsule.Capsule</a>
 </li>
 </ul>
 </div><!-- contents -->
@@ -323,7 +356,7 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Dec 23 2016 14:55:46 for Message Oriented Middleware Project by
+    <li class="footer">Generated on Mon Jan 2 2017 10:35:40 for MOM Chanel Project by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

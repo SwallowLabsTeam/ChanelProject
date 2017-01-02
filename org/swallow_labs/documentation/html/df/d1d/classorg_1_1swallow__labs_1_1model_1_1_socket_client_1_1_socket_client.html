@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.9.1"/>
-<title>Message Oriented Middleware Project: org.swallow_labs.model.SocketClient.SocketClient Class Reference</title>
+<title>Chanel MOM Project: org.swallow_labs.model.SocketClient.SocketClient Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -17,13 +17,11 @@
   $(window).load(resizeHeight);
 </script>
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <script type="text/javascript">
-  $(document).ready(function() {
-    if ($('.searchresults').length > 0) { searchBox.DOMSearchField().focus(); }
-  });
+  $(document).ready(function() { init_search(); });
 </script>
-<link rel="search" href="../../search_opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="Message Oriented Middleware Project"/>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -34,9 +32,8 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="../../image001.png"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Message Oriented Middleware Project
+   <div id="projectname">Chanel MOM Project
    </div>
-   <div id="projectbrief">MOM</div>
   </td>
  </tr>
  </tbody>
@@ -55,14 +52,18 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
       <li><a href="../../files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
-          <div class="left">
-            <form id="FSearchBox" action="../../search.php" method="get">
-              <img id="MSearchSelect" src="../../search/mag.png" alt=""/>
-              <input type="text" id="MSearchField" name="query" value="Search" size="20" accesskey="S" 
-                     onfocus="searchBox.OnSearchFieldFocus(true)" 
-                     onblur="searchBox.OnSearchFieldFocus(false)"/>
-            </form>
-          </div><div class="right"></div>
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
         </div>
       </li>
     </ul>
@@ -89,6 +90,20 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 $(document).ready(function(){initNavTree('df/d1d/classorg_1_1swallow__labs_1_1model_1_1_socket_client_1_1_socket_client.html','../../');});
 </script>
 <div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -209,10 +224,6 @@ Method check if the port server is open or not
 </pre> 
 <p>Definition at line <a class="el" href="../../d6/d59/_socket_client_8py_source.html#l00063">63</a> of file <a class="el" href="../../d6/d59/_socket_client_8py_source.html">SocketClient.py</a>.</p>
 
-<p>References <a class="el" href="../../d8/d2f/_broker_data_8py_source.html#l00016">org.swallow_labs.model.BrokerData.BrokerData.address</a>, <a class="el" href="../../d6/d59/_socket_client_8py_source.html#l00049">org.swallow_labs.model.SocketClient.SocketClient.address</a>, <a class="el" href="../../d8/d2f/_broker_data_8py_source.html#l00017">org.swallow_labs.model.BrokerData.BrokerData.port</a>, and <a class="el" href="../../d6/d59/_socket_client_8py_source.html#l00050">org.swallow_labs.model.SocketClient.SocketClient.port</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d6/d59/_socket_client_8py_source.html#l00099">org.swallow_labs.model.SocketClient.SocketClient.pull()</a>, and <a class="el" href="../../d6/d59/_socket_client_8py_source.html#l00077">org.swallow_labs.model.SocketClient.SocketClient.push()</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a537cb3609071c02e9f1114fc6f57105e"></a>
@@ -235,8 +246,6 @@ Method allowing the client to pull the messages that concern him from the broker
 @rtype: List
 </pre> 
 <p>Definition at line <a class="el" href="../../d6/d59/_socket_client_8py_source.html#l00099">99</a> of file <a class="el" href="../../d6/d59/_socket_client_8py_source.html">SocketClient.py</a>.</p>
-
-<p>References <a class="el" href="../../d6/d59/_socket_client_8py_source.html#l00063">org.swallow_labs.model.SocketClient.SocketClient.check_port()</a>, <a class="el" href="../../d8/d11/_client_8py_source.html#l00029">org.swallow_labs.model.Client.Client.id_client</a>, <a class="el" href="../../d2/d08/_run_client_8py_source.html#l00032">org.swallow_labs.model.RunClient.RunClient.id_client</a>, and <a class="el" href="../../d6/d59/_socket_client_8py_source.html#l00048">org.swallow_labs.model.SocketClient.SocketClient.id_client</a>.</p>
 
 </div>
 </div>
@@ -270,8 +279,6 @@ Method providing a way for the client to send messages through the broker
 @param capsule : the capsule to send</pre> 
 <p>Definition at line <a class="el" href="../../d6/d59/_socket_client_8py_source.html#l00077">77</a> of file <a class="el" href="../../d6/d59/_socket_client_8py_source.html">SocketClient.py</a>.</p>
 
-<p>References <a class="el" href="../../d6/d59/_socket_client_8py_source.html#l00063">org.swallow_labs.model.SocketClient.SocketClient.check_port()</a>.</p>
-
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -287,8 +294,6 @@ Method providing a way for the client to send messages through the broker
 
 <p>Definition at line <a class="el" href="../../d6/d59/_socket_client_8py_source.html#l00049">49</a> of file <a class="el" href="../../d6/d59/_socket_client_8py_source.html">SocketClient.py</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d6/d59/_socket_client_8py_source.html#l00063">org.swallow_labs.model.SocketClient.SocketClient.check_port()</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a259852110cb3e5dbf4aeb353806bf09e"></a>
@@ -302,8 +307,6 @@ Method providing a way for the client to send messages through the broker
 </div><div class="memdoc">
 
 <p>Definition at line <a class="el" href="../../d6/d59/_socket_client_8py_source.html#l00048">48</a> of file <a class="el" href="../../d6/d59/_socket_client_8py_source.html">SocketClient.py</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d6/d59/_socket_client_8py_source.html#l00099">org.swallow_labs.model.SocketClient.SocketClient.pull()</a>.</p>
 
 </div>
 </div>
@@ -341,8 +344,6 @@ Method providing a way for the client to send messages through the broker
 
 <p>Definition at line <a class="el" href="../../d6/d59/_socket_client_8py_source.html#l00050">50</a> of file <a class="el" href="../../d6/d59/_socket_client_8py_source.html">SocketClient.py</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d6/d59/_socket_client_8py_source.html#l00063">org.swallow_labs.model.SocketClient.SocketClient.check_port()</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="aeab713d38e3db149b7d037bec30a3c43"></a>
@@ -360,7 +361,7 @@ Method providing a way for the client to send messages through the broker
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>/root/PycharmProjects/ChanelProject/org/swallow_labs/model/<a class="el" href="../../d6/d59/_socket_client_8py_source.html">SocketClient.py</a></li>
+<li>/home/mahdi/PycharmProjects/ChanelProject/org/swallow_labs/model/<a class="el" href="../../d6/d59/_socket_client_8py_source.html">SocketClient.py</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -368,7 +369,7 @@ Method providing a way for the client to send messages through the broker
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../db/d96/namespaceorg.html">org</a></li><li class="navelem"><a class="el" href="../../df/d83/namespaceorg_1_1swallow__labs.html">swallow_labs</a></li><li class="navelem"><a class="el" href="../../d9/da1/namespaceorg_1_1swallow__labs_1_1model.html">model</a></li><li class="navelem"><a class="el" href="../../d8/df8/namespaceorg_1_1swallow__labs_1_1model_1_1_socket_client.html">SocketClient</a></li><li class="navelem"><a class="el" href="../../df/d1d/classorg_1_1swallow__labs_1_1model_1_1_socket_client_1_1_socket_client.html">SocketClient</a></li>
-    <li class="footer">Generated on Fri Dec 23 2016 14:55:46 for Message Oriented Middleware Project by
+    <li class="footer">Generated on Fri Dec 30 2016 16:24:44 for Chanel MOM Project by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

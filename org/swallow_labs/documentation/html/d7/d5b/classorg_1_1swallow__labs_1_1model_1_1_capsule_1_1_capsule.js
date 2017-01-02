@@ -2,6 +2,7 @@ var classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule =
 [
     [ "__init__", "d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#a3dbf49bb0dee95d96d69f45d07dcffaf", null ],
     [ "capsule_id", "d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#a92550b75f8c6df61555ae003a46209e4", null ],
+    [ "get_ACK", "d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#a9f37e86eb595e28f7d3021cb04b5bd1a", null ],
     [ "get_id_capsule", "d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#a3a1a40328823c7c3966528d43b2d0d84", null ],
     [ "get_id_receiver", "d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#aa10e7f0cea0690ebc3f424a2135f89c2", null ],
     [ "get_id_sender", "d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#ae9f636fc06a82fd3edba6863b5e88e18", null ],
@@ -11,6 +12,7 @@ var classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule =
     [ "get_sending_date", "d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#a34c70dde328ea1983943f21d9658a8f0", null ],
     [ "get_sort", "d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#a598d9838555b6419c51e47d97d80bd08", null ],
     [ "get_status_capsule", "d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#a8d528ed7442c796ac432c20f9f86b075", null ],
+    [ "get_tts", "d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#a27bc4bb32feefe56085584994867a7ae", null ],
     [ "get_type", "d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#af4126ebec9c7122e7c9ba99b0531a828", null ],
     [ "print_capsule", "d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#a14153dfdf3e924bf7c84f13dba57e808", null ],
     [ "set_id_receiver", "d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#a5e0cfce4a657f7d38c0a9d4c23111f74", null ],
@@ -20,8 +22,11 @@ var classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule =
     [ "set_sending_date", "d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#ae9b449f46a294d0b083adb6cdafbdf1a", null ],
     [ "set_sort", "d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#a067aa9fc0f35d5b83b804a6fd8c16d46", null ],
     [ "set_status_capsule", "d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#a0375f0a9360d53d530bcc11759896dcd", null ],
+    [ "set_tts", "d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#adac4153ec93d94d0f5a3f9dbf0c63faf", null ],
     [ "set_type", "d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#ab5070f98b5fe7c6ceb99e733f8862e77", null ],
+    [ "set_yes_ACK", "d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#aae7896b127c66d8d03edfe872a110b1c", null ],
     [ "__dict__", "d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#a20ba1645f766dc5d65b23715e1649bed", null ],
+    [ "ACK", "d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#a93ee9f98f7900d9a599d71582f473f18", null ],
     [ "cpt_capsule", "d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#a51112c87a445359ee142a67e2f774a16", null ],
     [ "id_capsule", "d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#a0d70a26af63e5442cba26d47d8db99de", null ],
     [ "id_receiver", "d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#a27d82d64b37fbba7d333fadc4fb32537", null ],
@@ -33,5 +38,6 @@ var classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule =
     [ "sending_date", "d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#ab23e955752bc3568b2ba74b924b34499", null ],
     [ "sort", "d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#a61626192eb5683e913927da399d8e779", null ],
     [ "status_capsule", "d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#a528b698181018c0cbd08a0979d4728e1", null ],
+    [ "tts", "d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#a46b2d125351092038fd0601b1519b13b", null ],
     [ "type", "d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html#aed9abad78f00038e60e379dcf16a1e83", null ]
 ];

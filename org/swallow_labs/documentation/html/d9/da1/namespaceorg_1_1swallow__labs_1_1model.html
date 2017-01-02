@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.9.1"/>
-<title>Message Oriented Middleware Project: org.swallow_labs.model Namespace Reference</title>
+<title>MOM Chanel Project: org.swallow_labs.model Namespace Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -17,13 +17,11 @@
   $(window).load(resizeHeight);
 </script>
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <script type="text/javascript">
-  $(document).ready(function() {
-    if ($('.searchresults').length > 0) { searchBox.DOMSearchField().focus(); }
-  });
+  $(document).ready(function() { init_search(); });
 </script>
-<link rel="search" href="../../search_opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="Message Oriented Middleware Project"/>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -34,9 +32,8 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="../../image001.png"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Message Oriented Middleware Project
+   <div id="projectname">MOM Chanel Project
    </div>
-   <div id="projectbrief">MOM</div>
   </td>
  </tr>
  </tbody>
@@ -55,14 +52,18 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
       <li><a href="../../files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
-          <div class="left">
-            <form id="FSearchBox" action="../../search.php" method="get">
-              <img id="MSearchSelect" src="../../search/mag.png" alt=""/>
-              <input type="text" id="MSearchField" name="query" value="Search" size="20" accesskey="S" 
-                     onfocus="searchBox.OnSearchFieldFocus(true)" 
-                     onblur="searchBox.OnSearchFieldFocus(false)"/>
-            </form>
-          </div><div class="right"></div>
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
         </div>
       </li>
     </ul>
@@ -87,6 +88,20 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 $(document).ready(function(){initNavTree('d9/da1/namespaceorg_1_1swallow__labs_1_1model.html','../../');});
 </script>
 <div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a>  </div>
@@ -97,29 +112,33 @@ $(document).ready(function(){initNavTree('d9/da1/namespaceorg_1_1swallow__labs_1
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:db/d4f/namespaceorg_1_1swallow__labs_1_1model_1_1_broker"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d4f/namespaceorg_1_1swallow__labs_1_1model_1_1_broker.html">Broker</a></td></tr>
+<tr class="memitem:df/d67/namespaceorg_1_1swallow__labs_1_1model_1_1Broker"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d67/namespaceorg_1_1swallow__labs_1_1model_1_1Broker.html">Broker</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:d0/df4/namespaceorg_1_1swallow__labs_1_1model_1_1_broker_data"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/df4/namespaceorg_1_1swallow__labs_1_1model_1_1_broker_data.html">BrokerData</a></td></tr>
+<tr class="memitem:d5/d73/namespaceorg_1_1swallow__labs_1_1model_1_1BrokerData"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d73/namespaceorg_1_1swallow__labs_1_1model_1_1BrokerData.html">BrokerData</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:d6/d87/namespaceorg_1_1swallow__labs_1_1model_1_1_capsule"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d87/namespaceorg_1_1swallow__labs_1_1model_1_1_capsule.html">Capsule</a></td></tr>
+<tr class="memitem:d1/d56/namespaceorg_1_1swallow__labs_1_1model_1_1BrokerEventManager"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d56/namespaceorg_1_1swallow__labs_1_1model_1_1BrokerEventManager.html">BrokerEventManager</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:db/d49/namespaceorg_1_1swallow__labs_1_1model_1_1_capsule_a_c_k"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d49/namespaceorg_1_1swallow__labs_1_1model_1_1_capsule_a_c_k.html">CapsuleACK</a></td></tr>
+<tr class="memitem:df/da5/namespaceorg_1_1swallow__labs_1_1model_1_1Capsule"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/da5/namespaceorg_1_1swallow__labs_1_1model_1_1Capsule.html">Capsule</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:d7/dd1/namespaceorg_1_1swallow__labs_1_1model_1_1_capsule_processor"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dd1/namespaceorg_1_1swallow__labs_1_1model_1_1_capsule_processor.html">CapsuleProcessor</a></td></tr>
+<tr class="memitem:dc/dda/namespaceorg_1_1swallow__labs_1_1model_1_1CapsuleACK"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dda/namespaceorg_1_1swallow__labs_1_1model_1_1CapsuleACK.html">CapsuleACK</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:d6/d42/namespaceorg_1_1swallow__labs_1_1model_1_1_client"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/namespaceorg_1_1swallow__labs_1_1model_1_1_client.html">Client</a></td></tr>
+<tr class="memitem:dc/dcb/namespaceorg_1_1swallow__labs_1_1model_1_1CapsuleProcessor"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dcb/namespaceorg_1_1swallow__labs_1_1model_1_1CapsuleProcessor.html">CapsuleProcessor</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:d1/d92/namespaceorg_1_1swallow__labs_1_1model_1_1_emergency_tool_box"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d92/namespaceorg_1_1swallow__labs_1_1model_1_1_emergency_tool_box.html">EmergencyToolBox</a></td></tr>
+<tr class="memitem:d0/dfd/namespaceorg_1_1swallow__labs_1_1model_1_1Client"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dfd/namespaceorg_1_1swallow__labs_1_1model_1_1Client.html">Client</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:d3/d51/namespaceorg_1_1swallow__labs_1_1model_1_1_launcher"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d51/namespaceorg_1_1swallow__labs_1_1model_1_1_launcher.html">Launcher</a></td></tr>
+<tr class="memitem:dd/dc7/namespaceorg_1_1swallow__labs_1_1model_1_1EmergencyToolBox"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dc7/namespaceorg_1_1swallow__labs_1_1model_1_1EmergencyToolBox.html">EmergencyToolBox</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:de/d66/namespaceorg_1_1swallow__labs_1_1model_1_1_ldap_param"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d66/namespaceorg_1_1swallow__labs_1_1model_1_1_ldap_param.html">LdapParam</a></td></tr>
+<tr class="memitem:d3/d5e/namespaceorg_1_1swallow__labs_1_1model_1_1Launcher"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d5e/namespaceorg_1_1swallow__labs_1_1model_1_1Launcher.html">Launcher</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:d0/d7a/namespaceorg_1_1swallow__labs_1_1model_1_1_parser"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d7a/namespaceorg_1_1swallow__labs_1_1model_1_1_parser.html">Parser</a></td></tr>
+<tr class="memitem:da/d90/namespaceorg_1_1swallow__labs_1_1model_1_1LdapParam"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d90/namespaceorg_1_1swallow__labs_1_1model_1_1LdapParam.html">LdapParam</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:d7/d0a/namespaceorg_1_1swallow__labs_1_1model_1_1_run_client"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d0a/namespaceorg_1_1swallow__labs_1_1model_1_1_run_client.html">RunClient</a></td></tr>
+<tr class="memitem:d6/db7/namespaceorg_1_1swallow__labs_1_1model_1_1Parser"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/db7/namespaceorg_1_1swallow__labs_1_1model_1_1Parser.html">Parser</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:d8/df8/namespaceorg_1_1swallow__labs_1_1model_1_1_socket_client"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/df8/namespaceorg_1_1swallow__labs_1_1model_1_1_socket_client.html">SocketClient</a></td></tr>
+<tr class="memitem:d0/d8b/namespaceorg_1_1swallow__labs_1_1model_1_1RunClient"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d8b/namespaceorg_1_1swallow__labs_1_1model_1_1RunClient.html">RunClient</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:de/da1/namespaceorg_1_1swallow__labs_1_1model_1_1SendProcessor"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/da1/namespaceorg_1_1swallow__labs_1_1model_1_1SendProcessor.html">SendProcessor</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:d8/d09/namespaceorg_1_1swallow__labs_1_1model_1_1SocketClient"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d09/namespaceorg_1_1swallow__labs_1_1model_1_1SocketClient.html">SocketClient</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
@@ -128,7 +147,7 @@ Namespaces</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../db/d96/namespaceorg.html">org</a></li><li class="navelem"><a class="el" href="../../df/d83/namespaceorg_1_1swallow__labs.html">swallow_labs</a></li><li class="navelem"><a class="el" href="../../d9/da1/namespaceorg_1_1swallow__labs_1_1model.html">model</a></li>
-    <li class="footer">Generated on Fri Dec 23 2016 14:55:46 for Message Oriented Middleware Project by
+    <li class="footer">Generated on Mon Jan 2 2017 10:35:40 for MOM Chanel Project by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

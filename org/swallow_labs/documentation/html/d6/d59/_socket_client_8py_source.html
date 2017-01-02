@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.9.1"/>
-<title>Message Oriented Middleware Project: /root/PycharmProjects/ChanelProject/org/swallow_labs/model/SocketClient.py Source File</title>
+<title>Chanel MOM Project: /home/mahdi/PycharmProjects/ChanelProject/org/swallow_labs/model/SocketClient.py Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -17,13 +17,11 @@
   $(window).load(resizeHeight);
 </script>
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <script type="text/javascript">
-  $(document).ready(function() {
-    if ($('.searchresults').length > 0) { searchBox.DOMSearchField().focus(); }
-  });
+  $(document).ready(function() { init_search(); });
 </script>
-<link rel="search" href="../../search_opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="Message Oriented Middleware Project"/>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -34,9 +32,8 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="../../image001.png"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Message Oriented Middleware Project
+   <div id="projectname">Chanel MOM Project
    </div>
-   <div id="projectbrief">MOM</div>
   </td>
  </tr>
  </tbody>
@@ -55,14 +52,18 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
       <li class="current"><a href="../../files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
-          <div class="left">
-            <form id="FSearchBox" action="../../search.php" method="get">
-              <img id="MSearchSelect" src="../../search/mag.png" alt=""/>
-              <input type="text" id="MSearchField" name="query" value="Search" size="20" accesskey="S" 
-                     onfocus="searchBox.OnSearchFieldFocus(true)" 
-                     onblur="searchBox.OnSearchFieldFocus(false)"/>
-            </form>
-          </div><div class="right"></div>
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
         </div>
       </li>
     </ul>
@@ -87,6 +88,20 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 $(document).ready(function(){initNavTree('d6/d59/_socket_client_8py_source.html','../../');});
 </script>
 <div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
 <div class="header">
   <div class="headertitle">
 <div class="title">SocketClient.py</div>  </div>
@@ -228,7 +243,7 @@ $(document).ready(function(){initNavTree('d6/d59/_socket_client_8py_source.html'
 <div class="ttc" id="classorg_1_1swallow__labs_1_1model_1_1_socket_client_1_1_socket_client_html_acae8c7c1b45d7a872c81483d338c5547"><div class="ttname"><a href="../../df/d1d/classorg_1_1swallow__labs_1_1model_1_1_socket_client_1_1_socket_client.html#acae8c7c1b45d7a872c81483d338c5547">org.swallow_labs.model.SocketClient.SocketClient.push</a></div><div class="ttdeci">def push(self, capsule)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d59/_socket_client_8py_source.html#l00077">SocketClient.py:77</a></div></div>
 <div class="ttc" id="classorg_1_1swallow__labs_1_1model_1_1_socket_client_1_1_socket_client_html_aeab713d38e3db149b7d037bec30a3c43"><div class="ttname"><a href="../../df/d1d/classorg_1_1swallow__labs_1_1model_1_1_socket_client_1_1_socket_client.html#aeab713d38e3db149b7d037bec30a3c43">org.swallow_labs.model.SocketClient.SocketClient.socket</a></div><div class="ttdeci">socket</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d59/_socket_client_8py_source.html#l00054">SocketClient.py:54</a></div></div>
 <div class="ttc" id="classorg_1_1swallow__labs_1_1model_1_1_socket_client_1_1_socket_client_html_a21bd0234ae774f05382d4d3453901bb8"><div class="ttname"><a href="../../df/d1d/classorg_1_1swallow__labs_1_1model_1_1_socket_client_1_1_socket_client.html#a21bd0234ae774f05382d4d3453901bb8">org.swallow_labs.model.SocketClient.SocketClient.check_port</a></div><div class="ttdeci">def check_port(self)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d59/_socket_client_8py_source.html#l00063">SocketClient.py:63</a></div></div>
-<div class="ttc" id="classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule_html"><div class="ttname"><a href="../../d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html">org.swallow_labs.model.Capsule.Capsule</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d03/_capsule_8py_source.html#l00007">Capsule.py:7</a></div></div>
+<div class="ttc" id="classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule_html"><div class="ttname"><a href="../../d7/d5b/classorg_1_1swallow__labs_1_1model_1_1_capsule_1_1_capsule.html">org.swallow_labs.model.Capsule.Capsule</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d03/_capsule_8py_source.html#l00006">Capsule.py:6</a></div></div>
 <div class="ttc" id="classorg_1_1swallow__labs_1_1model_1_1_socket_client_1_1_socket_client_html_a4623d6e991ae9f63c1829e0929dc709c"><div class="ttname"><a href="../../df/d1d/classorg_1_1swallow__labs_1_1model_1_1_socket_client_1_1_socket_client.html#a4623d6e991ae9f63c1829e0929dc709c">org.swallow_labs.model.SocketClient.SocketClient.port</a></div><div class="ttdeci">port</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d59/_socket_client_8py_source.html#l00050">SocketClient.py:50</a></div></div>
 <div class="ttc" id="classorg_1_1swallow__labs_1_1model_1_1_socket_client_1_1_socket_client_html_a93c4e3fa3ba99d54ba6aeb4fcc0ed428"><div class="ttname"><a href="../../df/d1d/classorg_1_1swallow__labs_1_1model_1_1_socket_client_1_1_socket_client.html#a93c4e3fa3ba99d54ba6aeb4fcc0ed428">org.swallow_labs.model.SocketClient.SocketClient.__init__</a></div><div class="ttdeci">def __init__(self, id_client, address, port)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d59/_socket_client_8py_source.html#l00041">SocketClient.py:41</a></div></div>
 <div class="ttc" id="classorg_1_1swallow__labs_1_1model_1_1_socket_client_1_1_socket_client_html"><div class="ttname"><a href="../../df/d1d/classorg_1_1swallow__labs_1_1model_1_1_socket_client_1_1_socket_client.html">org.swallow_labs.model.SocketClient.SocketClient</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d59/_socket_client_8py_source.html#l00013">SocketClient.py:13</a></div></div>
@@ -240,7 +255,7 @@ $(document).ready(function(){initNavTree('d6/d59/_socket_client_8py_source.html'
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_3f14f6767c31cb4a1d22c13c18cc6fc3.html">model</a></li><li class="navelem"><a class="el" href="../../d6/d59/_socket_client_8py.html">SocketClient.py</a></li>
-    <li class="footer">Generated on Fri Dec 23 2016 14:55:46 for Message Oriented Middleware Project by
+    <li class="footer">Generated on Fri Dec 30 2016 16:24:44 for Chanel MOM Project by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>
