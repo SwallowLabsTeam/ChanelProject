@@ -27,7 +27,7 @@ class RunClient:
 
     """
 
-    def __init__(self, id_client,id_event):
+    def __init__(self, id_client,id_client_push,id_event):
 
         """
             DESCRIPTION
@@ -37,6 +37,7 @@ class RunClient:
 
         self.id_client = id_client
         self.id_event = id_event
+        self.id_client_push = id_client_push
         self.list_address = Parser.get_backend_broker_list()
         # Load global client param
         manager = Manager()
@@ -51,7 +52,7 @@ class RunClient:
         global client_pull
         client_pull = Client(self.id_client, self.list_address)
         global client_push
-        client_push = Client(22, self.list_address)
+        client_push = Client(self.id_client_push, self.list_address)
         client_push.generate()
         # instantiate a Client
         p = Process(target=self.pull_routine)
@@ -99,6 +100,7 @@ class RunClient:
              for x in client_pull.pull_list:
                  if(x.get_ACK()=="YES"):
                      pld=x.get_payload()
+                     print(x.print_capsule())
                      #get payload capsule
                      for i in  range(len(shared_dict['list_item'])):
                          print("liste capsule",shared_dict['list_item'][i].get_id_capsule())
