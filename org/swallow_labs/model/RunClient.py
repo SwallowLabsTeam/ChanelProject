@@ -108,6 +108,8 @@ class RunClient:
                          if(shared_dict['list_item'][i].get_id_capsule()==pld["id"]):
                              self.remove_capsule(i)
                              #remove capsule after verification payload
+                     client_pull.pull_list.pop(0)
+                     # pop the treated capsule from the pull_list
                  else:
                      t = CapsuleProcessor(x)
                      # instantiate a CapsuleProcessor that will treat capsule
@@ -117,6 +119,8 @@ class RunClient:
                          org.swallow_labs.model.SocketClient.my_logger.log_sendACK_verif(
                              str(x.id_capsule), str(
                                  client_pull.id_client))
+                         client_pull.pull_list.pop(0)
+                         # pop the treated capsule from the pull_list
                      else:
                          t.treat(y)
                          #treat capsule
