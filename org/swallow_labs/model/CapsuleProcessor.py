@@ -250,7 +250,7 @@ class CapsuleProcessor:
                 for k in pld[str(h)]:
                     f.write(h + ":" + k + "\n")
             else:
-                f.write(h + ':' + pld[str(h)] + "\n")
+                f.write(str(h) + ':' + str(pld[str(h)]) + "\n")
         # write in the file the capsule payload that contains information about the new ldap entry
         f.close()
 
@@ -276,7 +276,7 @@ class CapsuleProcessor:
                     f.write("-\n")
 
             else:
-                f.write(h + ':' + pld[str(h)] + "\n")
+                f.write(str(h) + ':' + str(pld[str(h)]) + "\n")
         # write in the file the capsule payload that contains information about the new ldap entry
         f.close()
 
@@ -296,7 +296,7 @@ class CapsuleProcessor:
             @type id_capsule : int
         """
 
-        capsule = Capsule(org.swallow_labs.model.RunClient.client.id_client, CapsuleType.PAYLOAD)
+        capsule = Capsule(org.swallow_labs.model.RunClient.client_pull.id_client, CapsuleType.PAYLOAD)
         # initialize capsule
         capsule.set_yes_ACK()
         capsule.set_payload({'id': id_capsule})
@@ -304,7 +304,7 @@ class CapsuleProcessor:
         capsule.set_sort(capsule_sort)
         capsule.set_priority(CapsulePriority.INFORMATION_DEVICE_MSG)
         # Load information in the capsule
-        org.swallow_labs.model.RunClient.client.push(capsule)
+        org.swallow_labs.model.RunClient.client_pull.push(capsule)
         # send Capsule
 
     def log_ACK_error(self, error_msg):
@@ -321,18 +321,18 @@ class CapsuleProcessor:
             print("b1")
             print(error_msg)
             org.swallow_labs.model.SocketClient.my_logger.log_sendACK_error_server_down(str(self.cpl.id_capsule), str(
-                org.swallow_labs.model.RunClient.client.id_client))
+                org.swallow_labs.model.RunClient.client_pull.id_client))
             # add error log when the LADP server is down
         else:
             if (error_msg.find('not found') > 0):
                 print("b2")
                 org.swallow_labs.model.SocketClient.my_logger.log_sendACK_error_request(str(self.cpl.id_capsule), str(
-                    org.swallow_labs.model.RunClient.client.id_client))
+                    org.swallow_labs.model.RunClient.client_pull.id_client))
                 # add error log when we have an error syntax form the server
             else:
                 if (error_msg == 'b\'\''):
                     print("b3")
                     org.swallow_labs.model.SocketClient.my_logger.log_sendACK_error_structure(str(self.cpl.id_capsule),
                                                                                               str(
-                                                                                                  org.swallow_labs.model.RunClient.client.id_client))
+                                                                                                  org.swallow_labs.model.RunClient.client_pull.id_client))
                     # add error log when we have an error syntax form the web

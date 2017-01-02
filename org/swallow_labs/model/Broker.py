@@ -113,7 +113,7 @@ class Broker:
         @type end : socket
         """
         for k in range(len(self.message_list)):
-            if self.message_list[k].get_id_receiver() == client_id and\
+            if str(self.message_list[k].get_id_receiver()) == str(client_id) and\
                             self.message_list[k].get_status_capsule() != CapsuleStatus.YES:
                 self.message_list[k].set_status_capsule(CapsuleStatus.YES)
                 end.send_multipart([bytes(client_id, 'utf8'), bytes(json.dumps(self.message_list[k].__dict__), 'utf8')])
