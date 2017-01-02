@@ -168,6 +168,7 @@ class CapsuleProcessor:
         # execute the ldap command that will Modify the entry in the ldap tree using ldap_mod_file.ldif
         output = p.stdout.read()
         str1 = str(output)
+        print("out",str1)
         # Load the command output
 
         if (str1.find('No such object') > 0):
@@ -186,7 +187,7 @@ class CapsuleProcessor:
             self.log_ACK_error(str1)
             # loggin errors
 
-        os.remove("./" + str(mod_file))
+        #os.remove("./" + str(mod_file))
         # delete ldap_mod_file
 
 
@@ -272,7 +273,7 @@ class CapsuleProcessor:
             if type(pld[str(h)]) == list:
                 for k in pld[str(h)]:
                     f.write(h + ":" + k + "\n")
-                    f.write(k + ":" + pld[str(k)] + "\n")
+                    f.write(str(k) + ":" + str(pld[str(k)]) + "\n")
                     f.write("-\n")
 
             else:
