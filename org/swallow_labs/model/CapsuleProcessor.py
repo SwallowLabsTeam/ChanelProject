@@ -187,7 +187,7 @@ class CapsuleProcessor:
             self.log_ACK_error(str1)
             # loggin errors
 
-        #os.remove("./" + str(mod_file))
+        os.remove("./" + str(mod_file))
         # delete ldap_mod_file
 
 
