@@ -27,7 +27,7 @@ class RunClient:
 
     """
 
-    def __init__(self, id_client,id_client_push,id_event):
+    def __init__(self):
 
         """
             DESCRIPTION
@@ -35,9 +35,9 @@ class RunClient:
 
         """
 
-        self.id_client = id_client
-        self.id_event = id_event
-        self.id_client_push = id_client_push
+        self.id_client = Parser.get_client_id()[0]
+        self.id_client_push = Parser.get_client_id()[1]
+        self.id_event = Parser.get_client_id()[2]
         self.list_address = Parser.get_backend_broker_list()
         # Load global client param
         manager = Manager()
