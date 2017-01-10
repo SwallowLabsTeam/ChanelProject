@@ -1,4 +1,2 @@
-from org.swallow_labs.model.BrokerEventManager import *
-
-brokerevent= BrokerEventManager(7000,99)
-brokerevent.start()
+from org.swallow_labs.model.RunClient import RunClient
+c=RunClient(75,32,6000)

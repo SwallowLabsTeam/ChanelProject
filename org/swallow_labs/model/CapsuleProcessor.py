@@ -70,7 +70,7 @@ class CapsuleProcessor:
         #id for capsule ACK
         print(id_capACK)
         b = False
-        print("list:",self.list_capsuleACK_all_msg)
+        print("listACK:",self.list_capsuleACK_all_msg)
         for h in self.list_capsuleACK_all_msg:
             if h.id_capsule == id_capACK:
                 b = True

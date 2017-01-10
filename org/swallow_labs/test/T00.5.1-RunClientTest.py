@@ -1,2 +1,4 @@
 from org.swallow_labs.model.RunClient import RunClient
-c=RunClient(55,7000)
+from org.swallow_labs.model.Parser import Parser
+
+c=RunClient()
