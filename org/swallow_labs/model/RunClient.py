@@ -27,7 +27,7 @@ class RunClient:
 
     """
 
-    def __init__(self, id_client,id_client_push,id_event):
+    def __init__(self):
 
         """
             DESCRIPTION
@@ -35,9 +35,9 @@ class RunClient:
 
         """
 
-        self.id_client = id_client
-        self.id_event = id_event
-        self.id_client_push = id_client_push
+        self.id_client = Parser.get_client_id()[0]
+        self.id_event = Parser.get_client_id()[2]
+        self.id_client_push = Parser.get_client_id()[1]
         self.list_address = Parser.get_backend_broker_list()
         # Load global client param
         manager = Manager()
@@ -124,10 +124,10 @@ class RunClient:
                      else:
                          t.treat(y)
                          #treat capsule
-                     x.my_logger.log_treated_capsule(x)
-                     # log that the capsule was treated
-                     client_pull.pull_list.pop(0)
-                     # pop the treated capsule from the pull_list
+                         x.my_logger.log_treated_capsule(x)
+                         # log that the capsule was treated
+                         client_pull.pull_list.pop(0)
+                         # pop the treated capsule from the pull_list
              time.sleep(3)
              print("list: ", shared_dict['list_item'])
              for hd in shared_dict['list_item']:
