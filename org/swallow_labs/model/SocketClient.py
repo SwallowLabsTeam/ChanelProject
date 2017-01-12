@@ -86,6 +86,7 @@ class SocketClient:
         """
         if self.check_port() == 0:
             my_logger.log_server_down()
+            # self.logger.warn("server down")
         while self.check_port() == 0:
             pass
 

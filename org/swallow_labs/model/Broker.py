@@ -187,7 +187,7 @@ class Broker:
                     self.send(client_id, self.backend)
                 else:
                     self.message_list.append(c_recv)
-                    print(c_recv.print_capsule())
+                    print(c_recv)
                     print("ok")
 
             if len(self.message_list) > 0:
