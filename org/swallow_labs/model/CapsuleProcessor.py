@@ -272,7 +272,7 @@ class CapsuleProcessor:
             if type(pld[str(h)]) == list:
                 for k in pld[str(h)]:
                     f.write(h + ":" + k + "\n")
-                    f.write(k + ":" + pld[str(k)] + "\n")
+                    f.write(str(k) + ":" + str(pld[str(k)]) + "\n")
                     f.write("-\n")
 
             else:
