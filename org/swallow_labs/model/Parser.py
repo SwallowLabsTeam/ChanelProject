@@ -64,6 +64,7 @@ class Parser:
     @staticmethod
     def set_backend_broker_list():
         try:
+            Parser.__backend_broker_list = []
             for i in range(len(dict(Parser.__data)['net_param']['ip_add'])):
                 Parser.__backend_broker_list.append(BrokerData(dict(Parser.__data)['net_param']['ip_add'][i],
                                                                dict(Parser.__data)['net_param']['back_end'][i]))
@@ -73,6 +74,7 @@ class Parser:
     @staticmethod
     def set_frontend_broker_list():
         try:
+            Parser.__frontend_broker_list = []
             for i in range(len(dict(Parser.__data)['net_param']['ip_add'])):
                 Parser.__frontend_broker_list.append(BrokerData(dict(Parser.__data)['net_param']['ip_add'][i],
                                                                 dict(Parser.__data)['net_param']['front_end'][i]))
@@ -82,6 +84,7 @@ class Parser:
     @staticmethod
     def set_broker_log_param():
         try:
+            Parser.__broker_log_param = []
             Parser.__broker_log_param = [Parser.__data['log_param']['broker']['host'],
                                          Parser.__data['log_param']['broker']['port'],
                                          Parser.__data['log_param']['broker']['level'],
@@ -94,6 +97,7 @@ class Parser:
     @staticmethod
     def set_client_log_param():
         try:
+            Parser.__client_log_param = []
             Parser.__client_log_param = [Parser.__data['log_param']['client']['host'],
                                          Parser.__data['log_param']['client']['port'],
                                          Parser.__data['log_param']['client']['level'],
@@ -106,6 +110,7 @@ class Parser:
     @staticmethod
     def set_device_log_param():
         try:
+
             Parser.__device_log_param = [Parser.__data['log_param']['device']['host'],
                                          Parser.__data['log_param']['device']['port'],
                                          Parser.__data['log_param']['device']['level'],

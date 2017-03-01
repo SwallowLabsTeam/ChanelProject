@@ -19,9 +19,10 @@ capsule.set_sort(CapsuleSort.BOOKING_MSG)
 capsule.set_priority(CapsulePriority.BOOKING_MSG)
 capsule2 = Capsule(c.id_client, CapsuleType.PAYLOAD)
 # capsule2.set_type("PAYLOAD")
-capsule2.set_payload({'nom': 'Sallemi', 'prenom': 'Akram'})
-capsule2.set_id_receiver("20")
-capsule2.set_sort(CapsuleSort.BOOKING_MSG)
+capsule2.set_payload({"slot": ["2017-01-15...2017-05-30"], "segment_duration_min": "05"})
+capsule2.id_capsule="aze"
+capsule2.set_id_receiver("30")
+capsule2.set_sort(CapsuleSort.TREE_GENERATOR)
 capsule2.set_priority(CapsulePriority.INFORMATION_DEVICE_MSG)
 c.generate()
 if c.push(capsule2) == 1:
