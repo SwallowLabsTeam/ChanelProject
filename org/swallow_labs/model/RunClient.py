@@ -128,7 +128,7 @@ class RunClient:
                          # log that the capsule was treated
                          #client_pull.pull_list.pop(0)
                          # pop the treated capsule from the pull_list
-                 client_pull.pull_list.pop(0)
+             client_pull.pull_list = []
 
              time.sleep(3)
              print("list: ", shared_dict['list_item'])
